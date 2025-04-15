@@ -1,0 +1,505 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: white;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Adjust this value as needed */
+  /* max-width: 1200px;  */
+  margin: 0 auto; /* Centers the header */
+  padding: 0px;
+  background-color: black;
+}
+
+.logo {
+  margin-left: 50px;
+    width: 130px; /* Adjust size as needed */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    background-color: #d4af37;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.order-button {
+    background-color: #d4af37;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+
+/* Tablet & Mobile View */
+@media (max-width: 991px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 15px;
+    height: auto;
+  }
+
+  .logo {
+    margin: 0;
+    width: 110px;
+    align-self: flex-start;
+  }
+
+  .order-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+
+  .nav-button {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 150px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* Extra tweak for small mobile screens */
+@media (max-width: 576px) {
+  .logo {
+    width: 100px;
+  }
+
+  .order-button,
+  .nav-button {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .nav-button {
+    width: 130px;
+  }
+}
+
+
+
+
+
+
+
+/* Banner Section */
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: auto; /* Adjusts dynamically */
+}
+
+.banner img {
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Adjust brightness */
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Locations Section */
+.locations {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* Title */
+.locations h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+
+/* Location Container */
+.location-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next line */
+  justify-content: space-between; /* Ensures even spacing */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Each Location Box */
+.location-box {
+  background: #f0f0f0;
+  padding: 20px;
+  width: calc(50% - 10px); /* Ensures 2 boxes per row */
+  border-radius: 10px;
+  text-align: left;
+  box-sizing: border-box; /* Prevents overflow issues */
+}
+
+/* Location Heading */
+.location-box h2 {
+  color: black;
+  font-size: 20px;
+}
+
+/* Location Details */
+.location-box p {
+  font-size: 14px;
+  color: black;
+  margin: 10px 0;
+  display: flex;
+  align-items: flex-start; /* Ensures text starts at the same level as the icon */
+  gap: 8px;
+}
+
+/* Icons */
+.location-box i {
+  font-size: 14px;
+  color: #d4af37;
+}
+
+/* Button */
+.location-button {
+  background-color: black;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+  color: #d4af37;
+}
+
+.location-button:hover {
+  background-color: #141414;
+  transform: scale(1.03);
+}
+
+/* Responsive: Stack boxes on small screens */
+@media (max-width: 768px) {
+  .location-box {
+      width: 100%; /* Each location box takes full width on small screens */
+  }
+}
+
+
+
+
+/* map  */
+
+
+
+.map-container {
+  width: 100%;  /* Full width of the container */
+  height: 70vh;  /* Proper height */
+  margin: 0px 0; /* Adds space above and below */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Iframe */
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Removes iframe border */
+  display: block;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .map-container {
+      height: 50vh; /* Reduce height for mobile */
+  }
+}
+
+
+
+
+
+/* Footer Styling */
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 50px 30px;
+  font-family: Arial, sans-serif;
+}
+
+/* Footer Content */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Left Section - Description */
+.footer-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  max-width: 40%;
+}
+
+/* Center Section - Logo */
+.footer-logo {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-logo img {
+  max-width: 280px;
+}
+
+/* Right Section - Links */
+.footer-links {
+  flex: 1;
+  text-align: center;
+/* margin-right: -50px; */
+}
+
+.footer-links a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.footer-links a:hover {
+  color: #614a07;
+}
+
+/* Bottom Copyright Section */
+.footer-bottom {
+  border-top: 1px solid #d4af37;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Designed & Developed */
+.footer-bottom a {
+  color: red;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-text, .footer-logo, .footer-links {
+      max-width: 100%;
+      text-align: center;
+  }
+}
+
+
+
+
+
+
+/* bank discounts  */
+
+.discount-section {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.discount-title {
+  text-align: center;
+  font-size: 25;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.voucher-container {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.voucher {
+  width: calc(50% - 10px); /* Ensure two vouchers per row with spacing */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.voucher img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+
+
+
+
+/* blogs  */
+
+
+.blog-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Ensures new rows start from left */
+}
+
+.blog-box {
+  width: calc(33.333% - 14px); /* Ensures exactly 3 blog boxes in one row */
+  max-width: 400px;
+  padding: 0; /* Removes background padding */
+}
+
+.blog-box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.category {
+  font-size: 12px;
+  color: #d4af37;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #000;
+}
+
+.p1 {
+  font-size: 14px;
+  color: #555;
+}
+
+.blog-meta {
+  font-size: 12px;
+  color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .blog-box {
+      width: calc(50% - 10px); /* Two blog boxes per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-box {
+      width: 100%; /* Single blog box per row on mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

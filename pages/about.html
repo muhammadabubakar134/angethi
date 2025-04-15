@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/image/logo.webp">
+    <title>About US</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <header class="header">
+            <div class="header-left">
+                <!-- ✅ Change Location Section -->
+                <div class="location-container" onclick="openPopup('delivery-popup')">
+                    <span class="location"><i class="fa-solid fa-location-dot"></i></span>
+                    <div class="location-text">
+                        <strong>Change Location</strong>
+                        <small id="selected-city">Karachi</small>
+                    </div>
+                </div>
+
+                <!-- ✅ Delivery Popup -->
+                <div class="overlay" id="delivery-popup">
+                    <div class="popup">
+                        <span class="close-btn" onclick="closePopup('delivery-popup')">✖</span>
+                        <img src="../assets/image/logo.webp" alt="Logo" class="popup-logo">
+                        <h2>Please Select Your Area</h2>
+                        <div class="btn-group">
+                            <button class="active" onclick="togglePopup('delivery-popup')">DELIVERY</button>
+                            <button onclick="togglePopup('pickup-popup')">PICKUP</button>
+                        </div>
+                        <select id="city-select" onchange="updateCityDetails()">
+                            <option value="">Select Your Area</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                        </select>
+                        <button id="city-btn" class="select-btn" onclick="updateHeaderText('city')"
+                            disabled>Select</button>
+                    </div>
+                </div>
+
+                <!-- ✅ Pickup Popup -->
+                <div class="overlay" id="pickup-popup">
+                    <div class="popup">
+                        <span class="close-btn" onclick="closePopup('pickup-popup')">✖</span>
+                        <img src="../assets/image/logo.webp" alt="Logo" class="popup-logo">
+                        <h2>Please Select Branch</h2>
+                        <div class="btn-group">
+                            <button onclick="togglePopup('delivery-popup')">DELIVERY</button>
+                            <button class="active" onclick="togglePopup('pickup-popup')">PICKUP</button>
+                        </div>
+
+
+                        <select id="branch-select" onchange="updateBranchDetails()">
+                            <option value="">Select a Branch</option>
+                            <option value="Angeethi DHA" data-location="DHA, Karachi">Angeethi DHA</option>
+                            <option value="Angeethi Gulshan" data-location="Gulshan, Karachi">Angeethi Gulshan</option>
+                        </select>
+
+
+
+                        <div class="location-box">
+                            <div>
+                                <strong>Location:</strong><br>
+                                Shop No 1 & 2 Plot 6-C, Main Shahbaz Commercial Area, Shahbaz Commercial Area, Phase 6,
+                                Defence Housing Authority, Karachi
+                            </div>
+                            <a href="https://www.google.com/maps" target="_blank" class="directions-btn">Get
+                                Directions</a>
+                        </div>
+
+
+                        <button id="branch-btn" class="select-btn" onclick="updateHeaderText('branch')"
+                            disabled>Select</button>
+                    </div>
+                </div>
+
+
+
+                <span class="contact">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="phone-number">(021) 38899996</span>
+                </span>
+            </div>
+
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <a href="/index.html">
+                        <img src="../assets/image/logo.webp" alt="Logo" class="logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <span class="cart" id="cartIcon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </span>
+
+                <!-- <span class="menu">&#9776;</span> -->
+                <span class="toggle-menu-icon">&#9776;</span>
+
+
+
+            </div>
+        </header>
+    </section>
+
+    <section id="menu bar">
+        <div class="overlay-backdrop"></div>
+        <div class="sidebar-panel">
+            <div>
+                <span class="close-button">&times;</span>
+
+                <div class="dark-mode-toggle">
+                    <label>Dark Mode</label>
+                    <label class="switch-container">
+                        <input type="checkbox" id="dark-mode-switch">
+                        <span class="switch-slider-btn"></span>
+                    </label>
+                </div> 
+                <a href="about.html" class="nav-option">About Us</a>
+                <a href="bank-discount.html" class="nav-option">Bank Discounts</a>
+                <a href="your-location-link.html" class="nav-option">Orders</a>
+                <a href="blog.html" class="nav-option">Blogs</a>
+                <a href="login.html" class="nav-option">Login / Register</a>
+                <a href="contact.html" class="nav-option">Contact Us</a>
+                <a href="our-location.html" class="nav-option">Our Location</a>
+                <a href="Submit-Your-Complaint.html" class="nav-option">Submit Your Complaint</a>
+
+            </div>
+            <div class="footer-section">
+                Powered by <a href="#">Indolj</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="empty card">
+        <div class="cart-popup" id="cartPopup">
+            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Empty">
+            <h3>Your cart is empty</h3>
+            <p>Add items to get started</p>
+        </div>
+
+        <!-- Background Overlay (for closing popup when clicking outside) -->
+        <div class="cart-overlay" id="cartOverlay"></div>
+
+    </section>
+
+    <section id="About Us">
+        <div class="about-section">
+            <h2 class="about-heading">About Us</h2>
+            <p class="about-text">
+                Welcome to Lucky Broast, where we serve delicious, crispy, and flavorful broast that keeps our customers
+                coming back for more! Our journey began with a passion for great taste, quality ingredients, and
+                exceptional service. At Lucky Broast, we take pride in offering a unique blend of spices and cooking
+                techniques that make our broast truly special.
+            </p>
+            <p class="about-text">
+                From our signature broast to a variety of mouth-watering dishes, we are committed to delivering an
+                unforgettable dining experience. Whether you’re here for a quick bite, a family meal, or a late-night
+                craving, Lucky Broast is the perfect spot to satisfy your hunger.
+            </p>
+            <p class="about-text">
+                Join us and indulge in the crispy perfection of Lucky Broast, where every bite is packed with flavor and
+                love!
+            </p>
+            <p class="about-text">
+                Welcome to Lucky Broast, where we serve delicious, crispy, and flavorful broast that keeps our customers
+                coming back for more! Our journey began with a passion for great taste, quality ingredients, and
+                exceptional service. At Lucky Broast, we take pride in offering a unique blend of spices and cooking
+                techniques that make our broast truly special.
+            </p>
+            <p class="about-text">
+                From our signature broast to a variety of mouth-watering dishes, we are committed to delivering an
+                unforgettable dining experience. Whether you’re here for a quick bite, a family meal, or a late-night
+                craving, Lucky Broast is the perfect spot to satisfy your hunger.
+            </p>
+            <p class="about-text">
+                Join us and indulge in the crispy perfection of Lucky Broast, where every bite is packed with flavor and
+                love!
+            </p>
+        </div>
+
+    </section>
+
+    <section id="footer">
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-container">
+                <!-- Left: Text -->
+                <div class="footer-text">
+                    <p>ISO, Halal, & Haccap certified, approved by the Sindh Food Authority & made to the highest
+                        standards of hygiene & healthfulness, our age-old virtues of quality & good service intact,
+                        <strong>Your Restaurant Name</strong> is now reinventing the art of baking with the same tender
+                        loving care that has earned us your trust.
+                    </p>
+                </div>
+
+                <!-- Center: Logo -->
+                <div class="footer-logo">
+                    <img src="../assets/image/logo.webp" alt="Your Restaurant Logo">
+                </div>
+
+                <!-- Right: Links -->
+                <div class="footer-links">
+                    <a href="/index.html">Home</a>
+                    <a href="/pages/about.html">ABOUT US</a>
+                    <a href="/pages/bank-discount.html">BANK OFFERS</a>
+                    <a href="/pages/our-location.html">OUR LOCATION</a>
+                    <a href="/pages/contact.html">CONTACT US</a>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <p>Copyright © 2024 <strong>Your Restaurant Name</strong></p>
+                <p>Designed & Developed by <a href="#">YourWebsite.com</a></p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+
+<script>
+    function openPopup(id) {
+        document.getElementById(id).style.display = "flex";
+    }
+
+    function closePopup(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    function togglePopup(id) {
+        closePopup("delivery-popup");
+        closePopup("pickup-popup");
+        document.getElementById(id).style.display = "flex";
+    }
+
+    function updateCityDetails() {
+        document.getElementById("city-btn").classList.add("active");
+        document.getElementById("city-btn").disabled = false;
+    }
+
+    function updateBranchDetails() {
+        document.getElementById("branch-btn").classList.add("active");
+        document.getElementById("branch-btn").disabled = false;
+    }
+
+    function updateHeaderText(type) {
+        let selectedText = type === "city" ? document.getElementById("city-select").value : document.getElementById("branch-select").value;
+        document.getElementById("selected-city").innerText = selectedText;
+        closePopup(type === "city" ? "delivery-popup" : "pickup-popup");
+    }
+</script>
+
+<script>
+    const cartIcon = document.getElementById("cartIcon");
+    const cartPopup = document.getElementById("cartPopup");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const body = document.body;
+
+    // Open Cart Popup
+    cartIcon.addEventListener("click", () => {
+        cartPopup.classList.add("show");
+        cartOverlay.classList.add("show");
+        body.classList.add("dimmed");
+    });
+
+    // Close Cart Popup when clicking outside
+    cartOverlay.addEventListener("click", () => {
+        cartPopup.classList.remove("show");
+        cartOverlay.classList.remove("show");
+        body.classList.remove("dimmed");
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".toggle-menu-icon");
+        const sidebar = document.querySelector(".sidebar-panel");
+        const closeButton = document.querySelector(".close-button");
+        const overlay = document.querySelector(".overlay-backdrop");
+        const darkModeSwitch = document.getElementById("dark-mode-switch");
+
+        function openMenu() {
+            sidebar.classList.add("active");
+            overlay.classList.add("active");
+        }
+
+        function closeMenu() {
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+        }
+
+        menuIcon.addEventListener("click", openMenu);
+        closeButton.addEventListener("click", closeMenu);
+        overlay.addEventListener("click", closeMenu);
+
+        darkModeSwitch.addEventListener("change", function () {
+            document.body.classList.toggle("dark-theme");
+        });
+    });
+</script>
+
+</html>

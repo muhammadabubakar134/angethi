@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="icon" type="image/png" href="../assets/image/logo.webp">
+    <link rel="stylesheet" href="../assets/css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+    <section id="checkout">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <a href="/index.html"><img src="../assets/image/logo.webp" alt="Logo"></a>
+        </div>
+
+        <!-- Checkout Container -->
+        <div class="checkout-container">
+
+            <!-- Left Section: Order Details -->
+            <div class="checkout-left">
+
+                <div class="order-type">
+                    <p>This is a <strong>TAKEAWAY ORDER</strong> 📦</p>
+                    <p>You have to collect your order from</p>
+                </div>
+
+                <div class="restaurant-info">
+                    <h3>Angethi Dha</h3>
+                    <p><strong>Location:</strong> Shahbaz Commercial Area, Karachi</p>
+                    <a href="#" class="view-location">View Location<a class="loact-icon"> <i
+                                class="fa-solid fa-location-dot"></a></i> </a>
+                    <p class="number"><strong class="head">Phone:</strong> (021) 38899996</p>
+                </div>
+
+
+
+                <h5 class="headind-main">JUST A LAST STEP, PLEASE FILL YOUR INFORMATION BELOW</h5>
+
+                <!-- Checkout Form -->
+                <form id="checkout-form">
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <select>
+                                <option>Mr.</option>
+                                <option>Mrs.</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Full Name <span class="required"> (required)*</span></label>
+                            <input type="text" placeholder="Full Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email<span class="required"> (required)*</span></label>
+                        <input type="email" placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number <span class="required">(required)*</span></label>
+                        <input type="tel" placeholder="03xx-xxxxxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pickup Notes</label>
+                        <textarea placeholder="Any special instructions"></textarea>
+                    </div>
+
+                    <!-- <h4>Payment Information</h4> -->
+                    <p class="last-heading">Payment Information</p>
+                    <div class="payment-options">
+                        <button type="button" class="payment-btn" id="cash-payment">
+                            <img src="https://img.icons8.com/fluency/48/000000/cash-in-hand.png" alt="Cash Icon" />
+                            Cash on Delivery</button>
+                        <button type="button" class="payment-btn" id="online-payment">
+                            <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa" />
+                            <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="MasterCard" />
+                            Online Payment</button>
+                    </div>
+
+
+                    <div id="online-payment-methods">
+                        <p class="card-heading">Card Number</p>
+                        <input type="text" placeholder="Enter card number">
+                        <div class="card-details">
+                            <input type="text" placeholder="MM/YY">
+                            <input type="text" placeholder="CVV">
+                        </div>
+                        <button class="payment-btn-card">💳 Pay Now</button>
+                    </div>
+                    <p class="request-heading">Change Request</p>
+                    <div class="form-group change-request">
+                        <span>Rs.</span>
+                        <input type="text" value="500">
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Right Section: Order Summary -->
+            <div class="checkout-right">
+                <div class="order-summary">
+                    <h3>Your Order</h3>
+                    <div class="order-item">
+                        <p>1 x Tray 02</p>
+                        <p>Rs. 7500</p>
+                    </div>
+                    <hr>
+                    <div class="order-total">
+                        <p>Total:</p>
+                        <p>Rs. 7500</p>
+                    </div>
+                    <div class="order-tax">
+                        <p>Tax 15%:</p>
+                        <p>Rs. 1125</p>
+                    </div>
+                    <hr>
+                    <div class="grand-total">
+                        <p>Grand Total:</p>
+                        <p>Rs. 8625</p>
+                    </div>
+
+
+                    <input type="text" placeholder="Enter Voucher / Promo code">
+                    <button class="apply-btn">Apply</button>
+                </div>
+
+                <button class="place-order">Place Order</button>
+                <a href="/index.html" class="continue-shopping">← continue to add more items</a>
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <section id="footer">
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-container">
+                <!-- Left: Text -->
+                <div class="footer-text">
+                    <p>ISO, Halal, & Haccap certified, approved by the Sindh Food Authority & made to the highest
+                        standards of hygiene & healthfulness, our age-old virtues of quality & good service intact,
+                        <strong>Your Restaurant Name</strong> is now reinventing the art of baking with the same tender
+                        loving care that has earned us your trust.
+                    </p>
+                </div>
+
+                <!-- Center: Logo -->
+                <div class="footer-logo">
+                    <img src="../assets/image/logo.webp" alt="Your Restaurant Logo">
+                </div>
+
+                <!-- Right: Links -->
+                <div class="footer-links">
+                    <a href="/index.html">Home</a>
+                    <a href="/pages/about.html">ABOUT US</a>
+                    <a href="/pages/bank-discount.html">BANK OFFERS</a>
+                    <a href="/pages/our-location.html">OUR LOCATION</a>
+                    <a href="/pages/contact.html">CONTACT US</a>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <p>Copyright © 2024 <strong>Your Restaurant Name</strong></p>
+                <p>Designed & Developed by <a href="#">YourWebsite.com</a></p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+<script>
+    document.getElementById("online-payment").addEventListener("click", function () {
+        document.getElementById("online-payment-methods").style.display = "block";
+
+        // Highlight Online Payment button & remove highlight from Cash
+        this.classList.add("active-payment");
+        document.getElementById("cash-payment").classList.remove("active-payment");
+    });
+
+    document.getElementById("cash-payment").addEventListener("click", function () {
+        document.getElementById("online-payment-methods").style.display = "none";
+
+        // Highlight Cash Payment button & remove highlight from Online
+        this.classList.add("active-payment");
+        document.getElementById("online-payment").classList.remove("active-payment");
+    });
+</script>
+
+</html>

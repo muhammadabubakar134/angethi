@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/image/logo.webp">
+    <title>Lucky broast</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <section id="loading">
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loading-content">
+                <img src="assets/image/logo.webp" alt="Logo">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="popup implemation">
+        <!-- Overlay for dimming effect -->
+        <div class="custom-overlay" id="custom-overlay"></div>
+
+        <!-- Popup Box -->
+        <div class="custom-popup" id="custom-popup">
+            <button class="custom-close-btn" id="custom-closePopup">&times;</button>
+            <img src="assets/image/off card.webp" alt="Discount Offer">
+        </div>
+
+    </section>
+
+    <section id="header">
+        <header class="header">
+            <div class="header-left">
+                <!-- ✅ Change Location Section -->
+                <div class="location-container" onclick="openPopup('delivery-popup')">
+                    <span class="location"><i class="fa-solid fa-location-dot"></i></span>
+                    <div class="location-text">
+                        <strong>Change Location</strong>
+                        <small id="selected-city">Karachi</small>
+                    </div>
+                </div>
+
+                <!-- ✅ Delivery Popup -->
+                <div class="overlay" id="delivery-popup">
+                    <div class="popup">
+                        <span class="close-btn" onclick="closePopup('delivery-popup')">✖</span>
+                        <img src="assets/image/logo.webp" alt="Logo" class="popup-logo">
+                        <h2>Please Select Your Area</h2>
+                        <div class="btn-group">
+                            <button class="active" onclick="togglePopup('delivery-popup')">DELIVERY</button>
+                            <button onclick="togglePopup('pickup-popup')">PICKUP</button>
+                        </div>
+                        <select id="city-select" onchange="updateCityDetails()">
+                            <option value="">Select Your Area</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                        </select>
+                        <button id="city-btn" class="select-btn" onclick="updateHeaderText('city')"
+                            disabled>Select</button>
+                    </div>
+                </div>
+
+                <!-- ✅ Pickup Popup -->
+                <div class="overlay" id="pickup-popup">
+                    <div class="popup">
+                        <span class="close-btn" onclick="closePopup('pickup-popup')">✖</span>
+                        <img src="assets/image/logo.webp" alt="Logo" class="popup-logo">
+                        <h2>Please Select Branch</h2>
+                        <div class="btn-group">
+                            <button onclick="togglePopup('delivery-popup')">DELIVERY</button>
+                            <button class="active" onclick="togglePopup('pickup-popup')">PICKUP</button>
+                        </div>
+
+
+                        <select id="branch-select" onchange="updateBranchDetails()">
+                            <option value="">Select a Branch</option>
+                            <option value="Angeethi DHA" data-location="DHA, Karachi">Angeethi DHA</option>
+                            <option value="Angeethi Gulshan" data-location="Gulshan, Karachi">Angeethi Gulshan</option>
+                        </select>
+
+
+
+                        <div class="location-box">
+                            <div>
+                                <strong>Location:</strong><br>
+                                Shop No 1 & 2 Plot 6-C, Main Shahbaz Commercial Area, Shahbaz Commercial Area, Phase 6,
+                                Defence Housing Authority, Karachi
+                            </div>
+                            <a href="https://www.google.com/maps" target="_blank" class="directions-btn">Get
+                                Directions</a>
+                        </div>
+
+
+                        <button id="branch-btn" class="select-btn" onclick="updateHeaderText('branch')"
+                            disabled>Select</button>
+                    </div>
+                </div>
+
+
+
+                <span class="contact">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="phone-number">(021) 38899996</span>
+                </span>
+            </div>
+
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <img src="assets/image/logo.webp" alt="Angeethi Logo" class="logo">
+                </div>
+            </div>
+
+            <div class="header-right">
+
+
+                <!-- Cart Icon with Item Count -->
+                <span class="cart" onclick="openCart()" id="cartIcon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </span>
+
+                <!-- Cart Overlay for Outside Click -->
+                <div class="cart-overlay" id="cartOverlay"></div>
+
+                <!-- <span class="cart" id="cartIcon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </span> -->
+
+                <!-- <span class="menu">&#9776;</span> -->
+                <span class="toggle-menu-icon">&#9776;</span>
+
+            </div>
+        </header>
+    </section>
+
+    <section id="menu bar">
+        <div class="overlay-backdrop"></div>
+        <div class="sidebar-panel">
+            <div>
+                <span class="close-button">&times;</span>
+
+                <div class="dark-mode-toggle">
+                    <label>Dark Mode</label>
+                    <label class="switch-container">
+                        <input type="checkbox" id="dark-mode-switch">
+                        <span class="switch-slider-btn"></span>
+                    </label>
+                </div>
+
+                <a href="pages/about.html" class="nav-option">About Us</a>
+                <a href="pages/bank-discount.html" class="nav-option">Bank Discounts</a>
+                <a href="pages/blog.html" class="nav-option">Blogs</a>
+                <a href="pages/login.html" class="nav-option">Login / Register</a>
+                <a href="pages/contact.html" class="nav-option">Contact Us</a>
+                <a href="pages/our-location.html" class="nav-option">Our Location</a>
+                <a href="pages/Submit-Your-Complaint.html" class="nav-option">Submit Your Complaint</a>
+
+
+            </div>
+            <div class="footer-section">
+                Powered by <a href="#">Indolj</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="empty card">
+        <div class="cart-popup" id="cartPopup">
+            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Empty">
+            <h3>Your cart is empty</h3>
+            <p>Add items to get started</p>
+        </div>
+
+        <!-- Background Overlay (for closing popup when clicking outside) -->
+        <div class="cart-overlay" id="cartOverlay"></div>
+
+    </section>
+
+    <section id="order-card">
+        <!-- <button onclick="openCart()">Open Cart</button> -->
+        <div class="cart-container" id="cart">
+            <div class="cart-headerr">
+                <span>Your Cart</span>
+                <button onclick="closeCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-item" id="item1">
+                <img src="assets/image/t7.webp" alt="Tray 02">
+                <div>Tray 02</div>
+                <div>Rs. 7500</div>
+                <button onclick="decreaseQty('qty1', 7500)">-</button>
+                <span id="qty1">1</span>
+                <button onclick="increaseQty('qty1', 7500)">+</button>
+                <button onclick="removeItem('item1', 7500, 'qty1')"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <div class="cart-item" id="item2">
+                <img src="assets/image/t7.webp" alt="Tray 03">
+                <div>Tray 03</div>
+                <div>Rs. 10000</div>
+                <button onclick="decreaseQty('qty2', 10000)">-</button>
+                <span id="qty2">2</span>
+                <button onclick="increaseQty('qty2', 10000)">+</button>
+                <button onclick="removeItem('item2', 10000, 'qty2')"><i class="fas fa-trash-alt"></i></button>
+            </div>
+
+            <a class="add-items" href="/index.html" id="addMoreItems">+ Add more items</a>
+
+            <div class="recommend-header">
+                <div class="recommend-title-area">
+                    <h4 class="recommend-title">Popular with your order</h4>
+                    <div class="recommend-controls">
+                        <button class="scroll-n prevv">←</button>
+                        <button class="scroll-n nextv">→</button>
+                    </div>
+                </div>
+            </div>
+            <p class="recommend-subtitle">Customers often buy these together</p>
+
+            <div class="recommend-wrapper">
+                <div class="recommend-container" id="recommend-scroll">
+                    <!-- Card 1 -->
+                    <div class="recommend-card">
+                        <img src="assets/image/t2.webp" alt="Plain Fries" />
+                        <div class="recommend-info">
+                            <p class="price">Rs. 316</p>
+                            <p class="name">Plain Fries</p>
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="recommend-card">
+                        <img src="assets/image/t2.webp" alt="Plain Naan" />
+                        <div class="recommend-info">
+                            <p class="price">Rs. 72</p>
+                            <p class="name">Plain Naan</p>
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="recommend-card">
+                        <img src="assets/image/t2.webp" alt="Paratha" />
+                        <div class="recommend-info">
+                            <p class="price">Rs. 120</p>
+                            <p class="name">Paratha</p>
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                    <div class="recommend-card">
+                        <img src="assets/image/t2.webp" alt="Paratha" />
+                        <div class="recommend-info">
+                            <p class="price">Rs. 120</p>
+                            <p class="name">Paratha</p>
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                    <div class="recommend-card">
+                        <img src="assets/image/t2.webp" alt="Paratha" />
+                        <div class="recommend-info">
+                            <p class="price">Rs. 120</p>
+                            <p class="name">Paratha</p>
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="cart-summary">
+                <p><span>Total:</span> <span>Rs. <span id="total">27500</span></span></p>
+                <p><span>Tax 15%:</span> <span>Rs. <span id="tax">4125</span></span></p>
+                <p><span>Delivery Fee:</span> <span>Rs. <span id="delivery">150</span></span></p>
+                <p><span>Grand Total:</span> <span>Rs. <span id="grandTotal">31775</span></span></p>
+            </div>
+
+            <a href="pages/checkout.html"><button class="checkout-btn">Checkout</button></a>
+
+            <select class="area-select" id="areaSelect">
+                <option>Select Delivery Area</option>
+                <option>DHA</option>
+                <option>Gulshan</option>
+            </select>
+            <div class="delivery-options">
+                <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
+                <button onclick="toggleDelivery(this, false)">PICKUP</button>
+            </div>
+
+            <p class="order-timing">Your order will be delivered approximately in 45 minutes on March 17, 2025<br>17 Mar
+                2025, 4:06 AM</p>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+
+    <section id="hero">
+        <div class="slider">
+            <div class="slide active">
+                <img src="assets/image/ff.jpg" alt="Banner 1">
+            </div>
+            <div class="slide">
+                <img src="assets/image/ff2.png" alt="Banner 2">
+            </div>
+            <!-- Left Sidebar Button -->
+            <button class="prev">&#10094;</button>
+            <!-- Right Sidebar Button -->
+            <button class="next">&#10095;</button>
+        </div>
+        <!-- Pagination Dots -->
+        <div class="dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+        </div>
+    </section>
+
+    <!-- navbar section  -->
+
+    <section id="slider">
+
+        <nav id="customNavbar" class="top-navigation">
+            <div id="prevSection" class="side-navigation left-hidden">
+                <span>&#10094;</span>
+            </div>
+            <ul class="menu-list">
+                <li class="spacer"></li>
+                <li><a href="#" class="menu-link">Ramzan Trays</a></li>
+                <li><a href="#" class="menu-link">Wow Deals</a></li>
+                <li><a href="#" class="menu-link">Combo Box</a></li>
+                <li><a href="#" class="menu-link">New Arrivals</a></li>
+                <li><a href="#" class="menu-link">Popular</a></li>
+                <li><a href="#" class="menu-link">Traditional</a></li>
+                <li><a href="#" class="menu-link">BBQ</a></li>
+                <li><a href="#" class="menu-link">Chef Special</a></li>
+                <li><a href="#" class="menu-link">Starters</a></li>
+                <li><a href="#" class="menu-link">Rolls</a></li>
+                <li><a href="#" class="menu-link">Beverages</a></li>
+                <li><a href="#" class="menu-link">Tandoor</a></li>
+                <li><a href="#" class="menu-link">Additional Items</a></li>
+                <li class="spacer"></li> <!-- Added extra space at the end -->
+            </ul>
+            <div id="nextSection" class="side-navigation">
+                <span>&#10095;</span>
+            </div>
+        </nav>
+
+    </section>
+
+    <!-- search bar  -->
+
+    <section search & discount>
+        <div class="container">
+            <!-- Search Bar Section -->
+            <div class="box search-box" id="main-search-box">
+                <input type="text" class="search-input" placeholder="Search for item by title...">
+                <button><span><i class="fa-solid fa-arrow-right"></i></span></button>
+            </div>
+
+
+            <div class="box discount-box">
+                <span class="discount-text">Flat</span>
+                <div class="discount-circle">
+                    <span class="discount-number">20</span>
+                    <!-- <span class="discount-symbol">%</span> -->
+                </div>
+                <span class="discount-text">% Off</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="Popular iteams">
+        <div class="popular-container">
+            <div class="popular-header">
+                <i class="fa-solid fa-fire-flame-curved"></i> Popular Items
+            </div>
+            <div class="popular-subtext">Most ordered right now</div>
+
+            <div class="popular-grid">
+                <!-- Food Item 1 -->
+                <div class="food-card">
+                    <img src="assets/image/t1.webp" alt="Chicken Reshmi Kabab" class="food-image" id="openPopup">
+                    <div class="food-name">Chicken Reshmi Kabab</div>
+                    <div class="food-price">Rs. 1195</div>
+                </div>
+
+                <!-- Food Item 2 -->
+                <div class="food-card">
+                    <img src="assets/image/t2.webp" alt="Chicken Makhni Handi" class="food-image">
+                    <div class="food-name">Chicken Makhni Handi</div>
+                    <div class="food-price">From Rs. 1995</div>
+                </div>
+
+                <!-- Food Item 3 -->
+                <div class="food-card">
+                    <img src="assets/image/t3.webp" alt="Chicken Reshmi Kabab Roll" class="food-image">
+                    <div class="food-name">Chicken Reshmi Kabab Roll</div>
+                    <div class="food-price">Rs. 320</div>
+                </div>
+
+                <!-- Food Item 4 -->
+                <div class="food-card">
+                    <img src="assets/image/t3.webp" alt="Malai Boti Roll" class="food-image">
+                    <div class="food-name">Malai Boti Roll</div>
+                    <div class="food-price">Rs. 350</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="card offer">
+        <!-- Modal Overlay -->
+        <div class="modal-overlay">
+            <!-- Cart Modal -->
+            <div class="cart-modal">
+                <!-- Top-right icons -->
+                <div class="cart-header-food">
+                    <div class="cart-icon" id="shareIcon">
+                        <i class="fa-regular fa-share-nodes"></i>
+                    </div>
+                    <div class="cart-icon" id="closeModal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+
+
+                <!-- Unique Share Options -->
+                <div class="unique-share-options" id="uniqueShareOptions">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <!-- Left Side: Product Image -->
+                <div class="cart-image">
+                    <img src="assets/image/t3.webp" alt="Product Image">
+                </div>
+
+                <!-- Right Side: Product Details -->
+                <div class="cart-details">
+                    <!-- Item Name and Price Row -->
+                    <div class="item-row">
+                        <span class="item-name">Malai Boti Roll</span>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="old-price">Rs. 350</span>
+                        <span class="new-price">Rs. 280</span>
+                    </div>
+                    <p class="product-description">
+                        Creamy chicken boti wrapped in a paratha
+                    </p>
+
+
+                    <!-- Rolls Selection -->
+                    <h5 class="rolk">Rolls</h5>
+                    <div class="roll-options">
+                        <div class="roll-option" data-extra="58">
+                            <label>
+                                <input type="radio" name="roll" value="58"> Mayo
+                            </label>
+                            <span>Rs. 58</span>
+                        </div>
+                        <div class="roll-option" data-extra="52">
+                            <label>
+                                <input type="radio" name="roll" value="52"> Cheese
+                            </label>
+                            <span>Rs. 52</span>
+                        </div>
+                        <div class="roll-option" data-extra="72">
+                            <label>
+                                <input type="radio" name="roll" value="72"> Chipotle
+                            </label>
+                            <span>Rs. 72</span>
+                        </div>
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <h5>Special Instructions</h5>
+                    <div class="special-instructionss">
+                        <textarea placeholder="Please enter instructions about this item"></textarea>
+                    </div>
+
+
+                    <div class="cart-contain">
+                        <div class="qty-controls">
+                            <button class="qty-button decrease">−</button>
+                            <span class="qty-display" id="qty-display">1</span>
+                            <button class="qty-button increase">+</button>
+                        </div>
+                        <div class="cart-box">
+                            <div class="cart-price" id="cart-price">Rs. 296</div>
+                            <button class="cart-button">
+                                Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food items">
+        <h3 class="tray">Ramzan Trays</h3>
+
+        <div class="tray-container">
+            <div class="tray-card">
+                <img src="assets/image/t4.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Tray 01</div>
+                    <div class="tray-desc">Makhni Handi<br> BBQ Handi Biryani<br> Malai Boti</div>
+                    <div class="tray-prices">Rs. 5000</div>
+                    <!-- <button class="add-to-cart">Add to Cart</button> -->
+                    <button class="add-to-cart" id="addToCartBtn">Add to Cart</button>
+
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t4.webp" alt="Tray 02">
+                <div class="tray-details">
+                    <div class="tray-title">Tray 02</div>
+                    <div class="tray-desc">Makhni Handi<br> BBQ Handi Biryani<br> Chicken Peshawari Karahi</div>
+                    <div class="tray-prices">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t4.webp" alt="Tray 04">
+                <div class="tray-details">
+                    <div class="tray-title">Tray 04</div>
+                    <div class="tray-desc">BBQ Platter<br> Makhni Handi<br> BBQ Handi Biryani</div>
+                    <div class="tray-prices">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t4.webp" alt="Tray 04">
+                <div class="tray-details">
+                    <div class="tray-title">Tray 04</div>
+                    <div class="tray-desc">BBQ Platter<br> Makhni Handi<br> BBQ Handi Biryani</div>
+                    <div class="tray-prices">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="tray-card">
+                <img src="assets/image/t4.webp" alt="Tray 04">
+                <div class="tray-details">
+                    <div class="tray-title">Tray 04</div>
+                    <div class="tray-desc">BBQ Platter<br> Makhni Handi<br> BBQ Handi Biryani</div>
+                    <div class="tray-prices">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food popup">
+        <div class="dark-overlay" id="popupOverlay">
+            <div class="popup-card">
+                <div class="popup-header">
+                    <i class="fa-solid fa-share-nodes" id="shareBtn"></i>
+                    <i class="fa-solid fa-xmark" id="closePopup"></i>
+                </div>
+
+                <div class="share-menu" id="shareMenu">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <div class="popup-image">
+                    <img src="assets/image/t7.webp" alt="Tray 02">
+                </div>
+
+                <div class="popup-content">
+                    <h2>Tray 02</h2>
+                    <h3>Rs. <span id="fixedPrice">7500</span></h3>
+                    <ul>
+                        <li>Makhni Handi</li>
+                        <li>BBQ Handi Biryani</li>
+                        <li>Chicken Peshawari Karahi</li>
+                        <li>Chicken Bihari Boti</li>
+                        <li>Garlic Naan</li>
+                        <li>Plain Naan</li>
+                        <li>Mix Salad</li>
+                        <li>Raita</li>
+                    </ul>
+                    <h4 class="rules-section">- Preorders only<br>
+                        - Payment online is mandatory<br>
+                        - Branch will confirm delivery date & only then the order will be confirmed<br>
+                        - Sender & receiver name is mandatory<br>
+                        - Receiver address is required
+
+                    </h4>
+
+                    <h4>Special Instructions</h4>
+                    <div class="special-instructions">
+                        <textarea placeholder="Enter special instructions here"></textarea>
+                    </div>
+
+                    <div class="cart-contain">
+                        <div class="qty-controls">
+                            <button class="qty-button decrease">−</button>
+                            <span class="qty-display" id="productQuantity">1</span>
+                            <button class="qty-button increase">+</button>
+                        </div>
+                        <div class="cart-box">
+                            <div class="cart-price" id="totalPrice">Rs. 296</div>
+                            <button class="cart-button">
+                                Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="banner">
+        <div class="banner-wrapper">
+            <img src="assets/image/banner1.webp" alt="Food Banner" class="food-banner">
+        </div>
+
+    </section>
+
+    <section id="food items">
+
+        <div class="tray-container">
+            <div class="tray-card">
+                <img src="assets/image/n1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/n1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/n1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/n1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/n1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/n1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="banner">
+        <div class="banner-wrapper">
+            <img src="assets/image/banner2.webp" alt="Food Banner" class="food-banner">
+        </div>
+
+    </section>
+
+    <section id="food items">
+
+        <div class="tray-container">
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">Rs. 5000</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/t7.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="banner">
+        <div class="banner-wrapper">
+            <img src="assets/image/new banne.webp" alt="Food Banner" class="food-banner">
+        </div>
+
+    </section>
+
+    <section id="food items">
+
+        <div class="tray-container">
+
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/o1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/o1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/o1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/o1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="tray-card">
+                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <img src="assets/image/o1.webp" alt="Tray 01">
+                <div class="tray-details">
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
+                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="information">
+        <div class="content-section">
+            <div class="content-container">
+                <h1 class="heading">Discover the Ultimate Dining Experience at Kaybees in Karachi</h1>
+                <p class="paragraph">Welcome to Kaybees in Karachi, where tradition meets innovation to create
+                    unforgettable culinary experiences. Established in 1979, Kaybees has become a household name for
+                    offering delicious food, excellent service, and a welcoming ambiance.</p>
+                <p class="paragraph">Whether you're looking to dine in or order your favorite dishes online, Kaybees is
+                    the best restaurant in Karachi to satisfy all your cravings.</p>
+
+                <h2 class="subheading">Explore the Kaybees Restaurant Menu</h2>
+                <p class="paragraph">At Kaybees, our extensive menu caters to diverse tastes. From traditional Desi
+                    foods to international favorites, we’ve got you covered.</p>
+                <p class="paragraph">And the best part? You can now enjoy all your favorite dishes from the comfort of
+                    your home by ordering online directly from our website.</p>
+
+                <!-- Hidden Content -->
+                <div class="hidden-content">
+                    <p class="paragraph">Our menu features a variety of BBQ, curries, fast food, and desserts that are
+                        prepared with high-quality ingredients and authentic flavors.</p>
+                    <p class="paragraph">At Kaybees, our extensive menu caters to diverse tastes. From traditional Desi
+                        foods to international favorites, we’ve got you covered.</p>
+                    <p class="paragraph">And the best part? You can now enjoy all your favorite dishes from the comfort
+                        of your home by ordering online directly from our website.</p>
+
+                    <p class="paragraph">We take pride in offering a delightful dining experience with hygienic food
+                        preparation and exceptional customer service.</p>
+                </div>
+
+                <!-- Show More / Show Less Button -->
+                <span class="toggle-button" onclick="toggleContent()">Show More</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="scroll">
+        <!-- Scroll to Top Button -->
+        <button class="unique-scroll-top" id="unique-scroll-top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+
+    </section>
+
+    <section id="search bar">
+
+        <div class="search-btn" id="scroll-to-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+    </section>
+
+    <section id="whatsapp">
+        <!-- WhatsApp Floating Icon -->
+        <a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank" id="whatsappBtn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+        </a>
+
+    </section>
+
+    <section id="bottom-card">
+        <div class="cart-bar">
+            <div class="cart-content">
+                <span class="cart-counting">2</span>
+                <span class="cart-text">View Cart</span>
+                <span class="cart-price-bar">Rs. 31775</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left Section: Contact Information -->
+            <div class="footer-left">
+                <h3>Address</h3>
+                <p>We are delivering across the major areas of Karachi.</p>
+
+                <h3>Email</h3>
+                <a href="mailto:info@kaybees.com">info@kaybees.com</a>
+
+                <h3>Call Us</h3>
+                <p>021111529233</p>
+
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Section: Delivery Timings -->
+            <div class="footer-right">
+                <h3>Our Delivery Timings</h3>
+                <div class="delivery-timings">
+                    <div><span>Monday</span><span>04:30 PM - 01:30 AM</span></div>
+                    <div><span>Tuesday</span><span>04:30 PM - 01:30 AM</span></div>
+                    <div><span>Wednesday</span><span>04:30 PM - 01:30 AM</span></div>
+                    <div><span>Thursday</span><span>04:30 PM - 01:30 AM</span></div>
+                    <div><span>Friday</span><span>04:30 PM - 01:30 AM</span></div>
+                    <div><span>Saturday</span><span>04:30 PM - 01:30 AM</span></div>
+                    <div><span>Sunday</span><span>04:30 PM - 01:30 AM</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="footer-bottom">
+            <img src="assets/image/i3.png" alt="Google Play">
+            <img src="assets/image/i2.png" alt="App Store">
+            <p><strong>Powered by Indolj</strong> | <a href="#" class="colo">Privacy Policy</a> | <a href="#"
+                    class="colo">FAQs</a></p>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let slides = document.querySelectorAll(".slide");
+        let dots = document.querySelectorAll(".dot");
+        let prevButton = document.querySelector(".prev");
+        let nextButton = document.querySelector(".next");
+        let currentIndex = 0;
+        let slideInterval = setInterval(nextSlide, 5000); // Auto-switch every 5 seconds
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+                dots[i].classList.toggle("active", i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        // Event Listeners
+        nextButton.addEventListener("click", function () {
+            nextSlide();
+            resetTimer();
+        });
+
+        prevButton.addEventListener("click", function () {
+            prevSlide();
+            resetTimer();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", function () {
+                currentIndex = i;
+                showSlide(currentIndex);
+                resetTimer();
+            });
+        });
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 25000);
+        }
+
+        showSlide(currentIndex); // Initialize first slide
+    });
+</script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".menu-list");
+        const prevButton = document.querySelector("#prevSection");
+        const nextButton = document.querySelector("#nextSection");
+
+        function checkScroll() {
+            const maxScrollLeft = navbar.scrollWidth - navbar.clientWidth; // Max scrollable width
+
+            // Show/Hide Prev Button (Left)
+            if (navbar.scrollLeft <= 0) {
+                prevButton.style.opacity = "0";
+                prevButton.style.pointerEvents = "none";
+            } else {
+                prevButton.style.opacity = "1";
+                prevButton.style.pointerEvents = "auto";
+            }
+
+            // Show/Hide Next Button (Right)
+            if (navbar.scrollLeft >= maxScrollLeft - 1) {
+                nextButton.style.opacity = "0";
+                nextButton.style.pointerEvents = "none";
+            } else {
+                nextButton.style.opacity = "1";
+                nextButton.style.pointerEvents = "auto";
+            }
+        }
+
+        // Scroll Right (Next)
+        nextButton.addEventListener("click", function () {
+            navbar.scrollBy({ left: 200, behavior: "smooth" });
+        });
+
+        // Scroll Left (Prev)
+        prevButton.addEventListener("click", function () {
+            navbar.scrollBy({ left: -200, behavior: "smooth" });
+        });
+
+        // Check Scroll Position on Scroll
+        navbar.addEventListener("scroll", checkScroll);
+
+        // Initial Check
+        checkScroll();
+    });
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const trayCards = document.querySelectorAll(".tray-card");
+
+        trayCards.forEach(card => {
+            card.addEventListener("click", function () {
+                // Remove the active class from all cards
+                trayCards.forEach(c => c.classList.remove("active"));
+
+                // Add active class to the clicked card
+                this.classList.add("active");
+            });
+        });
+    });
+</script>
+
+<script>
+    function toggleContent() {
+        const content = document.querySelector('.hidden-content');
+        const button = document.querySelector('.toggle-button');
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            button.textContent = "Show Less";
+        } else {
+            content.style.display = "none";
+            button.textContent = "Show More";
+        }
+    }
+
+</script>
+
+<script>
+    function openPopup(id) {
+        document.getElementById(id).style.display = "flex";
+    }
+
+    function closePopup(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    function togglePopup(id) {
+        closePopup("delivery-popup");
+        closePopup("pickup-popup");
+        document.getElementById(id).style.display = "flex";
+    }
+
+    function updateCityDetails() {
+        document.getElementById("city-btn").classList.add("active");
+        document.getElementById("city-btn").disabled = false;
+    }
+
+    function updateBranchDetails() {
+        document.getElementById("branch-btn").classList.add("active");
+        document.getElementById("branch-btn").disabled = false;
+    }
+
+    function updateHeaderText(type) {
+        let selectedText = type === "city" ? document.getElementById("city-select").value : document.getElementById("branch-select").value;
+        document.getElementById("selected-city").innerText = selectedText;
+        closePopup(type === "city" ? "delivery-popup" : "pickup-popup");
+    }
+</script>
+<!-- cart  -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".toggle-menu-icon");
+        const sidebar = document.querySelector(".sidebar-panel");
+        const closeButton = document.querySelector(".close-button");
+        const overlay = document.querySelector(".overlay-backdrop");
+        const darkModeSwitch = document.getElementById("dark-mode-switch");
+
+        function openMenu() {
+            sidebar.classList.add("active");
+            overlay.classList.add("active");
+        }
+
+        function closeMenu() {
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+        }
+
+        menuIcon.addEventListener("click", openMenu);
+        closeButton.addEventListener("click", closeMenu);
+        overlay.addEventListener("click", closeMenu);
+
+        darkModeSwitch.addEventListener("change", function () {
+            document.body.classList.toggle("dark-theme");
+        });
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!sessionStorage.getItem("loadingShown")) {
+            document.body.classList.add("no-scroll"); // Prevent scrolling
+
+            setTimeout(() => {
+                document.getElementById("loading-screen").style.opacity = "0";
+
+                setTimeout(() => {
+                    document.getElementById("loading-screen").style.display = "none";
+                    document.getElementById("main-content").style.display = "block";
+                    document.body.classList.remove("no-scroll"); // Allow scrolling again
+                }, 1500);
+            }, 3000);
+
+            sessionStorage.setItem("loadingShown", "true"); // Set flag to prevent showing again
+        } else {
+            document.getElementById("loading-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        }
+    });
+</script>
+
+
+<script>
+
+    setTimeout(() => {
+        document.getElementById("custom-popup").style.display = "block";
+        document.getElementById("custom-overlay").style.display = "block";
+        document.documentElement.classList.add("no-scroll");
+    }, 15000);
+
+
+    document.getElementById("custom-closePopup").addEventListener("click", function () {
+        document.getElementById("custom-popup").style.display = "none";
+        document.getElementById("custom-overlay").style.display = "none";
+        document.documentElement.classList.remove("no-scroll");
+    });
+
+</script>
+
+<!-- scroll  -->
+<script>
+    // Scroll to Top Functionality
+    let uniqueScrollTopBtn = document.getElementById("unique-scroll-top");
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 200) {
+            uniqueScrollTopBtn.style.display = "flex";
+        } else {
+            uniqueScrollTopBtn.style.display = "none";
+        }
+    });
+
+    uniqueScrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+<script>
+    // Show search button when scrolling down
+    window.addEventListener("scroll", function () {
+        let searchButton = document.getElementById("scroll-to-search");
+
+        if (window.scrollY > 100) { // Show after scrolling 100px
+            searchButton.classList.add("show");
+        } else {
+            searchButton.classList.remove("show");
+        }
+    });
+
+    // Scroll to search box when clicking the button
+    document.getElementById("scroll-to-search").addEventListener("click", function () {
+        let searchInput = document.querySelector(".search-input");
+
+        // Scroll smoothly to search box
+        document.getElementById("main-search-box").scrollIntoView({ behavior: "smooth" });
+
+        // Auto-focus on input field
+        setTimeout(() => {
+            searchInput.focus();
+        }, 500); // Small delay for smooth transition
+    });
+</script>
+
+<!-- order cart  -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        updateTotal(); // Update the cart count when the page loads
+
+        // Check if cart should be open when returning from checkout
+        if (sessionStorage.getItem("cartOpen") === "true") {
+            openCart();
+        }
+    });
+
+    const cartIcon = document.getElementById("cartIcon");
+    const cartPopup = document.getElementById("cartPopup");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartContainer = document.getElementById("cart");
+    const closeCartBtn = document.getElementById("closeCartBtn"); // Close (X) button
+    const checkoutBtn = document.getElementById("checkoutBtn"); // Checkout button
+    const body = document.body;
+
+    function openCart() {
+        cartContainer.style.display = 'block';
+        cartOverlay.style.display = 'block';
+        sessionStorage.setItem("cartOpen", "true"); // Store state
+    }
+
+    function closeCart() {
+        cartContainer.style.display = 'none';
+        cartOverlay.style.display = 'none';
+        sessionStorage.removeItem("cartOpen"); // Remove state
+    }
+
+    // Close cart when clicking outside
+    cartOverlay.addEventListener('click', closeCart);
+
+    // Close cart when clicking the (X) button
+    if (closeCartBtn) {
+        closeCartBtn.addEventListener("click", closeCart);
+    }
+
+    // When clicking Checkout, store cart state
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener("click", function () {
+            sessionStorage.setItem("cartOpen", "true"); // Keep cart open when coming back
+            window.location.href = "checkout.html"; // Redirect to checkout
+        });
+    }
+
+    function removeItem(itemId) {
+        let item = document.getElementById(itemId);
+        if (item) {
+            item.remove();
+            updateTotal();
+        }
+    }
+
+    function increaseQty(id) {
+        let qty = document.getElementById(id);
+        qty.innerText = parseInt(qty.innerText) + 1;
+        updateTotal();
+    }
+
+    function decreaseQty(id) {
+        let qty = document.getElementById(id);
+        if (parseInt(qty.innerText) > 1) {
+            qty.innerText = parseInt(qty.innerText) - 1;
+            updateTotal();
+        }
+    }
+
+    function toggleDelivery(btn, isDelivery) {
+        document.querySelectorAll('.delivery-options button').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('delivery').innerText = isDelivery ? '150' : '0';
+        updateTotal();
+    }
+
+    function updateTotal() {
+        let total = 0;
+        let uniqueItems = 0;
+
+        document.querySelectorAll('.cart-item').forEach(item => {
+            let qty = parseInt(item.querySelector('span').innerText);
+            let price = parseInt(item.children[2].innerText.replace('Rs. ', ''));
+            total += qty * price;
+            uniqueItems += qty; // Count the total number of items (considering quantity)
+        });
+
+        let tax = total * 0.15;
+        let delivery = parseInt(document.getElementById('delivery').innerText);
+        let grandTotal = total + tax + delivery;
+
+        document.getElementById('total').innerText = total || 0;
+        document.getElementById('tax').innerText = total ? tax : 0;
+        document.getElementById('grandTotal').innerText = total ? grandTotal : 0;
+
+        // **Update cart count (for cart icon and bottom card)**
+        document.querySelector('.cart-count').innerText = uniqueItems;
+        document.querySelector('.cart-counting').innerText = uniqueItems;  // Update count in bottom card
+
+        // **Update cart price in cart bar**
+        document.querySelector('.cart-price-bar').innerText = `Rs. ${total + tax + delivery}`;  // Update price in bottom card
+
+        // **If all items are removed, close cart and enable cart icon popup**
+        if (uniqueItems === 0) {
+            closeCart();
+            cartIcon.onclick = function () {
+                showCartIconPopup();
+            };
+            document.getElementById('bottom-card').style.display = 'none'; // Hide bottom card
+        } else {
+            // Reset cart icon click to open the cart when items exist
+            cartIcon.onclick = function () {
+                openCart();
+            };
+            document.getElementById('bottom-card').style.display = 'block'; // Show bottom card
+        }
+    }
+
+    // **Cart Icon Popup Behavior When Empty**
+    function showCartIconPopup() {
+        cartPopup.classList.add("show");
+        cartOverlay.classList.add("show");
+        body.classList.add("dimmed");
+    }
+
+    // **Close Cart Popup when clicking outside**
+    cartOverlay.addEventListener("click", closeCartIconPopup);
+
+    // **Function to Close Cart Icon Popup**
+    function closeCartIconPopup() {
+        cartPopup.classList.remove("show");
+        cartOverlay.classList.remove("show");
+        body.classList.remove("dimmed");
+    }
+
+    // **Close Cart Icon Popup when clicking outside of it**
+    document.addEventListener("click", (event) => {
+        if (!cartIcon.contains(event.target) && !cartPopup.contains(event.target)) {
+            closeCartIconPopup();
+        }
+    });
+</script>
+
+<!-- food popup  -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let quantity = 1;
+        let basePrice = 280;
+        let extraPrice = 0;
+
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const openPopupImage = document.getElementById("openPopup");
+        const closeModal = document.getElementById("closeModal");
+        const quantitySpan = document.getElementById("quantity");
+        const productPrice = document.querySelector(".discounted-price");
+        const rollOptions = document.querySelectorAll(".roll-option");
+        const shareIcon = document.getElementById("shareIcon");
+        const uniqueShareOptions = document.getElementById("uniqueShareOptions");
+        let scrollPosition = 0;
+
+        // Function to update the price dynamically
+        function updatePrice() {
+            const newPrice = (basePrice + extraPrice) * quantity;
+            productPrice.textContent = `Rs. ${newPrice}`;
+        }
+
+        // Function to disable scrolling outside the popup
+        function disableScroll() {
+            scrollPosition = window.scrollY; // Save the current scroll position
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = "100%";
+        }
+
+        // Function to enable scrolling again
+        function enableScroll() {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            window.scrollTo(0, scrollPosition); // Restore scroll position
+        }
+
+        // Open the modal and disable scrolling outside it
+        openPopupImage.addEventListener("click", () => {
+            modalOverlay.style.display = "flex";
+            disableScroll(); // Disable background scrolling
+        });
+
+        // Close the modal and enable scrolling again
+        closeModal.addEventListener("click", () => {
+            modalOverlay.style.display = "none";
+            enableScroll(); // Restore scrolling
+        });
+
+        // Increase quantity
+        document.querySelector(".increase").addEventListener("click", () => {
+            quantity++;
+            quantitySpan.textContent = quantity;
+            updatePrice();
+        });
+
+        // Decrease quantity
+        document.querySelector(".decrease").addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+                updatePrice();
+            }
+        });
+
+        // Handle roll option selection
+        rollOptions.forEach(option => {
+            option.addEventListener("click", function () {
+                rollOptions.forEach(opt => opt.classList.remove("selected"));
+                this.classList.add("selected");
+                extraPrice = parseInt(this.dataset.extra);
+                updatePrice();
+            });
+        });
+
+        // Toggle share options on clicking the share icon
+        shareIcon.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent closing immediately
+            uniqueShareOptions.classList.toggle("show");
+        });
+
+        // Close share options when clicking outside
+        document.addEventListener("click", function (event) {
+            if (
+                uniqueShareOptions.classList.contains("show") &&
+                !uniqueShareOptions.contains(event.target) &&
+                event.target !== shareIcon
+            ) {
+                uniqueShareOptions.classList.remove("show"); // Hide share options
+            }
+        });
+
+        // Initial price update
+        updatePrice();
+    });
+
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let quantity = 1;
+        const fixedPrice = 7500;
+
+        // Selecting necessary elements
+        const overlay = document.querySelector("#popupOverlay");
+        const quantitySpan = document.querySelector("#productQuantity");
+        const totalPriceSpan = document.querySelector("#totalPrice");
+        const closePopupBtn = document.querySelector("#closePopup");
+        const shareBtn = document.querySelector("#shareBtn");
+        const shareMenu = document.querySelector("#shareMenu");
+        const body = document.body;
+        const html = document.documentElement;
+        let scrollPosition = 0;
+
+        // Check if elements exist before adding event listeners
+        if (!quantitySpan || !totalPriceSpan) {
+            console.error("Quantity or Total Price elements not found!");
+            return;
+        }
+
+        // Event delegation for dynamic elements
+        document.body.addEventListener("click", (event) => {
+            if (event.target.classList.contains("add-to-cart")) {
+                showPopup();
+            } else if (event.target.classList.contains("btn-plus")) {
+                updateQuantity(1);
+            } else if (event.target.classList.contains("btn-minus")) {
+                updateQuantity(-1);
+            } else if (event.target === closePopupBtn || event.target === overlay) {
+                hidePopup();
+            } else if (event.target === shareBtn) {
+                toggleShareMenu();
+            } else if (!shareMenu.contains(event.target)) {
+                shareMenu.classList.remove("visible");
+            }
+        });
+
+        function showPopup() {
+            scrollPosition = window.scrollY;
+            body.style.position = "fixed";
+            body.style.top = `-${scrollPosition}px`;
+            body.style.left = "0";
+            body.style.width = "100%";
+            overlay.style.display = "flex";
+        }
+
+        function hidePopup() {
+            body.style.position = "";
+            body.style.top = "";
+            window.scrollTo(0, scrollPosition);
+            overlay.style.display = "none";
+        }
+
+        function updateQuantity(change) {
+            quantity = Math.max(1, quantity + change);
+            quantitySpan.textContent = quantity;
+            totalPriceSpan.textContent = (fixedPrice * quantity).toLocaleString();
+        }
+
+        function toggleShareMenu() {
+            shareMenu.classList.toggle("visible");
+        }
+
+        // Initialize quantity and price
+        updateQuantity(0);
+    });
+</script>
+
+<script>
+    const scrollContainer = document.getElementById('recommend-scroll');
+    const nextBtn = document.querySelector('.scroll-n.nextv');
+    const prevBtn = document.querySelector('.scroll-n.prevv');
+
+    nextBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
+    });
+</script>
+
+<script>
+    window.addEventListener('scroll', function () {
+        const btn = document.getElementById('whatsappBtn');
+        const halfPage = document.documentElement.scrollHeight / 2;
+
+        if (window.scrollY > halfPage) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+</script>
+
+</html>

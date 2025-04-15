@@ -1,0 +1,477 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+/* Logo */
+.logo-container {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.logo-container img {
+    width: 120px;
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Left Section */
+.checkout-left {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 55%;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.checkout-left::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* Order Type & Restaurant Info */
+.order-type,
+.restaurant-info {
+    background: rgb(218, 217, 217);
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+}
+
+.view-location {
+    color: blue;
+    text-decoration: none;
+}
+
+.loact-icon {
+    color: red;
+}
+
+.number {
+    color: blue;
+}
+
+.head {
+    color: #000;
+}
+
+.headind-main {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.required {
+    color: red;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+    font-size: 14px;
+    /* font-weight: 600; */
+    margin-bottom: 20px;
+}
+
+.row {
+    /* width: 94%; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.row .form-group:first-child {
+    flex-basis: 20%;
+
+    /* Adjust the width of the Title select input */
+}
+
+.row .form-group:last-child {
+    flex-basis: 72%;
+    margin-bottom: 10px;
+    /* Adjust the width of the Full Name input */
+}
+
+input,
+select,
+textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Payment Options */
+.payment-options {
+    display: flex;
+    gap: 10px;
+}
+
+.payment-btn {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-bottom: 20px;
+
+}
+
+.payment-btn img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.payment-btn:first-child {
+    background: black;
+    color: #d4af37;
+}
+
+.payment-btn:first-child:hover {
+    background-color: #141414;
+    transform: scale(1.03);
+}
+
+.payment-btn:last-child {
+    background: black;
+    color: #d4af37;
+}
+
+.payment-btn:last-child:hover {
+    background-color: #141414;
+    transform: scale(1.03);
+}
+
+#online-payment-methods {
+    display: none;
+    background: rgb(218, 217, 217);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    /* Center align content */
+}
+
+.card-heading {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    text-align: left;
+    /* Keep heading aligned to left */
+}
+
+input[type="text"] {
+    width: 100%;
+    /* Make inputs full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.card-details {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.card-details input {
+    flex: 1;
+    width: 100%;
+    /* Ensure both inputs match the card number width */
+    margin: 0;
+    /* Remove extra margins */
+}
+
+.payment-btn-card {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: black;
+    display: inline-block;
+    margin-top: 10px;
+    color: #d4af37;
+}
+
+.payment-btn-card:hover {
+    background-color: #141414;
+    transform: scale(1.03);
+}
+
+
+.last-heading {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.request-heading {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+/* Change Request Input */
+.change-request {
+    display: flex;
+    align-items: center;
+}
+
+.change-request span {
+    background: black;
+    padding: 10px;
+    border: 1px solid #d4af37;
+    border-radius: 5px 0 0 5px;
+    color: #d4af37;
+}
+
+.change-request input {
+    width: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+
+/* Right Section (Sticky Scrolling) */
+.checkout-right {
+    width: 38%;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    /* Ensures it doesn’t stretch */
+}
+
+.order-summary {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.order-summary hr {
+    margin: 10px 0;
+}
+
+.order-item,
+.order-total,
+.order-tax,
+.grand-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.grand-total {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.apply-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: black;
+    color: #d4af37;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.apply-btn:hover {
+    background-color: #141414;
+    transform: scale(1.03);
+}
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+/* Place Order */
+.place-order {
+    width: 100%;
+    padding: 14px;
+    background: black;
+    color: #d4af37;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.place-order:hover {
+    background-color: #141414;
+    transform: scale(1.03);
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: blue;
+    font-size: 16px;
+}
+
+
+/* Highlight active payment option */
+.active-payment {
+    border: 1px solid rgb(207, 16, 16);
+    /* Blue border for selection */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 50px 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 40px;
+  }
+  
+  /* Footer Content */
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  
+  /* Left Section - Description */
+  .footer-text {
+    flex: 1;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    max-width: 40%;
+  }
+  
+  /* Center Section - Logo */
+  .footer-logo {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .footer-logo img {
+    max-width: 250px;
+  }
+  
+  /* Right Section - Links */
+  .footer-links {
+    flex: 1;
+    text-align: center;
+  /* margin-right: -50px; */
+  }
+  
+  .footer-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 12px;
+    line-height: 30px;
+  }
+  
+  .footer-links a:hover {
+    color: #d4af37;
+  }
+  
+  /* Bottom Copyright Section */
+  .footer-bottom {
+    border-top: 1px solid #d4af37;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* Designed & Developed */
+  .footer-bottom a {
+    color: red;
+    text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .footer-text, .footer-logo, .footer-links {
+        max-width: 100%;
+        text-align: center;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+  
