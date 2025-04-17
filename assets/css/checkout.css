@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: white;
+    scrollbar-width: none;
 }
 
 /* Logo */
@@ -74,8 +75,11 @@ body {
 
 .required {
     color: red;
+    padding-left:160px ;
 }
-
+input[type="text"]:focus {
+    outline: 2px solid #d4af37;
+}
 
 .form-group {
     margin-bottom: 15px;
@@ -306,19 +310,6 @@ input[type="text"] {
 }
 
 
-
-  
-  
-
-
-
-
-
-
-
-
-
-
 /* Place Order */
 .place-order {
     width: 100%;
@@ -351,26 +342,6 @@ input[type="text"] {
     border: 1px solid rgb(207, 16, 16);
     /* Blue border for selection */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Footer Styling */
 .footer {
@@ -453,7 +424,116 @@ input[type="text"] {
   }
   
   /* Responsive */
-  @media (max-width: 768px) {
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .checkout-container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .checkout-left, .checkout-right {
+        width: 100%;
+        max-height: none;
+        position: relative;
+    }
+
+    .checkout-right {
+        margin-top: 30px;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .row .form-group {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    input, select, textarea {
+        width: 100%;
+    }
+
+    .payment-options {
+        flex-direction: column;
+    }
+
+    .payment-btn {
+        width: 100%;
+    }
+
+    .card-details {
+        flex-direction: column;
+    }
+
+    .change-request input {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .logo-container img {
+        width: 90px;
+    }
+
+    .footer-container {
+        padding: 0 10px;
+    }
+
+    .footer-text {
+        font-size: 11px;
+        line-height: 18px;
+    }
+
+    .footer-links a {
+        font-size: 11px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+    }
+}
+
+/* Additional fixes for input layout spacing */
+@media (max-width: 768px) {
+    .row {
+        gap: 10px;
+    }
+
+    .change-request span {
+        padding: 10px 8px;
+    }
+
+    .footer-logo img {
+        max-width: 150px;
+    }
+}
+
+/* Ensure forms and order summary are readable on all devices */
+@media (max-width: 375px) {
+    .order-summary h3, .grand-total p, .place-order {
+        font-size: 14px;
+    }
+
+    .order-summary p, .apply-btn, .continue-shopping {
+        font-size: 13px;
+    }
+
+    .payment-btn-card {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
         text-align: center;
@@ -464,14 +544,47 @@ input[type="text"] {
         text-align: center;
     }
   }
-
-
-
-
-
-
-
-
-
-
   
+  
+  
+  
+  
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: 80px;
+  }
+  
+  .contact-container h3 {
+    font-size: 18px;
+    color: #d4af37; /* Gold color */
+    font-weight: bold;
+    margin-bottom: 25px; /* Increased spacing for better readability */
+    text-align: left; /* Ensure heading is aligned to the left */
+  }
+  
+  .contact-container p {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 18px 0; /* Adds more space between paragraphs */
+    text-align: left; /* Ensure text is aligned to the left */
+  }
+  
+  .highlight {
+    color: #d4af37; /* Gold color */
+    font-weight: bold;
+    text-align: left; /* Ensure highlighted text is aligned to the left */
+    display: block; /* Ensures proper block-level alignment */
+  }
+  
+  .email {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-top: 15px; /* Adds spacing between last text elements */
+    text-align: left; /* Ensure email is aligned to the left */
+    display: block; /* Ensures email stays properly aligned */
+  }
