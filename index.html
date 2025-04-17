@@ -49,7 +49,7 @@
                 <!-- ✅ Delivery Popup -->
                 <div class="overlay" id="delivery-popup">
                     <div class="popup">
-                        <span class="close-btn" onclick="closePopup('delivery-popup')">✖</span>
+                        <span class="close-btn"  onclick="closePopup('delivery-popup')">✖</span>
                         <img src="assets/image/logo.webp" alt="Logo" class="popup-logo">
                         <h2>Please Select Your Area</h2>
                         <div class="btn-group">
@@ -65,7 +65,25 @@
                             disabled>Select</button>
                     </div>
                 </div>
-
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                $(document).ready(function () {
+                    // Initially show loading and hide delivery popup
+                    $('#loading-screen').show();
+                    $('#delivery-popup').hide();
+                
+                    // After 2 seconds (or any duration you want), show popup
+                    setTimeout(function () {
+                        $('#loading-screen').fadeOut('fast', function () {
+                            $('#delivery-popup').fadeIn('fast');
+                        });
+                    }, 2000); // 2000 ms = 2 seconds
+                
+                    // Optional: Hide the close button if it exists
+                    $('.close-btn').hide();
+                });
+                </script>
+                
                 <!-- ✅ Pickup Popup -->
                 <div class="overlay" id="pickup-popup">
                     <div class="popup">
@@ -283,17 +301,24 @@
                 <p><span>Grand Total:</span> <span>Rs. <span id="grandTotal">31775</span></span></p>
             </div>
 
-            <a href="pages/checkout.html"><button class="checkout-btn">Checkout</button></a>
-
+            <a href="pages/checkout.html">
+                <button class="checkout-btn">
+                  Checkout&nbsp;<i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </a>
+              <br>
+              <br>
+              
+              <div class="delivery-options">
+                <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
+                <button onclick="toggleDelivery(this, false)">PICKUP</button>
+            </div>
             <select class="area-select" id="areaSelect">
                 <option>Select Delivery Area</option>
                 <option>DHA</option>
                 <option>Gulshan</option>
             </select>
-            <div class="delivery-options">
-                <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
-                <button onclick="toggleDelivery(this, false)">PICKUP</button>
-            </div>
+           
 
             <p class="order-timing">Your order will be delivered approximately in 45 minutes on March 17, 2025<br>17 Mar
                 2025, 4:06 AM</p>
@@ -389,7 +414,7 @@
             <div class="popular-grid">
                 <!-- Food Item 1 -->
                 <div class="food-card">
-                    <img src="assets/image/t1.webp" alt="Chicken Reshmi Kabab" class="food-image" id="openPopup">
+                    <img src="assets/image/t1.webp" alt="Chicken Reshmi Kabab" class="food-image" id="openPopup2">
                     <div class="food-name">Chicken Reshmi Kabab</div>
                     <div class="food-price">Rs. 1195</div>
                 </div>
@@ -410,7 +435,7 @@
 
                 <!-- Food Item 4 -->
                 <div class="food-card">
-                    <img src="assets/image/t3.webp" alt="Malai Boti Roll" class="food-image">
+                    <img src="assets/image/t3.webp" alt="Malai Boti Roll" class="food-image" id="openPopup">
                     <div class="food-name">Malai Boti Roll</div>
                     <div class="food-price">Rs. 350</div>
                 </div>
@@ -487,6 +512,81 @@
                             <span>Rs. 72</span>
                         </div>
                     </div>
+
+                    <!-- Special Instructions -->
+                    <h5>Special Instructions</h5>
+                    <div class="special-instructionss">
+                        <textarea placeholder="Please enter instructions about this item"></textarea>
+                    </div>
+
+
+                    <div class="cart-contain">
+                        <div class="qty-controls">
+                            <button class="qty-button decrease">−</button>
+                            <span class="qty-display" id="qty-display">1</span>
+                            <button class="qty-button increase">+</button>
+                        </div>
+                        <div class="cart-box">
+                            <div class="cart-price" id="cart-price">Rs. 296</div>
+                            <button class="cart-button">
+                                Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="card offer">
+        <!-- Modal Overlay -->
+        <div class="modal-overlay">
+            <!-- Cart Modal -->
+            <div class="cart-modal">
+                <!-- Top-right icons -->
+                <div class="cart-header-food">
+                    <div class="cart-icon" id="shareIcon">
+                        <i class="fa-regular fa-share-nodes"></i>
+                    </div>
+                    <div class="cart-icon" id="closeModal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+
+
+                <!-- Unique Share Options -->
+                <div class="unique-share-options" id="uniqueShareOptions">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <!-- Left Side: Product Image -->
+                <div class="cart-image">
+                    <img src="assets/image/t3.webp" alt="Product Image">
+                </div>
+
+                <!-- Right Side: Product Details -->
+                <div class="cart-details">
+                    <!-- Item Name and Price Row -->
+                    <div class="item-row">
+                        <span class="item-name">Chicken Reshmi Kabab</span>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="old-price">Rs. 1195</span>
+                        <span class="new-price">Rs. 956</span>
+                    </div>
+                    <p class="product-description">
+                        Soft & juicy chicken kebabs
+                    </p>
+
+
+                   
 
                     <!-- Special Instructions -->
                     <h5>Special Instructions</h5>
@@ -1557,6 +1657,72 @@
 
 
 </script>
+<!-- food popup  -->
+<script>
+    const quantitySpan = document.getElementById("qty-display");
+const productPrice = document.getElementById("cart-price");
+
+document.addEventListener("DOMContentLoaded", function () {
+    let quantity = 1;
+    let basePrice = 1195; // actual price of the item
+    let extraPrice = 0;
+
+    const modalOverlay = document.querySelector(".modal-overlay");
+    const openPopup2Image = document.getElementById("openPopup2");
+    const closeModal = document.getElementById("closeModal");
+    const quantitySpan = document.getElementById("qty-display");
+    const productPrice = document.getElementById("cart-price");
+
+    let scrollPosition = 0;
+
+    function updatePrice() {
+        const newPrice = (basePrice + extraPrice) * quantity;
+        productPrice.textContent = `Rs. ${newPrice}`;
+    }
+
+    function disableScroll() {
+        scrollPosition = window.scrollY;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = "100%";
+    }
+
+    function enableScroll() {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        window.scrollTo(0, scrollPosition);
+    }
+
+    openPopup2Image.addEventListener("click", () => {
+        modalOverlay.style.display = "flex";
+        disableScroll();
+        updatePrice();
+    });
+
+    closeModal.addEventListener("click", () => {
+        modalOverlay.style.display = "none";
+        enableScroll();
+    });
+
+    document.querySelector(".increase").addEventListener("click", () => {
+        quantity++;
+        quantitySpan.textContent = quantity;
+        updatePrice();
+    });
+
+    document.querySelector(".decrease").addEventListener("click", () => {
+        if (quantity > 1) {
+            quantity--;
+            quantitySpan.textContent = quantity;
+            updatePrice();
+        }
+    });
+
+    updatePrice();
+});
+
+</script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
