@@ -75,22 +75,35 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  display: none;
+  display: flex; /* <--- Important for centering */
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 
-/* ✅ Popup Box */
+/* 🔒 Initially hidden until triggered */
+#delivery-popup, 
+#custom-popup, 
+#custom-overlay {
+  display: none;
+}
+
+/* ✅ Popup styling */
 .popup {
   background: white;
   width: 400px;
+  max-width: 90%;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   position: relative;
 }
+#delivery-popup, #custom-popup, #custom-overlay {
+  display: none;}
+  
+
+
 
 /* ✅ Close Button */
 .close-btn {
@@ -221,6 +234,9 @@ select {
 
 
 
+.checkout-btn i {
+  margin-left: 6px;
+}
 
 
 /* Contact number aligned */
@@ -675,31 +691,29 @@ select {
   align-items: center;
   width: 100%;
   margin-top: 30px;
+  padding: 0 20px;
 }
 
 /* Common Box Styling for Search & Discount */
 .box {
   display: flex;
   align-items: center;
-  width: 90%;
-  /* Same width for both sections */
+  justify-content: space-between;
+  width: 100%;
   max-width: 1200px;
-  /* Controls max width */
   padding: 14px;
   background: white;
   margin-bottom: 20px;
-  /* Adds spacing between sections */
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
 /* Search Box */
 .search-box {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  overflow: hidden;
   border: 1px solid lightgray;
   border-radius: 30px;
-  height: 16px;
+  height: auto;
+  padding: 5px 10px;
 }
 
 .search-box input {
@@ -710,9 +724,9 @@ select {
   padding: 10px;
   color: black;
   background: transparent;
+  width: 100%;
 }
 
-/* Placeholder Text Styling */
 .search-input::placeholder {
   color: black;
   opacity: 1;
@@ -722,44 +736,38 @@ select {
   border: none;
   background: black;
   color: #d4af37;
-  padding: 7px 9px;
+  padding: 8px 10px;
   border-radius: 50%;
   cursor: pointer;
 }
 
 /* Discount Section */
 .discount-box {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  width: 100%;
   background: whitesmoke;
-  height: 70px;
-  border-radius: 2px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .discount-text {
-  font-size: 25px;
+  font-size: 24px;
   color: black;
   font-weight: bold;
 }
-
 
 .discount-circle {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* Stack elements inside */
   background-color: yellow;
   color: black;
   font-weight: bold;
   border-radius: 50%;
   width: 76px;
-  /* Increased size for better spacing */
   height: 76px;
   text-align: center;
-  margin: 0 6px;
   position: relative;
 }
 
@@ -767,50 +775,27 @@ select {
   font-size: 60px;
   font-weight: bold;
   line-height: 1;
-  margin-top: 16px;
+  margin-top: 10px;
 }
-
-
-
 
 /* Responsive Design */
 
-/* Tablets (iPads, 768px - 1024px) */
+/* Tablets */
 @media (max-width: 1024px) {
-  .container {
-    padding: 0 20px;
-  }
-
   .box {
-    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .search-box {
     flex-direction: row;
-    height: auto;
-  }
-
-  .search-box input {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .search-box button {
-    padding: 6px 8px;
+    width: 100%;
   }
 
   .discount-box {
-    height: auto;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .discount-text {
-    font-size: 22px;
+    text-align: center;
   }
 
   .discount-circle {
@@ -820,73 +805,63 @@ select {
 
   .discount-circle .discount-number {
     font-size: 40px;
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .box {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-box {
-    flex-direction: row;
-    width: 100%;
-  }
-
-  .search-box input {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .search-box button {
-    padding: 8px 10px;
-  }
-
-  .discount-box {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
+    margin-top: 5px;
   }
 
   .discount-text {
     font-size: 20px;
   }
-
-  .discount-circle {
-    width: 60px;
-    height: 60px;
-  }
-
-  .discount-circle .discount-number {
-    font-size: 36px;
-    margin-top: 10px;
-  }
 }
 
-@media (max-width: 480px) {
-  .search-box {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 16px;
-  }
-
+/* Smaller Tablets & Large Phones */
+@media (max-width: 768px) {
   .search-box input {
-    width: 100%;
-    font-size: 14px;
-    padding: 10px;
+    font-size: 13px;
+    padding: 8px;
   }
 
   .search-box button {
-    align-self: flex-end;
-    padding: 8px 10px;
+    padding: 6px 8px;
   }
 
   .discount-text {
     font-size: 18px;
+  }
+
+  .discount-circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .discount-circle .discount-number {
+    font-size: 30px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .box {
+    padding: 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+#main-search-box{
+  display: flex;
+  flex-direction: row;
+}
+  .search-box {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .discount-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discount-text {
+    font-size: 16px;
   }
 
   .discount-circle {
@@ -895,11 +870,56 @@ select {
   }
 
   .discount-circle .discount-number {
-    font-size: 28px;
-    margin-top: 6px;
+    font-size: 24px;
+    margin-top: 0;
   }
 }
+@media (max-width: 360px) {
+  .discount-text {
+    font-size: 14px;
+  }
 
+  .discount-circle {
+    width: 45px;
+    height: 45px;
+  }
+
+  .discount-circle .discount-number {
+    font-size: 20px;
+  }
+
+  .search-box input {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .search-box button {
+    padding: 5px 7px;
+  }
+}
+@media (max-width: 320px) {
+  .discount-text {
+    font-size: 13px;
+  }
+
+  .discount-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .discount-circle .discount-number {
+    font-size: 18px;
+  }
+
+  .search-box input {
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .search-box button {
+    padding: 4px 6px;
+  }
+}
 
 
 
@@ -995,108 +1015,103 @@ select {
 /* ✅ Tablet (iPad) View */
 @media (max-width: 1024px) {
   .popular-container {
-    width: 95%;
-    /* Slightly wider for better fit */
-    padding: 20px 0;
+    padding: 20px 15px;
   }
-
   .popular-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    /* Adjusts for smaller screens */
-    gap: 10px;
+    gap: 12px;
   }
-
   .food-card {
     height: 220px;
-    /* Slightly smaller */
   }
-
   .food-name {
     font-size: 13px;
   }
-
   .food-price {
     font-size: 11px;
   }
 }
 
-/* ✅ Mobile (Small Screens) */
+/* ✅ Mobile View */
 @media (max-width: 768px) {
   .popular-container {
-    width: 100%;
-    /* Full width */
     padding: 15px;
   }
-
   .popular-header {
-    font-size: 14px;
+    font-size: 16px;
   }
-
   .popular-header i {
+    font-size: 16px;
+  }
+  .popular-subtext {
     font-size: 14px;
   }
-
-  .popular-subtext {
-    font-size: 12px;
-  }
-
   .popular-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    /* Smaller grid items */
-    gap: 8px;
+    gap: 10px;
   }
-
   .food-card {
     height: 200px;
-    /* Reduced height for mobile */
   }
-
-  .food-image {
-    object-fit: cover;
-  }
-
   .food-name {
     font-size: 12px;
   }
-
   .food-price {
     font-size: 10px;
   }
+}
 
-  /* ✅ Search Box & Discount Box Adjustments */
-  .search-box {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .search-input {
-    width: 100%;
+/* ✅ Small Mobile View */
+@media (max-width: 480px) {
+  .popular-container {
     padding: 10px;
   }
-
-  .discount-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .popular-header {
+    font-size: 14px;
   }
-
-  .discount-circle {
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
+  .popular-subtext {
+    font-size: 12px;
+  }
+  .popular-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+  }
+  .food-card {
+    height: 180px;
+  }
+  .food-name {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+  .food-price {
+    font-size: 9px;
+    padding: 4px 6px;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
+/* ✅ Ultra Small Devices */
+@media (max-width: 360px) {
+  .popular-header {
+    font-size: 13px;
+  }
+  .popular-subtext {
+    font-size: 11px;
+  }
+  .popular-grid {
+    grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+    gap: 6px;
+  }
+  .food-card {
+    height: 160px;
+  }
+  .food-name {
+    font-size: 10px;
+  }
+  .food-price {
+    font-size: 8px;
+    padding: 3px 5px;
+  }
+}
 
 /* products */
 
@@ -1295,6 +1310,42 @@ select {
 }
 
 @media (max-width: 480px) {
+  .tray-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .tray-card {
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .tray-title {
+    font-size: 14px;
+  }
+
+  .tray-desc {
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .tray-price {
+    font-size: 12px;
+  }
+
+  .add-to-cart {
+   margin-top: 20px;
+    width: 100px;
+    font-size: 11px;
+  }
+
+  .tray-details {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 575.98px), screen and (min-width: 576px) and (max-width: 767.98px), screen and (min-width: 768px) and (max-width: 991.98px) {
   .tray-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -2390,28 +2441,27 @@ body.dark-theme .close-button {
 
 .delivery-options {
   display: flex;
+  background-color: #ddd;
+  border-radius: 30px;
+  padding: 4px;
+  width: fit-content;
   justify-content: center;
-  gap: 20px;
-  padding: 10px 0;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .delivery-options button {
-  padding: 10px 18px;
-  border-radius: 5px;
   border: none;
-  cursor: pointer;
-  background: black;
-  font-size: 10px;
+  background-color: transparent;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 30px;
   font-weight: 600;
-  color: #d4af37;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.selected {
-  background: black;
-  color: #d4af37;
+.delivery-options button.selected {
+  background-color: black;
+  color: #f1c40f; /* gold-yellow like in image */
 }
 
 .order-timing {
@@ -2777,6 +2827,91 @@ body.dark-theme .close-button {
   resize: none;
 }
 
+@media (max-width: 1024px) {
+  .cart-modal {
+    flex-direction: column;
+    height: auto;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .cart-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cart-details {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-details {
+    font-size: 16px;
+  }
+
+  .product-description {
+    font-size: 14px;
+  }
+
+  .roll-option {
+    font-size: 14px;
+  }
+
+  .special-instructionss textarea {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-modal {
+    padding: 10px;
+  }
+
+  .cart-details {
+    font-size: 15px;
+  }
+
+  .cart-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .cart-icon i {
+    font-size: 14px;
+  }
+
+  .product-description {
+    font-size: 13px;
+  }
+
+  .special-instructionss textarea {
+    height: 70px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cart-details {
+    font-size: 14px;
+  }
+
+  .product-description {
+    font-size: 12px;
+  }
+
+  .roll-option {
+    font-size: 12px;
+  }
+
+  .special-instructionss textarea {
+    font-size: 12px;
+    height: 60px;
+  }
+}
 
 
 /* Quantity and Cart Actions */

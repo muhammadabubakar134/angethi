@@ -15,7 +15,7 @@
     <section id="checkout">
         <!-- Logo Section -->
         <div class="logo-container">
-            <a href="/index.html"><img src="../assets/image/logo.webp" alt="Logo"></a>
+            <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html"><img src="../assets/image/logo.webp" alt="Logo"></a>
         </div>
 
         <!-- Checkout Container -->
@@ -133,7 +133,7 @@
                 </div>
 
                 <button class="place-order">Place Order</button>
-                <a href="/index.html" class="continue-shopping">← continue to add more items</a>
+                <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html" class="continue-shopping">← continue to add more items</a>
             </div>
 
 
@@ -161,11 +161,11 @@
 
                 <!-- Right: Links -->
                 <div class="footer-links">
-                    <a href="/index.html">Home</a>
-                    <a href="/pages/about.html">ABOUT US</a>
-                    <a href="/pages/bank-discount.html">BANK OFFERS</a>
-                    <a href="/pages/our-location.html">OUR LOCATION</a>
-                    <a href="/pages/contact.html">CONTACT US</a>
+                    <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html">Home</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="bank-discount.html">BANK OFFERS</a>
+                    <a href="our-location.html">OUR LOCATION</a>
+                    <a href="contact.html">CONTACT US</a>
                 </div>
             </div>
 
@@ -196,6 +196,25 @@
         this.classList.add("active-payment");
         document.getElementById("online-payment").classList.remove("active-payment");
     });
+    document.getElementById("online-payment").addEventListener("click", function () {
+    const onlineSection = document.getElementById("online-payment-methods");
+    onlineSection.style.display = "block";
+    this.classList.add("active-payment");
+    document.getElementById("cash-payment").classList.remove("active-payment");
+
+    // Scroll to payment inputs
+    onlineSection.scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelector(".place-order").addEventListener("click", function (e) {
+    const name = document.querySelector('input[placeholder="Full Name"]');
+    const email = document.querySelector('input[type="email"]');
+    const phone = document.querySelector('input[type="tel"]');
+    
+    if (!name.value || !email.value || !phone.value) {
+        alert("Please fill in all required fields.");
+        e.preventDefault();
+    }
+});
 </script>
 
 </html>
