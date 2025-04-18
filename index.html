@@ -68,22 +68,44 @@
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                 $(document).ready(function () {
-                    // Initially show loading and hide delivery popup
-                    $('#loading-screen').show();
-                    $('#delivery-popup').hide();
+                    $('#loading-screen').show();             // Show loading first
+                    $('#delivery-popup').hide();             // Hide delivery popup initially
+                    $('#popup-implementation').hide();       // Hide discount popup initially
                 
-                    // After 2 seconds (or any duration you want), show popup
+                    // Step 1: After 2 seconds, hide loading and show delivery popup
                     setTimeout(function () {
                         $('#loading-screen').fadeOut('fast', function () {
-                            $('#delivery-popup').fadeIn('fast');
+                            openPopup('delivery-popup');
+                
+                            // Step 2: After 1 more second, show discount popup
+                            setTimeout(function () {
+                                $('#popup-implementation').fadeIn('fast');
+                            }, 1000);
                         });
-                    }, 2000); // 2000 ms = 2 seconds
+                    }, 2000);
                 
-                    // Optional: Hide the close button if it exists
-                    $('.close-btn').hide();
+                    // Discount popup close button
+                    $('#custom-closePopup').on('click', function () {
+                        $('#popup-implementation').fadeOut();
+                    });
                 });
-                </script>
                 
+                // Utility functions
+                function openPopup(popupId) {
+                    document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
+                    const popup = document.getElementById(popupId);
+                    if (popup) popup.style.display = 'flex';
+                }
+                
+                function closePopup(popupId) {
+                    const popup = document.getElementById(popupId);
+                    if (popup) popup.style.display = 'none';
+                }
+                
+                function togglePopup(popupId) {
+                    openPopup(popupId);
+                }
+                </script>
                 <!-- ✅ Pickup Popup -->
                 <div class="overlay" id="pickup-popup">
                     <div class="popup">
@@ -210,24 +232,29 @@
             </div>
             <div class="cart-item" id="item1">
                 <img src="assets/image/t7.webp" alt="Tray 02">
-                <div>Tray 02</div>
+               <div class="cart-items-teayp">
+                <div><p>Tray 02</p></div>
                 <div>Rs. 7500</div>
+            </div>
+            <div class="cart-item-btn">
                 <button onclick="decreaseQty('qty1', 7500)">-</button>
                 <span id="qty1">1</span>
                 <button onclick="increaseQty('qty1', 7500)">+</button>
-                <button onclick="removeItem('item1', 7500, 'qty1')"><i class="fas fa-trash-alt"></i></button>
+            </div>
             </div>
             <div class="cart-item" id="item2">
                 <img src="assets/image/t7.webp" alt="Tray 03">
-                <div>Tray 03</div>
+                <div class="cart-items-teayp">
+                <div><p>Tray 03</p></div>
                 <div>Rs. 10000</div>
+            </div>
                 <button onclick="decreaseQty('qty2', 10000)">-</button>
                 <span id="qty2">2</span>
                 <button onclick="increaseQty('qty2', 10000)">+</button>
-                <button onclick="removeItem('item2', 10000, 'qty2')"><i class="fas fa-trash-alt"></i></button>
+                
             </div>
 
-            <a class="add-items" href="/index.html" id="addMoreItems">+ Add more items</a>
+            <a class="add-items" href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html" id="addMoreItems">+ Add more items</a>
 
             <div class="recommend-header">
                 <div class="recommend-title-area">
@@ -302,8 +329,8 @@
             </div>
 
             <a href="pages/checkout.html">
-                <button class="checkout-btn">
-                  Checkout&nbsp;<i class="fa-solid fa-arrow-right"></i>
+                <button class="cart-button" style="width:100%;display: flex;text-align: center;">
+                    checkout <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
                 </button>
               </a>
               <br>
@@ -313,15 +340,24 @@
                 <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
                 <button onclick="toggleDelivery(this, false)">PICKUP</button>
             </div>
+            <div class="restaurant-info"></div>
+            <p>This is a <strong>TAKEAWAY ORDER</strong> 📦</p>
+            <p>You have to collect your order from</p>
+            <h3>Angethi Dha</h3>
+            <p><strong>Location:</strong> Shahbaz Commercial Area, Karachi</p>
+            <a href="#" class="view-location">View Location<a class="loact-icon"> <i
+                        class="fa-solid fa-location-dot"></a></i> </a>
+            <p class="number"><strong class="head">Phone:</strong> (021) 38899996</p>
             <select class="area-select" id="areaSelect">
                 <option>Select Delivery Area</option>
                 <option>DHA</option>
                 <option>Gulshan</option>
             </select>
            
+        </div>
 
-            <p class="order-timing">Your order will be delivered approximately in 45 minutes on March 17, 2025<br>17 Mar
-                2025, 4:06 AM</p>
+          
+
         </div>
 
         </div>
@@ -811,7 +847,125 @@
 
         </div>
     </section>
+    <section id="card offer">
+        <!-- Modal Overlay -->
+        <div class="modal-overlay">
+            <!-- Cart Modal -->
+            <div class="cart-modal">
+                <!-- Top-right icons -->
+                <div class="cart-header-food">
+                    <div class="cart-icon" id="shareIcon">
+                        <i class="fa-regular fa-share-nodes"></i>
+                    </div>
+                    <div class="cart-icon" id="closeModal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
 
+
+
+                <!-- Unique Share Options -->
+                <div class="unique-share-options" id="uniqueShareOptions">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <!-- Left Side: Product Image -->
+                <div class="cart-image">
+                    <img src="assets/image/t3.webp" alt="Product Image">
+                </div>
+
+                <!-- Right Side: Product Details -->
+                <div class="cart-details">
+                    <!-- Item Name and Price Row -->
+                    <div class="item-row">
+                        <span class="item-name">Deal 1</span>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="old-price">Rs. 350</span>
+                        <span class="new-price">Rs. 499</span>
+                    </div>
+                  
+                        <p class="product-description">
+                        I Tikka ( Leg/ Chest) 1 Paratha 1 Drink
+                    </p>
+                  
+                    <!-- Rolls Selection -->
+                    <div class="option-required">
+                        <h5 class="rolk">Select Your Variant <span class="required-badge">required</span></h5>
+                      </div>
+
+                    <div class="roll-options">
+                        <div class="roll-option" data-extra="58">
+                            <label>
+                                <input type="radio" name="roll" value="58"> chest
+                            </label>
+                           
+                        </div>
+                        <div class="roll-option" data-extra="52">
+                            <label>
+                                <input type="radio" name="roll" value="52"> leg
+                            </label>
+                            <div class="option-required">
+                                <h5 class="rolk">Choose your desired drink <span class="required-badge">required</span></h5>
+                              </div>
+                        </div>
+                        <div class="roll-option" data-extra="72">
+                            <label>
+                                <input type="radio" name="roll" value="72"> pepsi
+                            </label>
+                            
+                        </div>
+                        <div class="roll-option" data-extra="72">
+                            <label>
+                                <input type="radio" name="roll" value="72"> 7up
+                            </label>
+                            
+                        </div>
+                        <div class="roll-option" data-extra="72">
+                            <label>
+                                <input type="radio" name="roll" value="72"> Mirinda
+                            </label>
+                            
+                        </div>
+                        <div class="roll-option" data-extra="72">
+                            <label>
+                                <input type="radio" name="roll" value="72">Dew
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <h5>Special Instructions</h5>
+                    <div class="special-instructionss">
+                        <textarea placeholder="Please enter instructions about this item"></textarea>
+                    </div>
+
+
+                    <div class="cart-contain">
+                        <div class="qty-controls">
+                            <button class="qty-button decrease">−</button>
+                            <span class="qty-display" id="qty-display">1</span>
+                            <button class="qty-button increase">+</button>
+                        </div>
+                        <div class="cart-box">
+                            <div class="cart-price" id="cart-price">Rs. 296</div>
+                            <button class="cart-button">
+                                Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="banner">
         <div class="banner-wrapper">
             <img src="assets/image/banner2.webp" alt="Food Banner" class="food-banner">
@@ -1722,7 +1876,86 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let quantity = 1;
+        let basePrice = 280;
+        let extraPrice = 0;
 
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const openPopup3Image = document.getElementById("openPopup3");
+        const closeModal = document.getElementById("closeModal");
+        const quantitySpan = document.getElementById("qty-display");
+        const productPrice = document.querySelector(".discounted-price");
+        const rollOptions = document.querySelectorAll(".roll-option");
+        const shareIcon = document.getElementById("shareIcon");
+        const uniqueShareOptions = document.getElementById("uniqueShareOptions");
+        let scrollPosition = 0;
+
+        function updatePrice() {
+            const newPrice = (basePrice + extraPrice) * quantity;
+            productPrice.textContent = `Rs. ${newPrice}`;
+        }
+
+        function disableScroll() {
+            scrollPosition = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = "100%";
+        }
+
+        function enableScroll() {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            window.scrollTo(0, scrollPosition);
+        }
+
+        closeModal.addEventListener("click", () => {
+            modalOverlay.style.display = "none";
+            enableScroll();
+        });
+
+        document.querySelector(".increase").addEventListener("click", () => {
+            quantity++;
+            quantitySpan.textContent = quantity;
+            updatePrice();
+        });
+
+        document.querySelector(".decrease").addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+                updatePrice();
+            }
+        });
+
+        rollOptions.forEach(option => {
+            option.addEventListener("click", function () {
+                rollOptions.forEach(opt => opt.classList.remove("selected"));
+                this.classList.add("selected");
+                extraPrice = parseInt(this.dataset.extra) || 0;
+                updatePrice();
+            });
+        });
+
+        shareIcon.addEventListener("click", function (event) {
+            event.stopPropagation();
+            uniqueShareOptions.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (
+                uniqueShareOptions.classList.contains("show") &&
+                !uniqueShareOptions.contains(event.target) &&
+                event.target !== shareIcon
+            ) {
+                uniqueShareOptions.classList.remove("show");
+            }
+        });
+
+        updatePrice();
+    });
+</script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {

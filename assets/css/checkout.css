@@ -17,20 +17,22 @@ body {
 }
 
 .checkout-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap; /* Responsive fallback */
+  padding: 20px;
 }
-
+  
 /* Left Section */
 .checkout-left {
     background: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
-    width: 55%;
+    width: 58%;
     max-height: 80vh;
+    height: 100%;
     overflow-y: auto;
     scrollbar-width: none;
 }
@@ -49,6 +51,7 @@ body {
     font-size: 14px;
     border-radius: 5px; 
     margin-bottom: 10px; 
+   
 }
 
 .view-location {
@@ -75,10 +78,10 @@ body {
 
 .required {
     color: red;
-    padding-left:160px ;
-}
-input[type="text"]:focus {
-    outline: 2px solid #d4af37;
+    font-size: 12px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .form-group {
@@ -120,6 +123,7 @@ textarea {
 /* Payment Options */
 .payment-options {
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
@@ -262,11 +266,10 @@ input[type="text"] {
 
 /* Right Section (Sticky Scrolling) */
 .checkout-right {
-    width: 38%;
-    position: sticky;
-    top: 20px;
-    align-self: flex-start;
-    /* Ensures it doesn’t stretch */
+  width: 38%;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
 }
 
 .order-summary {
@@ -426,114 +429,9 @@ input[type="text"] {
   /* Responsive */
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-    .checkout-container {
-        flex-direction: column;
-        padding: 0 20px;
-    }
+/* Mobile & Tablet Responsive Design */
 
-    .checkout-left, .checkout-right {
-        width: 100%;
-        max-height: none;
-        position: relative;
-    }
-
-    .checkout-right {
-        margin-top: 30px;
-    }
-
-    .row {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .row .form-group {
-        flex-basis: 100%;
-        width: 100%;
-    }
-
-    input, select, textarea {
-        width: 100%;
-    }
-
-    .payment-options {
-        flex-direction: column;
-    }
-
-    .payment-btn {
-        width: 100%;
-    }
-
-    .card-details {
-        flex-direction: column;
-    }
-
-    .change-request input {
-        width: 100%;
-        margin-top: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-
-    .logo-container img {
-        width: 90px;
-    }
-
-    .footer-container {
-        padding: 0 10px;
-    }
-
-    .footer-text {
-        font-size: 11px;
-        line-height: 18px;
-    }
-
-    .footer-links a {
-        font-size: 11px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 5px;
-    }
-}
-
-/* Additional fixes for input layout spacing */
-@media (max-width: 768px) {
-    .row {
-        gap: 10px;
-    }
-
-    .change-request span {
-        padding: 10px 8px;
-    }
-
-    .footer-logo img {
-        max-width: 150px;
-    }
-}
-
-/* Ensure forms and order summary are readable on all devices */
-@media (max-width: 375px) {
-    .order-summary h3, .grand-total p, .place-order {
-        font-size: 14px;
-    }
-
-    .order-summary p, .apply-btn, .continue-shopping {
-        font-size: 13px;
-    }
-
-    .payment-btn-card {
-        width: 100%;
-    }
-}
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
         text-align: center;
@@ -545,46 +443,101 @@ input[type="text"] {
     }
   }
   
-  
-  
-  
-  
-  .contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 80px;
-    margin-bottom: 80px;
-    margin-left: 80px;
+    /* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    padding: 10px;
   }
-  
-  .contact-container h3 {
-    font-size: 18px;
-    color: #d4af37; /* Gold color */
-    font-weight: bold;
-    margin-bottom: 25px; /* Increased spacing for better readability */
-    text-align: left; /* Ensure heading is aligned to the left */
+
+  .checkout-left,
+  .checkout-right {
+    width: 100%;
+    max-height: none;
   }
-  
-  .contact-container p {
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    margin: 18px 0; /* Adds more space between paragraphs */
-    text-align: left; /* Ensure text is aligned to the left */
+
+  .row {
+    flex-direction: column;
   }
-  
-  .highlight {
-    color: #d4af37; /* Gold color */
-    font-weight: bold;
-    text-align: left; /* Ensure highlighted text is aligned to the left */
-    display: block; /* Ensures proper block-level alignment */
+
+  .row .form-group {
+    flex-basis: 100%;
+    width: 100%;
   }
-  
-  .email {
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    margin-top: 15px; /* Adds spacing between last text elements */
-    text-align: left; /* Ensure email is aligned to the left */
-    display: block; /* Ensures email stays properly aligned */
+
+  .payment-btn,
+  .payment-btn-card {
+    width: 100%;
   }
+
+  .change-request {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .change-request span,
+  .change-request input {
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-text,
+  .footer-logo,
+  .footer-links {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .logo-container img {
+    width: 90px;
+  }
+
+  .order-item,
+  .order-total,
+  .order-tax,
+  .grand-total {
+    font-size: 13px;
+  }
+
+  .apply-btn,
+  .place-order {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .continue-shopping {
+    font-size: 14px;
+  }
+
+  .payment-btn img {
+    width: 18px;
+  }
+
+  .footer-logo img {
+    max-width: 180px;
+  }
+
+  .card-details {
+    flex-direction: column;
+  }
+
+  .card-details input {
+    width: 100%;
+  }
+}
