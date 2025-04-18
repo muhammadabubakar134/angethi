@@ -15,7 +15,7 @@
     <section id="checkout">
         <!-- Logo Section -->
         <div class="logo-container">
-            <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html"><img src="../assets/image/logo.webp" alt="Logo"></a>
+            <a href="/index.html"><img src="../assets/image/logo.webp" alt="Logo"></a>
         </div>
 
         <!-- Checkout Container -->
@@ -24,16 +24,19 @@
             <!-- Left Section: Order Details -->
             <div class="checkout-left">
 
-                <div class="restaurant-info">
+                <div class="order-type">
                     <p>This is a <strong>TAKEAWAY ORDER</strong> 📦</p>
                     <p>You have to collect your order from</p>
+                </div>
+
+                <div class="restaurant-info">
                     <h3>Angethi Dha</h3>
                     <p><strong>Location:</strong> Shahbaz Commercial Area, Karachi</p>
                     <a href="#" class="view-location">View Location<a class="loact-icon"> <i
                                 class="fa-solid fa-location-dot"></a></i> </a>
                     <p class="number"><strong class="head">Phone:</strong> (021) 38899996</p>
                 </div>
-           
+
 
 
                 <h5 class="headind-main">JUST A LAST STEP, PLEASE FILL YOUR INFORMATION BELOW</h5>
@@ -69,42 +72,6 @@
                         <label>Pickup Notes</label>
                         <textarea placeholder="Any special instructions"></textarea>
                     </div>
-                </div>
-            </div>
-              <!-- Right Section: Order Summary -->
-              <div class="checkout-right">
-                <div class="order-summary">
-                    <h3>Your Order</h3>
-                    <div class="order-item">
-                        <p>1 x Tray 02</p>
-                        <p>Rs. 7500</p>
-                    </div>
-                    <hr>
-                    <div class="order-total">
-                        <p>Total:</p>
-                        <p>Rs. 7500</p>
-                    </div>
-                    <div class="order-tax">
-                        <p>Tax 15%:</p>
-                        <p>Rs. 1125</p>
-                    </div>
-                    <hr>
-                    <div class="grand-total">
-                        <p>Grand Total:</p>
-                        <p>Rs. 8625</p>
-                    </div>
-
-
-                    <input type="text" placeholder="Enter Voucher / Promo code">
-                    <button class="apply-btn">Apply</button>
-                </div>
-
-                <button class="place-order">Place Order</button>
-                <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html" class="continue-shopping">← continue to add more items</a>
-            </div>
-
-
-        </div>
 
                     <!-- <h4>Payment Information</h4> -->
                     <p class="last-heading">Payment Information</p>
@@ -137,7 +104,41 @@
             </div>
 
 
-          
+            <!-- Right Section: Order Summary -->
+            <div class="checkout-right">
+                <div class="order-summary">
+                    <h3>Your Order</h3>
+                    <div class="order-item">
+                        <p>1 x Tray 02</p>
+                        <p>Rs. 7500</p>
+                    </div>
+                    <hr>
+                    <div class="order-total">
+                        <p>Total:</p>
+                        <p>Rs. 7500</p>
+                    </div>
+                    <div class="order-tax">
+                        <p>Tax 15%:</p>
+                        <p>Rs. 1125</p>
+                    </div>
+                    <hr>
+                    <div class="grand-total">
+                        <p>Grand Total:</p>
+                        <p>Rs. 8625</p>
+                    </div>
+
+
+                    <input type="text" placeholder="Enter Voucher / Promo code">
+                    <button class="apply-btn">Apply</button>
+                </div>
+
+                <button class="place-order">Place Order</button>
+                <a href="/index.html" class="continue-shopping">← continue to add more items</a>
+            </div>
+
+
+        </div>
+
     </section>
 
     <section id="footer">
@@ -160,11 +161,11 @@
 
                 <!-- Right: Links -->
                 <div class="footer-links">
-                    <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html">Home</a>
-                    <a href="about.html">ABOUT US</a>
-                    <a href="bank-discount.html">BANK OFFERS</a>
-                    <a href="our-location.html">OUR LOCATION</a>
-                    <a href="contact.html">CONTACT US</a>
+                    <a href="/index.html">Home</a>
+                    <a href="/pages/about.html">ABOUT US</a>
+                    <a href="/pages/bank-discount.html">BANK OFFERS</a>
+                    <a href="/pages/our-location.html">OUR LOCATION</a>
+                    <a href="/pages/contact.html">CONTACT US</a>
                 </div>
             </div>
 
@@ -195,25 +196,6 @@
         this.classList.add("active-payment");
         document.getElementById("online-payment").classList.remove("active-payment");
     });
-    document.getElementById("online-payment").addEventListener("click", function () {
-    const onlineSection = document.getElementById("online-payment-methods");
-    onlineSection.style.display = "block";
-    this.classList.add("active-payment");
-    document.getElementById("cash-payment").classList.remove("active-payment");
-
-    // Scroll to payment inputs
-    onlineSection.scrollIntoView({ behavior: 'smooth' });
-});
-document.querySelector(".place-order").addEventListener("click", function (e) {
-    const name = document.querySelector('input[placeholder="Full Name"]');
-    const email = document.querySelector('input[type="email"]');
-    const phone = document.querySelector('input[type="tel"]');
-    
-    if (!name.value || !email.value || !phone.value) {
-        alert("Please fill in all required fields.");
-        e.preventDefault();
-    }
-});
 </script>
 
 </html>
