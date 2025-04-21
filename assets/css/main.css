@@ -2382,13 +2382,11 @@ body.dark-theme .close-button {
 .cart-item-btn {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border: 1px solid #000;
   border-radius: 25px;
-  padding: 5px 10px;
   width: fit-content;
-  gap: 10px;
-  font-size: 16px;
+  font-size: 10px;
+  width: 20px;
 }
 
 .cart-item-btn span {

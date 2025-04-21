@@ -201,6 +201,44 @@ input[type="text"] {
   box-sizing: border-box;
   margin-bottom: 10px;
 }
+.required{
+  padding-left: 260px;
+}
+.voucher-container {
+  display: flex;
+  width: 100%;
+  max-width: 470px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.voucher-container input {
+  flex: 1;
+  border: none;
+  padding: 0 15px;
+  font-size: 14px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  background-color: transparent;
+}
+
+.voucher-container button {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+.voucher-container button:hover {
+  background-color: #5a6268;
+}
 
 .card-details {
   display: flex;
@@ -277,6 +315,8 @@ input[type="text"] {
   position: sticky;
   top: 20px;
   align-self: flex-start;
+  background-color: #fff;
+  box-shadow: 0 4px 6px grey;
   /* Ensures it doesn’t stretch */
 }
 
@@ -285,7 +325,12 @@ input[type="text"] {
   padding: 15px;
   border-radius: 10px;
 }
-
+.order-item{
+  background: #f0f0f0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
 .order-summary hr {
   margin: 10px 0;
 }
