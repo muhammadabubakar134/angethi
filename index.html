@@ -7,13 +7,14 @@
     <link rel="icon" type="image/png" href="assets/image/logo.webp">
     <title>Lucky broast</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- Loading Screen -->
     <section id="loading">
-        <!-- Loading Screen -->
         <div id="loading-screen">
             <div class="loading-content">
                 <img src="assets/image/logo.webp" alt="Logo">
@@ -22,6 +23,7 @@
         </div>
     </section>
 
+    <!-- Splash Screen -->
     <section id="popup implemation">
         <!-- Overlay for dimming effect -->
         <div class="custom-overlay" id="custom-overlay"></div>
@@ -36,6 +38,7 @@
 
     <section id="header">
         <header class="header">
+            
             <div class="header-left">
                 <!-- ✅ Change Location Section -->
                 <div class="location-container" onclick="openPopup('delivery-popup')">
@@ -49,7 +52,7 @@
                 <!-- ✅ Delivery Popup -->
                 <div class="overlay" id="delivery-popup">
                     <div class="popup">
-                        <span class="close-btn"  onclick="closePopup('delivery-popup')">✖</span>
+                        <span class="close-btn" onclick="closePopup('delivery-popup')">✖</span>
                         <img src="assets/image/logo.webp" alt="Logo" class="popup-logo">
                         <h2>Please Select Your Area</h2>
                         <div class="btn-group">
@@ -65,47 +68,48 @@
                             disabled>Select</button>
                     </div>
                 </div>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                
+                <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
-                $(document).ready(function () {
-                    $('#loading-screen').show();             // Show loading first
-                    $('#delivery-popup').hide();             // Hide delivery popup initially
-                    $('#popup-implementation').hide();       // Hide discount popup initially
-                
-                    // Step 1: After 2 seconds, hide loading and show delivery popup
-                    setTimeout(function () {
-                        $('#loading-screen').fadeOut('fast', function () {
-                            openPopup('delivery-popup');
-                
-                            // Step 2: After 1 more second, show discount popup
-                            setTimeout(function () {
-                                $('#popup-implementation').fadeIn('fast');
-                            }, 1000);
+                    $(document).ready(function () {
+                        $('#loading-screen').show();             // Show loading first
+                        $('#delivery-popup').hide();             // Hide delivery popup initially
+                        $('#popup-implementation').hide();       // Hide discount popup initially
+
+                        // Step 1: After 2 seconds, hide loading and show delivery popup
+                        setTimeout(function () {
+                            $('#loading-screen').fadeOut('fast', function () {
+                                openPopup('delivery-popup');
+
+                                // Step 2: After 1 more second, show discount popup
+                                setTimeout(function () {
+                                    $('#popup-implementation').fadeIn('fast');
+                                }, 1000);
+                            });
+                        }, 2000);
+
+                        // Discount popup close button
+                        $('#custom-closePopup').on('click', function () {
+                            $('#popup-implementation').fadeOut();
                         });
-                    }, 2000);
-                
-                    // Discount popup close button
-                    $('#custom-closePopup').on('click', function () {
-                        $('#popup-implementation').fadeOut();
                     });
-                });
-                
-                // Utility functions
-                function openPopup(popupId) {
-                    document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
-                    const popup = document.getElementById(popupId);
-                    if (popup) popup.style.display = 'flex';
-                }
-                
-                function closePopup(popupId) {
-                    const popup = document.getElementById(popupId);
-                    if (popup) popup.style.display = 'none';
-                }
-                
-                function togglePopup(popupId) {
-                    openPopup(popupId);
-                }
-                </script>
+
+                    // Utility functions
+                    function openPopup(popupId) {
+                        document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
+                        const popup = document.getElementById(popupId);
+                        if (popup) popup.style.display = 'flex';
+                    }
+
+                    function closePopup(popupId) {
+                        const popup = document.getElementById(popupId);
+                        if (popup) popup.style.display = 'none';
+                    }
+
+                    function togglePopup(popupId) {
+                        openPopup(popupId);
+                    }
+                </script> -->
                 <!-- ✅ Pickup Popup -->
                 <div class="overlay" id="pickup-popup">
                     <div class="popup">
@@ -117,14 +121,11 @@
                             <button class="active" onclick="togglePopup('pickup-popup')">PICKUP</button>
                         </div>
 
-
                         <select id="branch-select" onchange="updateBranchDetails()">
                             <option value="">Select a Branch</option>
                             <option value="Angeethi DHA" data-location="DHA, Karachi">Angeethi DHA</option>
                             <option value="Angeethi Gulshan" data-location="Gulshan, Karachi">Angeethi Gulshan</option>
                         </select>
-
-
 
                         <div class="location-box">
                             <div>
@@ -142,8 +143,6 @@
                     </div>
                 </div>
 
-
-
                 <span class="contact">
                     <i class="fa-solid fa-phone"></i>
                     <span class="phone-number">(021) 38899996</span>
@@ -157,8 +156,6 @@
             </div>
 
             <div class="header-right">
-
-
                 <!-- Cart Icon with Item Count -->
                 <span class="cart" onclick="openCart()" id="cartIcon">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -232,30 +229,35 @@
             </div>
             <div class="cart-item" id="item1">
                 <img src="assets/image/t7.webp" alt="Tray 02">
-               <div class="cart-items-teayp">
-                <div><p style="color: gray;">Tray 02</p></div>
-                <div>Rs. 7500</div>
-            </div>
-            <div class="cart-item-btn">
-                <button onclick="decreaseQty('qty1', 7500)">-</button>
-                <span id="qty1">1</span>
-                <button onclick="increaseQty('qty1', 7500)">+</button>
-            </div>
+                <div class="cart-items-teayp">
+                    <div>
+                        <p style="color: gray;">Tray 02</p>
+                    </div>
+                    <div>Rs. 7500</div>
+                </div>
+                <div class="cart-item-btn">
+                    <button onclick="decreaseQty('qty1', 7500)">-</button>
+                    <span id="qty1">1</span>
+                    <button onclick="increaseQty('qty1', 7500)">+</button>
+                </div>
             </div>
             <div class="cart-item" id="item2">
                 <img src="assets/image/t7.webp" alt="Tray 03">
                 <div class="cart-items-teayp">
-                    <div><p style="color: gray;">Tray 03</p></div>
-                <div>Rs. 10000</div>
-            </div>
-            <div class="cart-item-btn">
-                <button onclick="decreaseQty('qty2', 10000)">-</button>
-                <span id="qty2">2</span>
-                <button onclick="increaseQty('qty2', 10000)">+</button>
-            </div>
+                    <div>
+                        <p style="color: gray;">Tray 03</p>
+                    </div>
+                    <div>Rs. 10000</div>
+                </div>
+                <div class="cart-item-btn">
+                    <button onclick="decreaseQty('qty2', 10000)">-</button>
+                    <span id="qty2">2</span>
+                    <button onclick="increaseQty('qty2', 10000)">+</button>
+                </div>
             </div>
 
-            <a class="add-items" href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html" id="addMoreItems">+ Add more items</a>
+            <a class="add-items" href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html"
+                id="addMoreItems">+ Add more items</a>
 
             <div class="recommend-header">
                 <div class="recommend-title-area">
@@ -329,7 +331,7 @@
                 <p><span>Grand Total:</span> <span>Rs. <span id="grandTotal">31775</span></span></p>
             </div>
 
-            <a href="pages/checkout.html"style="text-decoration: none;">
+            <a href="pages/checkout.html" style="text-decoration: none;">
                 <button class="cart-button" style="
                 width: 100%;
                 display: flex;
@@ -340,17 +342,17 @@
                 text-decoration: none;
                 list-style-type: none;
             ">
-                checkout 
-                <span class="cart-symbol">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </span>
-            </button>
-            
-              </a>
-              <br>
-              <br>
-              
-              <div class="delivery-options">
+                    checkout
+                    <span class="cart-symbol">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </button>
+
+            </a>
+            <br>
+            <br>
+
+            <div class="delivery-options">
                 <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
                 <button onclick="toggleDelivery(this, false)">PICKUP</button>
             </div>
@@ -367,10 +369,10 @@
                 <option>DHA</option>
                 <option>Gulshan</option>
             </select>
-           
+
         </div>
 
-          
+
 
         </div>
 
@@ -378,7 +380,6 @@
     </section>
 
     <!-- Hero Section -->
-
     <section id="hero">
         <div class="slider">
             <div class="slide active">
@@ -636,7 +637,7 @@
                     </p>
 
 
-                   
+
 
                     <!-- Special Instructions -->
                     <h5>Special Instructions</h5>
@@ -722,7 +723,6 @@
             </div>
         </div>
     </section>
-
     <section id="food popup">
         <div class="dark-overlay" id="popupOverlay">
             <div class="popup-card">
@@ -791,7 +791,7 @@
 
     <section id="banner">
         <div class="banner-wrapper">
-            <img src="assets/image/banner1.webp" alt="Food Banner" class="food-banner">
+            <img src="assets/image/banner/banner1.webp" alt="Food Banner" class="food-banner">
         </div>
 
     </section>
@@ -902,54 +902,55 @@
                         <span class="old-price">Rs. 350</span>
                         <span class="new-price">Rs. 499</span>
                     </div>
-                  
-                        <p class="product-description">
+
+                    <p class="product-description">
                         I Tikka ( Leg/ Chest) 1 Paratha 1 Drink
                     </p>
-                  
+
                     <!-- Rolls Selection -->
                     <div class="option-required">
                         <h5 class="rolk">Select Your Variant <span class="required-badge">required</span></h5>
-                      </div>
+                    </div>
 
                     <div class="roll-options">
                         <div class="roll-option" data-extra="58">
                             <label>
                                 <input type="radio" name="roll" value="58"> chest
                             </label>
-                           
+
                         </div>
                         <div class="roll-option" data-extra="52">
                             <label>
                                 <input type="radio" name="roll" value="52"> leg
                             </label>
                             <div class="option-required">
-                                <h5 class="rolk">Choose your desired drink <span class="required-badge">required</span></h5>
-                              </div>
+                                <h5 class="rolk">Choose your desired drink <span class="required-badge">required</span>
+                                </h5>
+                            </div>
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72"> pepsi
                             </label>
-                            
+
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72"> 7up
                             </label>
-                            
+
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72"> Mirinda
                             </label>
-                            
+
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72">Dew
                             </label>
-                            
+
                         </div>
                     </div>
 
@@ -982,7 +983,7 @@
     </section>
     <section id="banner">
         <div class="banner-wrapper">
-            <img src="assets/image/banner2.webp" alt="Food Banner" class="food-banner">
+            <img src="assets/image/banner/banner2.webp" alt="Food Banner" class="food-banner">
         </div>
 
     </section>
@@ -1104,7 +1105,7 @@
 
     <section id="banner">
         <div class="banner-wrapper">
-            <img src="assets/image/new banne.webp" alt="Food Banner" class="food-banner">
+            <img src="assets/image/banner/banner3.webp" alt="Food Banner" class="food-banner">
         </div>
 
     </section>
@@ -1112,8 +1113,6 @@
     <section id="food items">
 
         <div class="tray-container">
-
-
             <div class="tray-card">
                 <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
                 <img src="assets/image/o1.webp" alt="Tray 01">
@@ -1232,7 +1231,6 @@
     </section>
 
     <section id="search bar">
-
         <div class="search-btn" id="scroll-to-search">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
@@ -1302,7 +1300,7 @@
     </footer>
 
 </body>
-
+<!-- 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let slides = document.querySelectorAll(".slide");
@@ -1826,70 +1824,72 @@
 
 </script>
 <!-- food popup  -->
+
 <script>
-    const quantitySpan = document.getElementById("qty-display");
-const productPrice = document.getElementById("cart-price");
-
-document.addEventListener("DOMContentLoaded", function () {
-    let quantity = 1;
-    let basePrice = 1195; // actual price of the item
-    let extraPrice = 0;
-
-    const modalOverlay = document.querySelector(".modal-overlay");
-    const openPopup2Image = document.getElementById("openPopup2");
-    const closeModal = document.getElementById("closeModal");
     const quantitySpan = document.getElementById("qty-display");
     const productPrice = document.getElementById("cart-price");
 
-    let scrollPosition = 0;
+    document.addEventListener("DOMContentLoaded", function () {
+        let quantity = 1;
+        let basePrice = 1195; // actual price of the item
+        let extraPrice = 0;
 
-    function updatePrice() {
-        const newPrice = (basePrice + extraPrice) * quantity;
-        productPrice.textContent = `Rs. ${newPrice}`;
-    }
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const openPopup2Image = document.getElementById("openPopup2");
+        const closeModal = document.getElementById("closeModal");
+        const quantitySpan = document.getElementById("qty-display");
+        const productPrice = document.getElementById("cart-price");
 
-    function disableScroll() {
-        scrollPosition = window.scrollY;
-        document.body.style.position = "fixed";
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = "100%";
-    }
+        let scrollPosition = 0;
 
-    function enableScroll() {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        window.scrollTo(0, scrollPosition);
-    }
+        function updatePrice() {
+            const newPrice = (basePrice + extraPrice) * quantity;
+            productPrice.textContent = `Rs. ${newPrice}`;
+        }
 
-    openPopup2Image.addEventListener("click", () => {
-        modalOverlay.style.display = "flex";
-        disableScroll();
-        updatePrice();
-    });
+        function disableScroll() {
+            scrollPosition = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = "100%";
+        }
 
-    closeModal.addEventListener("click", () => {
-        modalOverlay.style.display = "none";
-        enableScroll();
-    });
+        function enableScroll() {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            window.scrollTo(0, scrollPosition);
+        }
 
-    document.querySelector(".increase").addEventListener("click", () => {
-        quantity++;
-        quantitySpan.textContent = quantity;
-        updatePrice();
-    });
+        openPopup2Image.addEventListener("click", () => {
+            modalOverlay.style.display = "flex";
+            disableScroll();
+            updatePrice();
+        });
 
-    document.querySelector(".decrease").addEventListener("click", () => {
-        if (quantity > 1) {
-            quantity--;
+        closeModal.addEventListener("click", () => {
+            modalOverlay.style.display = "none";
+            enableScroll();
+        });
+
+        document.querySelector(".increase").addEventListener("click", () => {
+            quantity++;
             quantitySpan.textContent = quantity;
             updatePrice();
-        }
+        });
+
+        document.querySelector(".decrease").addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+                updatePrice();
+            }
+        });
+
+        updatePrice();
     });
 
-    updatePrice();
-});
-
 </script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let quantity = 1;
@@ -1969,7 +1969,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updatePrice();
     });
-</script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -2066,6 +2066,6 @@ document.addEventListener("DOMContentLoaded", function () {
             btn.style.display = 'none';
         }
     });
-</script>
+</script> -->
 
 </html>
