@@ -315,8 +315,7 @@ input[type="text"] {
   position: sticky;
   top: 20px;
   align-self: flex-start;
-  background-color: #fff;
-  box-shadow: 0 4px 6px grey;
+ 
   /* Ensures it doesn’t stretch */
 }
 
@@ -329,6 +328,7 @@ input[type="text"] {
   background: #f0f0f0;
   margin-bottom: 20px;
   margin-top: 20px;
+  padding: 15px;
   border-radius: 10px;
 }
 .order-summary hr {
@@ -536,7 +536,7 @@ input[type="text"] {
   }
   .checkout-container {
     flex-direction: column;
-    padding: 0 20px;
+    padding-right: 15px ;
     justify-content: center;
 }
 
@@ -568,7 +568,7 @@ input[type="text"] {
 /* Additional fixes for input layout spacing */
 @media (max-width: 768px) {
   .checkout-container {
-    padding: 0 15px; /* Ensures equal left/right padding */
+ padding-right: 40px; /* Ensures equal left/right padding */
   }
 
   .checkout-left {
@@ -577,7 +577,10 @@ input[type="text"] {
     max-height: none;
     overflow: visible;
   }
-
+.checkout-right{
+  padding-left: 10px;
+  padding-right: 20px;
+}
   .row {
     flex-direction: column;
   }

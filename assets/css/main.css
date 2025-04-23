@@ -691,27 +691,25 @@ select {
 }
 
 /* Search Bar Styling and discount offer */
-.container {
+.containersh {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin: 30px auto 0 auto;
+justify-content: center;
   padding: 0 15px;
   box-sizing: border-box;
+  margin-top: 20px;
 }
 
-/* Common Box Styling for Search & Discount */
 .box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 14px 20px;
-  background: white;
   margin-bottom: 20px;
-  border-radius: 10px;
   box-sizing: border-box;
 }
 
@@ -721,6 +719,7 @@ select {
   border-radius: 30px;
   height: auto;
   padding: 5px 10px;
+  background: white;
 }
 
 .search-box input {
@@ -734,64 +733,65 @@ select {
   width: 100%;
 }
 
+.search-box button {
+  border: none;
+  background: black;
+  color: #d4af37;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .search-input::placeholder {
   color: black;
   opacity: 1;
 }
 
-.search-box button {
-  border: none;
-  background: black;
-  color: #d4af37;
-  padding: 8px 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Discount Section */
+/* Discount Box */
 .discount-box {
-  background: whitesmoke;
+  background: #f5f5f5;
   border-radius: 10px;
   padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .discount-text {
   font-size: 24px;
-  color: black;
   font-weight: bold;
+  color: #111;
 }
 
 .discount-circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   background-color: yellow;
   color: black;
   font-weight: bold;
   border-radius: 50%;
-  width: 76px;
-  height: 76px;
+  width: 60px;
+  height: 60px;
   text-align: center;
-  position: relative;
 }
 
-.discount-circle .discount-number {
-  font-size: 60px;
+.discount-number {
+  font-size: 28px;
   font-weight: bold;
-  line-height: 1;
-  margin-top: 10px;
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  .container{
+    margin-left: 0px;
 
-/* Tablets */
-@media (max-width: 1024px) {
+  }
   .box {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    margin-left: 0px;
   }
 
   .search-box {
@@ -802,73 +802,7 @@ select {
   .discount-box {
     flex-direction: row;
     justify-content: center;
-    text-align: center;
-  }
-
-  .discount-circle {
-    width: 60px;
-    height: 60px;
-  }
-
-  .discount-circle .discount-number {
-    font-size: 40px;
-    margin-top: 5px;
-  }
-
-  .discount-text {
-    font-size: 20px;
-  }
-}
-
-/* Smaller Tablets & Large Phones */
-@media (max-width: 768px) {
-  .search-box input {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .search-box button {
-    padding: 6px 8px;
-  }
-
-  .discount-text {
-    font-size: 18px;
-  }
-
-  .discount-circle {
-    width: 55px;
-    height: 55px;
-  }
-
-  .discount-circle .discount-number {
-    font-size: 30px;
-  }
-}
-
-/* Mobile Devices */
-@media (max-width: 480px) {
-  .box {
-    padding: 10px;
-    flex-direction: column;
-    align-items: stretch;
-  }
-#main-search-box{
-  display: flex;
-  flex-direction: row;
-}
-  .search-box {
-    width: 100%;
-    padding: 5px 10px;
-    border-radius: 20px;
-  }
-
-  .discount-box {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .discount-text {
-    font-size: 16px;
+    gap: 8px;
   }
 
   .discount-circle {
@@ -876,14 +810,27 @@ select {
     height: 50px;
   }
 
-  .discount-circle .discount-number {
+  .discount-number {
     font-size: 24px;
-    margin-top: 0;
+  }
+
+  .discount-text {
+    font-size: 18px;
   }
 }
-@media (max-width: 360px) {
+
+@media (max-width: 480px) {
+  .container{
+    margin-left: 0px;
+    
+  }
+  .discount-box {
+    flex-direction: column;
+    gap: 6px;
+  }
+
   .discount-text {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .discount-circle {
@@ -891,40 +838,16 @@ select {
     height: 45px;
   }
 
-  .discount-circle .discount-number {
+  .discount-number {
     font-size: 20px;
   }
 
-  .search-box input {
-    font-size: 12px;
-    padding: 6px;
-  }
-
-  .search-box button {
-    padding: 5px 7px;
-  }
-}
-@media (max-width: 320px) {
-  .discount-text {
+  .search-input {
     font-size: 13px;
   }
 
-  .discount-circle {
-    width: 40px;
-    height: 40px;
-  }
-
-  .discount-circle .discount-number {
-    font-size: 18px;
-  }
-
-  .search-box input {
-    font-size: 11px;
-    padding: 5px;
-  }
-
   .search-box button {
-    padding: 4px 6px;
+    padding: 8px;
   }
 }
 
@@ -2384,13 +2307,11 @@ body.dark-theme .close-button {
   align-items: center;
   border: 1px solid #000;
   border-radius: 25px;
-  width: fit-content;
-  font-size: 10px;
-  width: 20px;
+ 
 }
 
 .cart-item-btn span {
-  min-width: 15px;
+
   text-align: center;
   font-weight: bold;
 }
@@ -2468,6 +2389,48 @@ body.dark-theme .close-button {
 .add-items a{
   text-decoration: none;
   list-style-type: none;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+ 
+  margin: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.image-section img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.info-section {
+  flex: 1;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.price {
+  font-size: 24px;
+  color: green;
+}
+
+.required {
+  color: red;
 }
 
 .checkout-btn {
@@ -2694,6 +2657,7 @@ body.dark-theme .close-button {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
+ 
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -2861,6 +2825,7 @@ body.dark-theme .close-button {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 0px 10px;
 }
 
 .qty-button {
@@ -2941,7 +2906,21 @@ body.dark-theme .close-button {
   .cart-details {
     font-size: 16px;
   }
-
+  .cart-modal {
+    width: 100%;
+    max-width: 1100px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top:190px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
   .product-description,
   .roll-option,
   .special-instructionss textarea {

@@ -236,7 +236,7 @@
                 <div><p style="color: gray; margin-bottom: 5px;">Tray 02</p></div>
                 <div>Rs. 7500</div>
             </div>
-            <div class="cart-item-btn">
+            <div class="cart-item-btn" style="width: 0%;">
                 <button onclick="decreaseQty('qty1', 7500)">-</button>
                 <span id="qty1">1</span>
                 <button onclick="increaseQty('qty1', 7500)">+</button>
@@ -274,8 +274,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Plain Fries" />
                         <div class="recommend-info">
-                            <p class="price">Rs. 316</p>
-                            <p class="name">Plain Fries</p>
+                            <p class="price" style="color: black;">Rs. 316</p>
+                            <p class="name" style="margin-top: 5px;">Plain Fries</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -284,8 +284,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Plain Naan" />
                         <div class="recommend-info">
-                            <p class="price">Rs. 72</p>
-                            <p class="name">Plain Naan</p>
+                            <p class="price"style="color: black;">Rs. 72</p>
+                            <p class="name"style="margin-top: 5px;">Plain Naan</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -294,8 +294,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Paratha" />
                         <div class="recommend-info">
-                            <p class="price">Rs. 120</p>
-                            <p class="name">Paratha</p>
+                            <p class="price"style="color: black;">Rs. 120</p>
+                            <p class="name"style="margin-top: 5px;">Paratha</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -303,8 +303,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Paratha" />
                         <div class="recommend-info">
-                            <p class="price">Rs. 120</p>
-                            <p class="name">Paratha</p>
+                            <p class="price"style="color: black;">Rs. 120</p>
+                            <p class="name"style="margin-top: 5px;">Paratha</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -312,8 +312,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Paratha" />
                         <div class="recommend-info">
-                            <p class="price">Rs. 120</p>
-                            <p class="name">Paratha</p>
+                            <p class="price"style="color: black;">Rs. 120</p>
+                            <p class="name"style="margin-top: 5px;">Paratha</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -433,26 +433,24 @@
 
     <!-- search bar  -->
 
-    <section search & discount>
-        <div class="container">
-            <!-- Search Bar Section -->
-            <div class="box search-box" id="main-search-box">
-                <input type="text" class="search-input" placeholder="Search for item by title...">
-                <button><span><i class="fa-solid fa-arrow-right"></i></span></button>
+    <section class="search-discount-section">
+        <div class="containersh" style="margin-left: 0px;">
+          <!-- Search Box -->
+          <div class="box search-box" id="main-search-box">
+            <input type="text" class="search-input" placeholder="Search for item by title..." />
+            <button><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+      
+          <!-- Discount Box -->
+          <div class="box discount-box">
+            <span class="discount-text">Flat</span>
+            <div class="discount-circle">
+              <span class="discount-number">20</span>
             </div>
-
-
-            <div class="box discount-box">
-                <span class="discount-text">Flat</span>
-                <div class="discount-circle">
-                    <span class="discount-number">20</span>
-                    <!-- <span class="discount-symbol">%</span> -->
-                </div>
-                <span class="discount-text">% Off</span>
-            </div>
-
+            <span class="discount-text">% Off</span>
+          </div>
         </div>
-    </section>
+      </section>
 
     <section id="Popular iteams">
         <div class="popular-container">
@@ -576,7 +574,7 @@
                             <span class="qty-display" id="qty-display">1</span>
                             <button class="qty-button increase">+</button>
                         </div>
-                        <div class="cart-box">
+                        <div class="cart-box" style="padding-left: 0px;padding-right:0px ;">
                             <div class="cart-price" id="cart-price">Rs. 296</div>
                             <button class="cart-button">
                                 Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
@@ -1115,18 +1113,21 @@
 
 
             <div class="tray-card">
-                <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
+                <div class="discount-badge">20% OFF</div>
                 <img src="assets/image/o1.webp" alt="Tray 01">
                 <div class="tray-details">
-                    <div class="tray-title">Deal 01</div>
-                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
-                    <div class="tray-price">
-                        <span class="real-price"> Rs. 5000</span> <!-- ❌ Old Price -->
-                        <span class="discount-price">Rs. 4000</span> <!-- ✅ New Price -->
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
+                  <div class="tray-title">Deal 01</div>
+                  <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                  <div class="tray-price">
+                    <span class="real-price">Rs. 5000</span>
+                    <span class="discount-price">Rs. 4000</span>
+                  </div>
+                  <button id="addToCartModal" class="cart-button" onclick="addToCart()">
+                    Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                  </button>
+                  
                 </div>
-            </div>
+              </div>
 
             <div class="tray-card">
                 <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
@@ -1187,6 +1188,138 @@
 
         </div>
     </section>
+
+    
+  <!-- Modal Section -->
+<section id="card-offer" class="modal-section hidden">
+    <div class="modal-overlay">
+      <div class="cart-modal">
+        <div class="cart-header-food">
+          <div class="cart-icon" id="shareIcon">
+            <i class="fa-regular fa-share-nodes"></i>
+          </div>
+          <div class="cart-icon" id="closeModal">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+  
+        <div class="unique-share-options" id="uniqueShareOptions">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+  
+        <div class="container">
+          <div class="image-section">
+            <img src="your-image-url.jpg" alt="Deal Image" />
+          </div>
+          <div class="info-section">
+            <h1>Deal 2</h1>
+            <p class="price">Rs. 649</p>
+            <p>1 Tikka (Leg/Chest) | 1 Paratha | 1 Drink</p>
+  
+            <h3>Select Your Variant <span class="required">*</span></h3>
+            <label><input type="radio" name="variant" value="Chest" required> Chest</label><br>
+            <label><input type="radio" name="variant" value="Leg"> Leg</label>
+  
+            <h3>Choose your desired drink <span class="required">*</span></h3>
+            <label><input type="radio" name="drink" value="Pepsi" required> Pepsi</label><br>
+            <label><input type="radio" name="drink" value="7up"> 7up</label><br>
+            <label><input type="radio" name="drink" value="Mirinda"> Mirinda</label><br>
+            <label><input type="radio" name="drink" value="Dew"> Dew</label>
+  
+            <h3>Special Instructions</h3>
+            <textarea rows="4" cols="50" placeholder="Enter your instructions here..."></textarea>
+  
+            <div class="cart-contain">
+              <div class="qty-controls">
+                <button onclick="decreaseQuantity()">-</button>
+                <span id="quantity">1</span>
+                <button onclick="increaseQuantity()">+</button>
+              </div>
+              <div class="cart-box">
+                <div class="cart-price" id="total-price">Rs. 649</div>
+                <button class="cart-button" onclick="addToCart()">
+                  Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <script>
+        // Function to add item to cart
+function addToCart(itemDetails) {
+    // Logic to add the item to the cart
+    console.log("Item added to cart:", itemDetails);
+    // You can also update the cart UI here
+}
+
+// Event listener for the tray card button
+document.getElementById('addToCartTray').addEventListener('click', function() {
+    const itemDetails = {
+        title: "Deal 01",
+        description: "1 Chicken Peshawari Karahi Half + 3 Plain Naan",
+        price: 4000,
+        quantity: 1
+    };
+    addToCart(itemDetails);
+});
+
+// Event listener for the modal button
+document.getElementById('addToCartTray').addEventListener('click', function () {
+    // Remove 'hidden' class to show the modal
+    document.getElementById('card-offer').classList.remove('hidden');
+
+    // Optional: Update modal content dynamically
+    document.querySelector('.info-section h1').innerText = "Deal 01";
+    document.querySelector('.info-section .price').innerText = "Rs. 4000";
+    document.querySelector('.info-section p:nth-of-type(2)').innerText = "1 Chicken Peshawari Karahi Half + 3 Plain Naan";
+    
+    // Reset quantity
+    document.getElementById('quantity').innerText = "1";
+    updateTotalPrice();
+});
+    if (selectedVariant && selectedDrink) {
+        const itemDetails = {
+            title: "Deal 2",
+            description: `${selectedVariant.value} | ${selectedDrink.value}`,
+            price: 649,
+            quantity: quantity
+        };
+        addToCart(itemDetails);
+    } else {
+        alert("Please select a variant and a drink.");
+    }
+
+// Functions to increase and decrease quantity
+function increaseQuantity() {
+    const quantityElement = document.getElementById('quantity');
+    quantityElement.innerText = parseInt(quantityElement.innerText) + 1;
+    updateTotalPrice();
+}
+
+function decreaseQuantity() {
+    const quantityElement = document.getElementById('quantity');
+    if (parseInt(quantityElement.innerText) > 1) {
+        quantityElement.innerText = parseInt(quantityElement.innerText) - 1;
+        updateTotalPrice();
+    }
+}
+
+function updateTotalPrice() {
+    const quantity = parseInt(document.getElementById('quantity').innerText);
+    const pricePerItem = 649; // Update this based on the selected deal
+    document.getElementById('total-price').innerText = `Rs. ${pricePerItem * quantity}`;
+}
+document.getElementById('closeModal').addEventListener('click', function () {
+    document.getElementById('card-offer').classList.add('hidden');
+});
+      </script>
+      
 
     <section id="information">
         <div class="content-section">
