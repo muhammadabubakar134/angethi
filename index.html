@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/image/logo.webp">
     <title>Lucky broast</title>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="assets/js/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -23,7 +29,7 @@
         </div>
     </section>
 
-    <section id="popup implemation">
+    <section id="popup-implementation">
         <!-- Overlay for dimming effect -->
         <div class="custom-overlay" id="custom-overlay"></div>
 
@@ -348,10 +354,10 @@
     <section id="hero">
         <div class="slider">
             <div class="slide active">
-                <img src="assets/image/ff.jpg" alt="Banner 1">
+                <img src="./assets/image/ff.jpg" alt="Banner 1">
             </div>
             <div class="slide">
-                <img src="assets/image/ff2.png" alt="Banner 2">
+                <img src="./assets/image/ff2.png" alt="Banner 2">
             </div>
             <!-- Left Sidebar Button -->
             <button class="prev">&#10094;</button>
@@ -1179,7 +1185,7 @@
 
                 <div class="container">
                     <div class="image-section">
-                        <img src="your-image-url.jpg" alt="Deal Image" />
+                        <img src="assets/image/o1.webp" alt="Deal Image" />
                     </div>
                     <div class="info-section">
                         <h1>Deal 2</h1>
@@ -1300,7 +1306,7 @@
 
                 <h2 class="subheading">Explore the Kaybees Restaurant Menu</h2>
                 <p class="paragraph">At Kaybees, our extensive menu caters to diverse tastes. From traditional Desi
-                    foods to international favorites, we’ve got you covered.</p>
+                    foods to international favorites, we've got you covered.</p>
                 <p class="paragraph">And the best part? You can now enjoy all your favorite dishes from the comfort of
                     your home by ordering online directly from our website.</p>
 
@@ -1309,7 +1315,7 @@
                     <p class="paragraph">Our menu features a variety of BBQ, curries, fast food, and desserts that are
                         prepared with high-quality ingredients and authentic flavors.</p>
                     <p class="paragraph">At Kaybees, our extensive menu caters to diverse tastes. From traditional Desi
-                        foods to international favorites, we’ve got you covered.</p>
+                        foods to international favorites, we've got you covered.</p>
                     <p class="paragraph">And the best part? You can now enjoy all your favorite dishes from the comfort
                         of your home by ordering online directly from our website.</p>
 
@@ -1414,11 +1420,6 @@
         setTimeout(function () {
             $('#loading-screen').fadeOut('fast', function () {
                 openPopup('delivery-popup');
-
-                // Step 2: After 1 more second, show discount popup
-                setTimeout(function () {
-                    $('#popup-implementation').fadeIn('fast');
-                }, 1000);
             });
         }, 2000);
 
@@ -1438,6 +1439,17 @@
     function closePopup(popupId) {
         const popup = document.getElementById(popupId);
         if (popup) popup.style.display = 'none';
+
+        closePopupImplementation();
+    }
+
+    function showPopupImplementation() {
+        $('#popup-implementation').show();
+        // Step 2: After 1 more second, show discount popup
+        setTimeout(function () {
+
+            $('#popup-implementation').fadeIn('fast');
+        }, 1000);
     }
 
     function togglePopup(popupId) {
@@ -1665,7 +1677,7 @@
 </script>
 
 
-<script>
+<!-- <script>
 
     setTimeout(() => {
         document.getElementById("custom-popup").style.display = "block";
@@ -1680,7 +1692,7 @@
         document.documentElement.classList.remove("no-scroll");
     });
 
-</script>
+</script> -->
 
 <!-- scroll  -->
 <script>
