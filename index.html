@@ -7,7 +7,8 @@
     <link rel="icon" type="image/png" href="assets/image/logo.webp">
     <title>Lucky broast</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@
                 <!-- ✅ Delivery Popup -->
                 <div class="overlay" id="delivery-popup">
                     <div class="popup">
-                        <span class="close-btn"  onclick="closePopup('delivery-popup')">✖</span>
+                        <span class="close-btn" onclick="closePopup('delivery-popup')">✖</span>
                         <img src="assets/image/logo.webp" alt="Logo" class="popup-logo">
                         <h2>Please Select Your Area</h2>
                         <div class="btn-group">
@@ -65,47 +66,7 @@
                             disabled>Select</button>
                     </div>
                 </div>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script>
-                $(document).ready(function () {
-                    $('#loading-screen').show();             // Show loading first
-                    $('#delivery-popup').hide();             // Hide delivery popup initially
-                    $('#popup-implementation').hide();       // Hide discount popup initially
-                
-                    // Step 1: After 2 seconds, hide loading and show delivery popup
-                    setTimeout(function () {
-                        $('#loading-screen').fadeOut('fast', function () {
-                            openPopup('delivery-popup');
-                
-                            // Step 2: After 1 more second, show discount popup
-                            setTimeout(function () {
-                                $('#popup-implementation').fadeIn('fast');
-                            }, 1000);
-                        });
-                    }, 2000);
-                
-                    // Discount popup close button
-                    $('#custom-closePopup').on('click', function () {
-                        $('#popup-implementation').fadeOut();
-                    });
-                });
-                
-                // Utility functions
-                function openPopup(popupId) {
-                    document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
-                    const popup = document.getElementById(popupId);
-                    if (popup) popup.style.display = 'flex';
-                }
-                
-                function closePopup(popupId) {
-                    const popup = document.getElementById(popupId);
-                    if (popup) popup.style.display = 'none';
-                }
-                
-                function togglePopup(popupId) {
-                    openPopup(popupId);
-                }
-                </script>
+
                 <!-- ✅ Pickup Popup -->
                 <div class="overlay" id="pickup-popup">
                     <div class="popup">
@@ -232,30 +193,35 @@
             </div>
             <div class="cart-item" id="item1">
                 <img src="assets/image/t7.webp" alt="Tray 02">
-               <div class="cart-items-teayp">
-                <div><p style="color: gray; margin-bottom: 5px;">Tray 02</p></div>
-                <div>Rs. 7500</div>
-            </div>
-            <div class="cart-item-btn" style="width: 0%;">
-                <button onclick="decreaseQty('qty1', 7500)">-</button>
-                <span id="qty1">1</span>
-                <button onclick="increaseQty('qty1', 7500)">+</button>
-            </div>
+                <div class="cart-items-teayp">
+                    <div>
+                        <p style="color: gray; margin-bottom: 5px;">Tray 02</p>
+                    </div>
+                    <div>Rs. 7500</div>
+                </div>
+                <div class="cart-item-btn" style="width: 0%;">
+                    <button onclick="decreaseQty('qty1', 7500)">-</button>
+                    <span id="qty1">1</span>
+                    <button onclick="increaseQty('qty1', 7500)">+</button>
+                </div>
             </div>
             <div class="cart-item" id="item2">
                 <img src="assets/image/t7.webp" alt="Tray 03">
                 <div class="cart-items-teayp">
-                    <div><p style="color: gray;margin-bottom: 5px;">Tray 03</p></div>
-                <div>Rs. 10000</div>
-            </div>
-            <div class="cart-item-btn">
-                <button onclick="decreaseQty('qty2', 10000)">-</button>
-                <span id="qty2">2</span>
-                <button onclick="increaseQty('qty2', 10000)">+</button>
-            </div>
+                    <div>
+                        <p style="color: gray;margin-bottom: 5px;">Tray 03</p>
+                    </div>
+                    <div>Rs. 10000</div>
+                </div>
+                <div class="cart-item-btn">
+                    <button onclick="decreaseQty('qty2', 10000)">-</button>
+                    <span id="qty2">2</span>
+                    <button onclick="increaseQty('qty2', 10000)">+</button>
+                </div>
             </div>
 
-            <a class="add-items" href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html" id="addMoreItems">+ Add more items</a>
+            <a class="add-items" href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html"
+                id="addMoreItems">+ Add more items</a>
 
             <div class="recommend-header">
                 <div class="recommend-title-area">
@@ -284,8 +250,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Plain Naan" />
                         <div class="recommend-info">
-                            <p class="price"style="color: black;">Rs. 72</p>
-                            <p class="name"style="margin-top: 5px;">Plain Naan</p>
+                            <p class="price" style="color: black;">Rs. 72</p>
+                            <p class="name" style="margin-top: 5px;">Plain Naan</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -294,8 +260,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Paratha" />
                         <div class="recommend-info">
-                            <p class="price"style="color: black;">Rs. 120</p>
-                            <p class="name"style="margin-top: 5px;">Paratha</p>
+                            <p class="price" style="color: black;">Rs. 120</p>
+                            <p class="name" style="margin-top: 5px;">Paratha</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -303,8 +269,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Paratha" />
                         <div class="recommend-info">
-                            <p class="price"style="color: black;">Rs. 120</p>
-                            <p class="name"style="margin-top: 5px;">Paratha</p>
+                            <p class="price" style="color: black;">Rs. 120</p>
+                            <p class="name" style="margin-top: 5px;">Paratha</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -312,8 +278,8 @@
                     <div class="recommend-card">
                         <img src="assets/image/t2.webp" alt="Paratha" />
                         <div class="recommend-info">
-                            <p class="price"style="color: black;">Rs. 120</p>
-                            <p class="name"style="margin-top: 5px;">Paratha</p>
+                            <p class="price" style="color: black;">Rs. 120</p>
+                            <p class="name" style="margin-top: 5px;">Paratha</p>
                         </div>
                         <button class="add-btn">+</button>
                     </div>
@@ -329,7 +295,7 @@
                 <p><span>Grand Total:</span> <span>Rs. <span id="grandTotal">31775</span></span></p>
             </div>
 
-            <a href="pages/checkout.html"style="text-decoration: none;">
+            <a href="pages/checkout.html" style="text-decoration: none;">
                 <button class="cart-button" style="
                 width: 100%;
                 display: flex;
@@ -340,17 +306,17 @@
                 text-decoration: none;
                 list-style-type: none;
             ">
-                Checkout 
-                <span class="cart-symbol">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </span>
-            </button>
-            
-              </a>
-              <br>
-              <br>
-              
-              <div class="delivery-options">
+                    Checkout
+                    <span class="cart-symbol">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </button>
+
+            </a>
+            <br>
+            <br>
+
+            <div class="delivery-options">
                 <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
                 <button onclick="toggleDelivery(this, false)">PICKUP</button>
             </div>
@@ -367,10 +333,10 @@
                 <option>DHA</option>
                 <option>Gulshan</option>
             </select>
-           
+
         </div>
 
-          
+
 
         </div>
 
@@ -435,22 +401,22 @@
 
     <section class="search-discount-section">
         <div class="containersh" style="margin-left: 0px;">
-          <!-- Search Box -->
-          <div class="box search-box" id="main-search-box">
-            <input type="text" class="search-input" placeholder="Search for item by title..." />
-            <button><i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-      
-          <!-- Discount Box -->
-          <div class="box discount-box">
-            <span class="discount-text">Flat</span>
-            <div class="discount-circle">
-              <span class="discount-number">20</span>
+            <!-- Search Box -->
+            <div class="box search-box" id="main-search-box">
+                <input type="text" class="search-input" placeholder="Search for item by title..." />
+                <button><i class="fa-solid fa-arrow-right"></i></button>
             </div>
-            <span class="discount-text">% Off</span>
-          </div>
+
+            <!-- Discount Box -->
+            <div class="box discount-box">
+                <span class="discount-text">Flat</span>
+                <div class="discount-circle">
+                    <span class="discount-number">20</span>
+                </div>
+                <span class="discount-text">% Off</span>
+            </div>
         </div>
-      </section>
+    </section>
 
     <section id="Popular iteams">
         <div class="popular-container">
@@ -634,7 +600,7 @@
                     </p>
 
 
-                   
+
 
                     <!-- Special Instructions -->
                     <h5>Special Instructions</h5>
@@ -900,54 +866,55 @@
                         <span class="old-price">Rs. 350</span>
                         <span class="new-price">Rs. 499</span>
                     </div>
-                  
-                        <p class="product-description">
+
+                    <p class="product-description">
                         I Tikka ( Leg/ Chest) 1 Paratha 1 Drink
                     </p>
-                  
+
                     <!-- Rolls Selection -->
                     <div class="option-required">
                         <h5 class="rolk">Select Your Variant <span class="required-badge">required</span></h5>
-                      </div>
+                    </div>
 
                     <div class="roll-options">
                         <div class="roll-option" data-extra="58">
                             <label>
                                 <input type="radio" name="roll" value="58"> chest
                             </label>
-                           
+
                         </div>
                         <div class="roll-option" data-extra="52">
                             <label>
                                 <input type="radio" name="roll" value="52"> leg
                             </label>
                             <div class="option-required">
-                                <h5 class="rolk">Choose your desired drink <span class="required-badge">required</span></h5>
-                              </div>
+                                <h5 class="rolk">Choose your desired drink <span class="required-badge">required</span>
+                                </h5>
+                            </div>
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72"> pepsi
                             </label>
-                            
+
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72"> 7up
                             </label>
-                            
+
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72"> Mirinda
                             </label>
-                            
+
                         </div>
                         <div class="roll-option" data-extra="72">
                             <label>
                                 <input type="radio" name="roll" value="72">Dew
                             </label>
-                            
+
                         </div>
                     </div>
 
@@ -1116,18 +1083,18 @@
                 <div class="discount-badge">20% OFF</div>
                 <img src="assets/image/o1.webp" alt="Tray 01">
                 <div class="tray-details">
-                  <div class="tray-title">Deal 01</div>
-                  <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
-                  <div class="tray-price">
-                    <span class="real-price">Rs. 5000</span>
-                    <span class="discount-price">Rs. 4000</span>
-                  </div>
-                  <button id="addToCartModal" class="cart-button" onclick="addToCart()">
-                    Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
-                  </button>
-                  
+                    <div class="tray-title">Deal 01</div>
+                    <div class="tray-desc">1 Chicken Peshawari Karahi Half + 3 Plain Naan</div>
+                    <div class="tray-price">
+                        <span class="real-price">Rs. 5000</span>
+                        <span class="discount-price">Rs. 4000</span>
+                    </div>
+                    <button id="addToCartModal" class="cart-button" onclick="addToCart()">
+                        Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+
                 </div>
-              </div>
+            </div>
 
             <div class="tray-card">
                 <div class="discount-badge">20% OFF</div> <!-- 🔥 Discount Label -->
@@ -1189,137 +1156,137 @@
         </div>
     </section>
 
-    
-  <!-- Modal Section -->
-<section id="card-offer" class="modal-section hidden">
-    <div class="modal-overlay">
-      <div class="cart-modal">
-        <div class="cart-header-food">
-          <div class="cart-icon" id="shareIcon">
-            <i class="fa-regular fa-share-nodes"></i>
-          </div>
-          <div class="cart-icon" id="closeModal">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-  
-        <div class="unique-share-options" id="uniqueShareOptions">
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
-  
-        <div class="container">
-          <div class="image-section">
-            <img src="your-image-url.jpg" alt="Deal Image" />
-          </div>
-          <div class="info-section">
-            <h1>Deal 2</h1>
-            <p class="price">Rs. 649</p>
-            <p>1 Tikka (Leg/Chest) | 1 Paratha | 1 Drink</p>
-  
-            <h3>Select Your Variant <span class="required">*</span></h3>
-            <label><input type="radio" name="variant" value="Chest" required> Chest</label><br>
-            <label><input type="radio" name="variant" value="Leg"> Leg</label>
-  
-            <h3>Choose your desired drink <span class="required">*</span></h3>
-            <label><input type="radio" name="drink" value="Pepsi" required> Pepsi</label><br>
-            <label><input type="radio" name="drink" value="7up"> 7up</label><br>
-            <label><input type="radio" name="drink" value="Mirinda"> Mirinda</label><br>
-            <label><input type="radio" name="drink" value="Dew"> Dew</label>
-  
-            <h3>Special Instructions</h3>
-            <textarea rows="4" cols="50" placeholder="Enter your instructions here..."></textarea>
-  
-            <div class="cart-contain">
-              <div class="qty-controls">
-                <button onclick="decreaseQuantity()">-</button>
-                <span id="quantity">1</span>
-                <button onclick="increaseQuantity()">+</button>
-              </div>
-              <div class="cart-box">
-                <div class="cart-price" id="total-price">Rs. 649</div>
-                <button class="cart-button" onclick="addToCart()">
-                  Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
-                </button>
-              </div>
+
+    <!-- Modal Section -->
+    <section id="card-offer" class="modal-section hidden">
+        <div class="modal-overlay">
+            <div class="cart-modal">
+                <div class="cart-header-food">
+                    <div class="cart-icon" id="shareIcon">
+                        <i class="fa-regular fa-share-nodes"></i>
+                    </div>
+                    <div class="cart-icon" id="closeModal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+                <div class="unique-share-options" id="uniqueShareOptions">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <div class="container">
+                    <div class="image-section">
+                        <img src="your-image-url.jpg" alt="Deal Image" />
+                    </div>
+                    <div class="info-section">
+                        <h1>Deal 2</h1>
+                        <p class="price">Rs. 649</p>
+                        <p>1 Tikka (Leg/Chest) | 1 Paratha | 1 Drink</p>
+
+                        <h3>Select Your Variant <span class="required">*</span></h3>
+                        <label><input type="radio" name="variant" value="Chest" required> Chest</label><br>
+                        <label><input type="radio" name="variant" value="Leg"> Leg</label>
+
+                        <h3>Choose your desired drink <span class="required">*</span></h3>
+                        <label><input type="radio" name="drink" value="Pepsi" required> Pepsi</label><br>
+                        <label><input type="radio" name="drink" value="7up"> 7up</label><br>
+                        <label><input type="radio" name="drink" value="Mirinda"> Mirinda</label><br>
+                        <label><input type="radio" name="drink" value="Dew"> Dew</label>
+
+                        <h3>Special Instructions</h3>
+                        <textarea rows="4" cols="50" placeholder="Enter your instructions here..."></textarea>
+
+                        <div class="cart-contain">
+                            <div class="qty-controls">
+                                <button onclick="decreaseQuantity()">-</button>
+                                <span id="quantity">1</span>
+                                <button onclick="increaseQuantity()">+</button>
+                            </div>
+                            <div class="cart-box">
+                                <div class="cart-price" id="total-price">Rs. 649</div>
+                                <button class="cart-button" onclick="addToCart()">
+                                    Add to Cart <span class="cart-symbol"><i class="fa-solid fa-arrow-right"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
     <script>
         // Function to add item to cart
-function addToCart(itemDetails) {
-    // Logic to add the item to the cart
-    console.log("Item added to cart:", itemDetails);
-    // You can also update the cart UI here
-}
+        function addToCart(itemDetails) {
+            // Logic to add the item to the cart
+            console.log("Item added to cart:", itemDetails);
+            // You can also update the cart UI here
+        }
 
-// Event listener for the tray card button
-document.getElementById('addToCartTray').addEventListener('click', function() {
-    const itemDetails = {
-        title: "Deal 01",
-        description: "1 Chicken Peshawari Karahi Half + 3 Plain Naan",
-        price: 4000,
-        quantity: 1
-    };
-    addToCart(itemDetails);
-});
+        // Event listener for the tray card button
+        document.getElementById('addToCartTray').addEventListener('click', function () {
+            const itemDetails = {
+                title: "Deal 01",
+                description: "1 Chicken Peshawari Karahi Half + 3 Plain Naan",
+                price: 4000,
+                quantity: 1
+            };
+            addToCart(itemDetails);
+        });
 
-// Event listener for the modal button
-document.getElementById('addToCartTray').addEventListener('click', function () {
-    // Remove 'hidden' class to show the modal
-    document.getElementById('card-offer').classList.remove('hidden');
+        // Event listener for the modal button
+        document.getElementById('addToCartTray').addEventListener('click', function () {
+            // Remove 'hidden' class to show the modal
+            document.getElementById('card-offer').classList.remove('hidden');
 
-    // Optional: Update modal content dynamically
-    document.querySelector('.info-section h1').innerText = "Deal 01";
-    document.querySelector('.info-section .price').innerText = "Rs. 4000";
-    document.querySelector('.info-section p:nth-of-type(2)').innerText = "1 Chicken Peshawari Karahi Half + 3 Plain Naan";
-    
-    // Reset quantity
-    document.getElementById('quantity').innerText = "1";
-    updateTotalPrice();
-});
-    if (selectedVariant && selectedDrink) {
-        const itemDetails = {
-            title: "Deal 2",
-            description: `${selectedVariant.value} | ${selectedDrink.value}`,
-            price: 649,
-            quantity: quantity
-        };
-        addToCart(itemDetails);
-    } else {
-        alert("Please select a variant and a drink.");
-    }
+            // Optional: Update modal content dynamically
+            document.querySelector('.info-section h1').innerText = "Deal 01";
+            document.querySelector('.info-section .price').innerText = "Rs. 4000";
+            document.querySelector('.info-section p:nth-of-type(2)').innerText = "1 Chicken Peshawari Karahi Half + 3 Plain Naan";
 
-// Functions to increase and decrease quantity
-function increaseQuantity() {
-    const quantityElement = document.getElementById('quantity');
-    quantityElement.innerText = parseInt(quantityElement.innerText) + 1;
-    updateTotalPrice();
-}
+            // Reset quantity
+            document.getElementById('quantity').innerText = "1";
+            updateTotalPrice();
+        });
+        if (selectedVariant && selectedDrink) {
+            const itemDetails = {
+                title: "Deal 2",
+                description: `${selectedVariant.value} | ${selectedDrink.value}`,
+                price: 649,
+                quantity: quantity
+            };
+            addToCart(itemDetails);
+        } else {
+            alert("Please select a variant and a drink.");
+        }
 
-function decreaseQuantity() {
-    const quantityElement = document.getElementById('quantity');
-    if (parseInt(quantityElement.innerText) > 1) {
-        quantityElement.innerText = parseInt(quantityElement.innerText) - 1;
-        updateTotalPrice();
-    }
-}
+        // Functions to increase and decrease quantity
+        function increaseQuantity() {
+            const quantityElement = document.getElementById('quantity');
+            quantityElement.innerText = parseInt(quantityElement.innerText) + 1;
+            updateTotalPrice();
+        }
 
-function updateTotalPrice() {
-    const quantity = parseInt(document.getElementById('quantity').innerText);
-    const pricePerItem = 649; // Update this based on the selected deal
-    document.getElementById('total-price').innerText = `Rs. ${pricePerItem * quantity}`;
-}
-document.getElementById('closeModal').addEventListener('click', function () {
-    document.getElementById('card-offer').classList.add('hidden');
-});
-      </script>
-      
+        function decreaseQuantity() {
+            const quantityElement = document.getElementById('quantity');
+            if (parseInt(quantityElement.innerText) > 1) {
+                quantityElement.innerText = parseInt(quantityElement.innerText) - 1;
+                updateTotalPrice();
+            }
+        }
+
+        function updateTotalPrice() {
+            const quantity = parseInt(document.getElementById('quantity').innerText);
+            const pricePerItem = 649; // Update this based on the selected deal
+            document.getElementById('total-price').innerText = `Rs. ${pricePerItem * quantity}`;
+        }
+        document.getElementById('closeModal').addEventListener('click', function () {
+            document.getElementById('card-offer').classList.add('hidden');
+        });
+    </script>
+
 
     <section id="information">
         <div class="content-section">
@@ -1435,6 +1402,48 @@ document.getElementById('closeModal').addEventListener('click', function () {
     </footer>
 
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('#loading-screen').show();             // Show loading first
+        $('#delivery-popup').hide();             // Hide delivery popup initially
+        $('#pickup-popup').hide();               // Hide pickup popup initially
+        $('#popup-implementation').hide();       // Hide discount popup initially
+
+        // Step 1: After 2 seconds, hide loading and show delivery popup
+        setTimeout(function () {
+            $('#loading-screen').fadeOut('fast', function () {
+                openPopup('delivery-popup');
+
+                // Step 2: After 1 more second, show discount popup
+                setTimeout(function () {
+                    $('#popup-implementation').fadeIn('fast');
+                }, 1000);
+            });
+        }, 2000);
+
+        // Discount popup close button
+        $('#custom-closePopup').on('click', function () {
+            $('#popup-implementation').fadeOut();
+        });
+    });
+
+    // Utility functions
+    function openPopup(popupId) {
+        document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
+        const popup = document.getElementById(popupId);
+        if (popup) popup.style.display = 'flex';
+    }
+
+    function closePopup(popupId) {
+        const popup = document.getElementById(popupId);
+        if (popup) popup.style.display = 'none';
+    }
+
+    function togglePopup(popupId) {
+        openPopup(popupId);
+    }
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -1961,66 +1970,66 @@ document.getElementById('closeModal').addEventListener('click', function () {
 <!-- food popup  -->
 <script>
     const quantitySpan = document.getElementById("qty-display");
-const productPrice = document.getElementById("cart-price");
-
-document.addEventListener("DOMContentLoaded", function () {
-    let quantity = 1;
-    let basePrice = 1195; // actual price of the item
-    let extraPrice = 0;
-
-    const modalOverlay = document.querySelector(".modal-overlay");
-    const openPopup2Image = document.getElementById("openPopup2");
-    const closeModal = document.getElementById("closeModal");
-    const quantitySpan = document.getElementById("qty-display");
     const productPrice = document.getElementById("cart-price");
 
-    let scrollPosition = 0;
+    document.addEventListener("DOMContentLoaded", function () {
+        let quantity = 1;
+        let basePrice = 1195; // actual price of the item
+        let extraPrice = 0;
 
-    function updatePrice() {
-        const newPrice = (basePrice + extraPrice) * quantity;
-        productPrice.textContent = `Rs. ${newPrice}`;
-    }
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const openPopup2Image = document.getElementById("openPopup2");
+        const closeModal = document.getElementById("closeModal");
+        const quantitySpan = document.getElementById("qty-display");
+        const productPrice = document.getElementById("cart-price");
 
-    function disableScroll() {
-        scrollPosition = window.scrollY;
-        document.body.style.position = "fixed";
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = "100%";
-    }
+        let scrollPosition = 0;
 
-    function enableScroll() {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        window.scrollTo(0, scrollPosition);
-    }
+        function updatePrice() {
+            const newPrice = (basePrice + extraPrice) * quantity;
+            productPrice.textContent = `Rs. ${newPrice}`;
+        }
 
-    openPopup2Image.addEventListener("click", () => {
-        modalOverlay.style.display = "flex";
-        disableScroll();
-        updatePrice();
-    });
+        function disableScroll() {
+            scrollPosition = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = "100%";
+        }
 
-    closeModal.addEventListener("click", () => {
-        modalOverlay.style.display = "none";
-        enableScroll();
-    });
+        function enableScroll() {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            window.scrollTo(0, scrollPosition);
+        }
 
-    document.querySelector(".increase").addEventListener("click", () => {
-        quantity++;
-        quantitySpan.textContent = quantity;
-        updatePrice();
-    });
+        openPopup2Image.addEventListener("click", () => {
+            modalOverlay.style.display = "flex";
+            disableScroll();
+            updatePrice();
+        });
 
-    document.querySelector(".decrease").addEventListener("click", () => {
-        if (quantity > 1) {
-            quantity--;
+        closeModal.addEventListener("click", () => {
+            modalOverlay.style.display = "none";
+            enableScroll();
+        });
+
+        document.querySelector(".increase").addEventListener("click", () => {
+            quantity++;
             quantitySpan.textContent = quantity;
             updatePrice();
-        }
-    });
+        });
 
-    updatePrice();
-});
+        document.querySelector(".decrease").addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+                updatePrice();
+            }
+        });
+
+        updatePrice();
+    });
 
 </script>
 <script>
@@ -2102,7 +2111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updatePrice();
     });
-</script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
