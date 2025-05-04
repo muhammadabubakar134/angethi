@@ -175,7 +175,11 @@
 
     <section id="empty card">
         <div class="cart-popup" id="cartPopup">
-            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Empty">
+            <div class="cart-headerr">
+                <span>Your Cart</span>
+                <button onclick="closeCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <img src="./assets/image/cart-empty.png" alt="Cart Empty">
             <h3>Your cart is empty</h3>
             <p>Add items to get started</p>
         </div>
@@ -185,160 +189,6 @@
 
     </section>
 
-    <section id="order-card">
-        <!-- <button onclick="openCart()">Open Cart</button> -->
-        <div class="cart-container" id="cart">
-            <div class="cart-headerr">
-                <span>Your Cart</span>
-                <button onclick="closeCart()"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="cart-item" id="item1">
-                <img src="assets/image/t7.webp" alt="Tray 02">
-                <div class="cart-items-teayp">
-                    <div>
-                        <p style="color: gray; margin-bottom: 5px;">Tray 02</p>
-                    </div>
-                    <div>Rs. 7500</div>
-                </div>
-                <div class="cart-item-btn" style="width: 0%;">
-                    <button onclick="decreaseQty('qty1', 7500)">-</button>
-                    <span id="qty1">1</span>
-                    <button onclick="increaseQty('qty1', 7500)">+</button>
-                </div>
-            </div>
-            <div class="cart-item" id="item2">
-                <img src="assets/image/t7.webp" alt="Tray 03">
-                <div class="cart-items-teayp">
-                    <div>
-                        <p style="color: gray;margin-bottom: 5px;">Tray 03</p>
-                    </div>
-                    <div>Rs. 10000</div>
-                </div>
-                <div class="cart-item-btn">
-                    <button onclick="decreaseQty('qty2', 10000)">-</button>
-                    <span id="qty2">2</span>
-                    <button onclick="increaseQty('qty2', 10000)">+</button>
-                </div>
-            </div>
-
-            <a class="add-items" href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html"
-                id="addMoreItems">+ Add more items</a>
-
-            <div class="recommend-header">
-                <div class="recommend-title-area">
-                    <h4 class="recommend-title">Popular with your order</h4>
-                    <div class="recommend-controls">
-                        <button class="scroll-n prevv">←</button>
-                        <button class="scroll-n nextv">→</button>
-                    </div>
-                </div>
-            </div>
-            <p class="recommend-subtitle">Customers often buy these together</p>
-
-            <div class="recommend-wrapper">
-                <div class="recommend-container" id="recommend-scroll">
-                    <!-- Card 1 -->
-                    <div class="recommend-card">
-                        <img src="assets/image/t2.webp" alt="Plain Fries" />
-                        <div class="recommend-info">
-                            <p class="price" style="color: black;">Rs. 316</p>
-                            <p class="name" style="margin-top: 5px;">Plain Fries</p>
-                        </div>
-                        <button class="add-btn">+</button>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="recommend-card">
-                        <img src="assets/image/t2.webp" alt="Plain Naan" />
-                        <div class="recommend-info">
-                            <p class="price" style="color: black;">Rs. 72</p>
-                            <p class="name" style="margin-top: 5px;">Plain Naan</p>
-                        </div>
-                        <button class="add-btn">+</button>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="recommend-card">
-                        <img src="assets/image/t2.webp" alt="Paratha" />
-                        <div class="recommend-info">
-                            <p class="price" style="color: black;">Rs. 120</p>
-                            <p class="name" style="margin-top: 5px;">Paratha</p>
-                        </div>
-                        <button class="add-btn">+</button>
-                    </div>
-
-                    <div class="recommend-card">
-                        <img src="assets/image/t2.webp" alt="Paratha" />
-                        <div class="recommend-info">
-                            <p class="price" style="color: black;">Rs. 120</p>
-                            <p class="name" style="margin-top: 5px;">Paratha</p>
-                        </div>
-                        <button class="add-btn">+</button>
-                    </div>
-
-                    <div class="recommend-card">
-                        <img src="assets/image/t2.webp" alt="Paratha" />
-                        <div class="recommend-info">
-                            <p class="price" style="color: black;">Rs. 120</p>
-                            <p class="name" style="margin-top: 5px;">Paratha</p>
-                        </div>
-                        <button class="add-btn">+</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="cart-summary">
-                <p><span>Total:</span> <span>Rs. <span id="total">27500</span></span></p>
-                <p><span>Tax 15%:</span> <span>Rs. <span id="tax">4125</span></span></p>
-                <p><span>Delivery Fee:</span> <span>Rs. <span id="delivery">150</span></span></p>
-                <p><span>Grand Total:</span> <span>Rs. <span id="grandTotal">31775</span></span></p>
-            </div>
-
-            <a href="pages/checkout.html" style="text-decoration: none;">
-                <button class="cart-button" style="
-                width: 100%;
-                display: flex;
-                align-items: center;
-               
-                gap: 120px; /* space between text and icon */
-                text-align: center;
-                text-decoration: none;
-                list-style-type: none;
-            ">
-                    Checkout
-                    <span class="cart-symbol">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                </button>
-
-            </a>
-            <br>
-            <br>
-
-            <div class="delivery-options">
-                <button class="selected" onclick="toggleDelivery(this, true)">DELIVERY</button>
-                <button onclick="toggleDelivery(this, false)">PICKUP</button>
-            </div>
-            <div class="restaurant-info"></div>
-            <p>This is a <strong>TAKEAWAY ORDER</strong> 📦</p>
-            <p>You have to collect your order from</p>
-            <h3>Angethi Dha</h3>
-            <p><strong>Location:</strong> Shahbaz Commercial Area, Karachi</p>
-            <a href="#" class="view-location">View Location<a class="loact-icon"> <i
-                        class="fa-solid fa-location-dot"></a></i> </a>
-            <p class="number"><strong class="head">Phone:</strong> (021) 38899996</p>
-            <select class="area-select" id="areaSelect">
-                <option>Select Delivery Area</option>
-                <option>DHA</option>
-                <option>Gulshan</option>
-            </select>
-
-        </div>
-        </div>
-        </div>
-    </section>
 
     <!-- Hero Section -->
 
@@ -1459,57 +1309,6 @@
             openCart();
         }
 
-        function openCart() {
-            $("#cart, #cartOverlay").show();
-            sessionStorage.setItem("cartOpen", "true");
-        }
-
-        function closeCart() {
-            $("#cart, #cartOverlay").hide();
-            sessionStorage.removeItem("cartOpen");
-        }
-
-        function closeCartIconPopup() {
-            $("#cartPopup, #cartOverlay").removeClass("show");
-            $("body").removeClass("dimmed");
-        }
-
-        function showCartIconPopup() {
-            $("#cartPopup, #cartOverlay").addClass("show");
-            $("body").addClass("dimmed");
-        }
-
-        function updateTotal() {
-            let total = 0;
-            let uniqueItems = 0;
-
-            $(".cart-item").each(function () {
-                const qty = parseInt($(this).find("span").text());
-                const price = parseInt($(this).children().eq(2).text().replace("Rs. ", ""));
-                total += qty * price;
-                uniqueItems += qty;
-            });
-
-            const tax = total * 0.15;
-            const delivery = parseInt($("#delivery").text());
-            const grandTotal = total + tax + delivery;
-
-            $("#total").text(total || 0);
-            $("#tax").text(total ? tax : 0);
-            $("#grandTotal").text(total ? grandTotal : 0);
-            $(".cart-count, .cart-counting").text(uniqueItems);
-            $(".cart-price-bar").text(`Rs. ${grandTotal}`);
-
-            if (uniqueItems === 0) {
-                closeCart();
-                $("#bottom-card").hide();
-                $("#cartIcon").off("click").on("click", showCartIconPopup);
-            } else {
-                $("#bottom-card").show();
-                $("#cartIcon").off("click").on("click", openCart);
-            }
-        }
-
         window.removeItem = function (itemId) {
             $("#" + itemId).remove();
             updateTotal();
@@ -1557,6 +1356,61 @@
         // End of Cart Script (Opening, Closing, Toggling, Updating)
 
     });
+
+    // Start of Cart
+
+    function openCart() {
+        $("#cart, #cartOverlay").show();
+        sessionStorage.setItem("cartOpen", "true");
+    }
+
+    function closeCart() {
+        $("#cart, #cartOverlay").hide();
+        sessionStorage.removeItem("cartOpen");
+    }
+
+    function closeCartIconPopup() {
+        $("#cartPopup, #cartOverlay").removeClass("show");
+        $("body").removeClass("dimmed");
+    }
+
+    function showCartIconPopup() {
+        $("#cartPopup, #cartOverlay").addClass("show");
+        $("body").addClass("dimmed");
+    }
+
+    function updateTotal() {
+        let total = 0;
+        let uniqueItems = 0;
+
+        $(".cart-item").each(function () {
+            const qty = parseInt($(this).find("span").text());
+            const price = parseInt($(this).children().eq(2).text().replace("Rs. ", ""));
+            total += qty * price;
+            uniqueItems += qty;
+        });
+
+        const tax = total * 0.15;
+        const delivery = parseInt($("#delivery").text());
+        const grandTotal = total + tax + delivery;
+
+        $("#total").text(total || 0);
+        $("#tax").text(total ? tax : 0);
+        $("#grandTotal").text(total ? grandTotal : 0);
+        $(".cart-count, .cart-counting").text(uniqueItems);
+        $(".cart-price-bar").text(`Rs. ${grandTotal}`);
+
+        if (uniqueItems === 0) {
+            closeCart();
+            $("#bottom-card").hide();
+            $("#cartIcon").off("click").on("click", showCartIconPopup);
+        } else {
+            $("#bottom-card").show();
+            $("#cartIcon").off("click").on("click", openCart);
+        }
+    }
+
+    // End of Cart
 
 
     // Utility functions
