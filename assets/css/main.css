@@ -701,7 +701,6 @@ select {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  /* max-width: 1200px; */
   justify-content: center;
   padding: 0 15px;
   box-sizing: border-box;
@@ -849,7 +848,6 @@ select {
 
 .popular-container {
   width: 100%;
-  max-width: 1200px;
   margin: auto;
   /* padding: 25px 15px; */
   box-sizing: border-box;
@@ -1084,7 +1082,6 @@ select {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 33px;
-  max-width: 1200px;
   margin: auto;
   padding: 0 15px;
   box-sizing: border-box;
@@ -1350,7 +1347,6 @@ select {
 }
 
 .banner-wrapper {
-  max-width: 1200px;
   margin: auto;
   /* Center content horizontally */
   display: flex;
@@ -1407,7 +1403,6 @@ select {
 
 /* Content Container - Aligned Left */
 .content-container {
-  max-width: 1200px;
   width: 100%;
   padding: 0px;
   text-align: left;
@@ -1526,7 +1521,6 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
 }
@@ -3721,4 +3715,11 @@ h1 {
 .whatsapp-float img {
   width: 35px;
   height: 35px;
+}
+
+#main-container {
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
