@@ -1058,12 +1058,10 @@ select {
 
 .required-badge {
   background-color: #ffd700;
-  /* Yellow */
   color: black;
   font-size: 12px;
   padding: 2px 6px;
   border-radius: 4px;
-  margin-left: 10px;
   font-weight: 600;
   text-transform: lowercase;
 }
@@ -2790,6 +2788,9 @@ h1 {
 /* Roll Options */
 .rolk {
   margin: 15px 0 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .roll-options {
