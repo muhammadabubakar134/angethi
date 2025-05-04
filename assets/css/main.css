@@ -1059,13 +1059,13 @@ select {
 .required-badge {
   background-color: #ffd700;
   /* Yellow */
-  color: #000;
+  color: black;
   font-size: 12px;
   padding: 2px 6px;
   border-radius: 4px;
   margin-left: 10px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 /* products */
