@@ -1153,7 +1153,6 @@
         </div>
     </section>
 
-
     <!-- Modal Section -->
     <section id="card-offer" class="modal-section hidden">
         <div class="modal-overlay">
@@ -1214,77 +1213,6 @@
             </div>
         </div>
     </section>
-    <script>
-        // Function to add item to cart
-        function addToCart(itemDetails) {
-            // Logic to add the item to the cart
-            console.log("Item added to cart:", itemDetails);
-            // You can also update the cart UI here
-        }
-
-        // Event listener for the tray card button
-        document.getElementById('addToCartTray')?.addEventListener('click', function () {
-            const itemDetails = {
-                title: "Deal 01",
-                description: "1 Chicken Peshawari Karahi Half + 3 Plain Naan",
-                price: 4000,
-                quantity: 1
-            };
-            addToCart(itemDetails);
-        });
-
-        // Event listener for the modal button
-        document.getElementById('addToCartTray')?.addEventListener('click', function () {
-            // Remove 'hidden' class to show the modal
-            document.getElementById('card-offer').classList.remove('hidden');
-
-            // Optional: Update modal content dynamically
-            document.querySelector('.info-section h1').innerText = "Deal 01";
-            document.querySelector('.info-section .price').innerText = "Rs. 4000";
-            document.querySelector('.info-section p:nth-of-type(2)').innerText = "1 Chicken Peshawari Karahi Half + 3 Plain Naan";
-
-            // Reset quantity
-            document.getElementById('quantity').innerText = "1";
-            updateTotalPrice();
-        });
-
-        // if (selectedVariant && selectedDrink) {
-        //     const itemDetails = {
-        //         title: "Deal 2",
-        //         description: `${selectedVariant.value} | ${selectedDrink.value}`,
-        //         price: 649,
-        //         quantity: quantity
-        //     };
-        //     addToCart(itemDetails);
-        // } else {
-        //     alert("Please select a variant and a drink.");
-        // }
-
-        // Functions to increase and decrease quantity
-        function increaseQuantity() {
-            const quantityElement = document.getElementById('quantity');
-            quantityElement.innerText = parseInt(quantityElement.innerText) + 1;
-            updateTotalPrice();
-        }
-
-        function decreaseQuantity() {
-            const quantityElement = document.getElementById('quantity');
-            if (parseInt(quantityElement.innerText) > 1) {
-                quantityElement.innerText = parseInt(quantityElement.innerText) - 1;
-                updateTotalPrice();
-            }
-        }
-
-        function updateTotalPrice() {
-            const quantity = parseInt(document.getElementById('quantity').innerText);
-            const pricePerItem = 649; // Update this based on the selected deal
-            document.getElementById('total-price').innerText = `Rs. ${pricePerItem * quantity}`;
-        }
-        document.getElementById('closeModal').addEventListener('click', function () {
-            document.getElementById('card-offer').classList.add('hidden');
-        });
-    </script>
-
 
     <section id="information">
         <div class="content-section">
@@ -1316,7 +1244,7 @@
                 </div>
 
                 <!-- Show More / Show Less Button -->
-                <span class="toggle-button" onclick="toggleContent()">Show More</span>
+                <span class="toggle-button" onclick="btnShowMoreClick()">Show More</span>
             </div>
         </div>
     </section>
@@ -1402,35 +1330,245 @@
 </body>
 
 <script>
-    $(document).ready(function () {
-        $('#loading-screen').show();             // Show loading first
-        $('#delivery-popup').hide();             // Hide delivery popup initially
-        $('#pickup-popup').hide();               // Hide pickup popup initially
-        $('#popup-implementation').hide();       // Hide discount popup initially
 
-        // Step 1: After 2 seconds, hide loading and show delivery popup
+    $(document).ready(function () {
+
+        $('#loading-screen, #delivery-popup, #pickup-popup, #popup-implementation').hide();
+
+        // Uncomment if needed
+        /*
         setTimeout(function () {
             $('#loading-screen').fadeOut('fast', function () {
                 openPopup('delivery-popup');
             });
         }, 2000);
-
-        // Discount popup close button
+        
         $('#custom-closePopup').on('click', function () {
             $('#popup-implementation').fadeOut();
         });
+        */
+
+        // Show Slider
+        let $slides = $('.slide');
+        let $dots = $('.dot');
+        let $prevSlideButton = $('.prev');
+        let $nextSlideButton = $('.next');
+        let currentIndex = 0;
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function showSlide(index) {
+            $slides.removeClass('active').eq(index).addClass('active');
+            $dots.removeClass('active').eq(index).addClass('active');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % $slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + $slides.length) % $slides.length;
+            showSlide(currentIndex);
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 25000);
+        }
+
+        $nextSlideButton.on('click', function () {
+            nextSlide();
+            resetTimer();
+        });
+
+        $prevSlideButton.on('click', function () {
+            prevSlide();
+            resetTimer();
+        });
+
+        $dots.each(function (i) {
+            $(this).on('click', function () {
+                currentIndex = i;
+                showSlide(currentIndex);
+                resetTimer();
+            });
+        });
+
+        showSlide(currentIndex); // Initialize
+
+        // Scroll to top
+        const $navbar = $('.menu-list');
+        const $prevButton = $('#prevSection');
+        const $nextButton = $('#nextSection');
+
+        function checkScroll() {
+            const maxScrollLeft = $navbar[0].scrollWidth - $navbar[0].clientWidth;
+
+            $prevButton.css({
+                opacity: $navbar.scrollLeft() <= 0 ? "0" : "1",
+                pointerEvents: $navbar.scrollLeft() <= 0 ? "none" : "auto"
+            });
+
+            $nextButton.css({
+                opacity: $navbar.scrollLeft() >= maxScrollLeft - 1 ? "0" : "1",
+                pointerEvents: $navbar.scrollLeft() >= maxScrollLeft - 1 ? "none" : "auto"
+            });
+        }
+
+        $nextButton.on('click', function () {
+            $navbar[0].scrollBy({ left: 200, behavior: "smooth" });
+        });
+
+        $prevButton.on('click', function () {
+            $navbar[0].scrollBy({ left: -200, behavior: "smooth" });
+        });
+
+        $navbar.on('scroll', checkScroll);
+
+        checkScroll();
+
+        // Tray Cards
+        $('.tray-card').on('click', function () {
+            $('.tray-card').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Dark and Light Mode
+        const $sidebar = $('.sidebar-panel');
+        const $overlay = $('.overlay-backdrop');
+
+        $('.toggle-menu-icon').on('click', function () {
+            $sidebar.addClass('active');
+            $overlay.addClass('active');
+        });
+
+        $('.close-button, .overlay-backdrop').on('click', function () {
+            $sidebar.removeClass('active');
+            $overlay.removeClass('active');
+        });
+
+        $('#dark-mode-switch').on('change', function () {
+            $('body').toggleClass('dark-theme');
+        });
+
+        // Start of Cart Script (Opening, Closing, Toggling, Updating)
+
+        updateTotal();
+
+        if (sessionStorage.getItem("cartOpen") === "true") {
+            openCart();
+        }
+
+        function openCart() {
+            $("#cart, #cartOverlay").show();
+            sessionStorage.setItem("cartOpen", "true");
+        }
+
+        function closeCart() {
+            $("#cart, #cartOverlay").hide();
+            sessionStorage.removeItem("cartOpen");
+        }
+
+        function closeCartIconPopup() {
+            $("#cartPopup, #cartOverlay").removeClass("show");
+            $("body").removeClass("dimmed");
+        }
+
+        function showCartIconPopup() {
+            $("#cartPopup, #cartOverlay").addClass("show");
+            $("body").addClass("dimmed");
+        }
+
+        function updateTotal() {
+            let total = 0;
+            let uniqueItems = 0;
+
+            $(".cart-item").each(function () {
+                const qty = parseInt($(this).find("span").text());
+                const price = parseInt($(this).children().eq(2).text().replace("Rs. ", ""));
+                total += qty * price;
+                uniqueItems += qty;
+            });
+
+            const tax = total * 0.15;
+            const delivery = parseInt($("#delivery").text());
+            const grandTotal = total + tax + delivery;
+
+            $("#total").text(total || 0);
+            $("#tax").text(total ? tax : 0);
+            $("#grandTotal").text(total ? grandTotal : 0);
+            $(".cart-count, .cart-counting").text(uniqueItems);
+            $(".cart-price-bar").text(`Rs. ${grandTotal}`);
+
+            if (uniqueItems === 0) {
+                closeCart();
+                $("#bottom-card").hide();
+                $("#cartIcon").off("click").on("click", showCartIconPopup);
+            } else {
+                $("#bottom-card").show();
+                $("#cartIcon").off("click").on("click", openCart);
+            }
+        }
+
+        window.removeItem = function (itemId) {
+            $("#" + itemId).remove();
+            updateTotal();
+        };
+
+        window.increaseQty = function (id) {
+            const $qty = $("#" + id);
+            $qty.text(parseInt($qty.text()) + 1);
+            updateTotal();
+        };
+
+        window.decreaseQty = function (id) {
+            const $qty = $("#" + id);
+            if (parseInt($qty.text()) > 1) {
+                $qty.text(parseInt($qty.text()) - 1);
+                updateTotal();
+            }
+        };
+
+        window.toggleDelivery = function (btn, isDelivery) {
+            $(".delivery-options button").removeClass("selected");
+            $(btn).addClass("selected");
+            $("#delivery").text(isDelivery ? "150" : "0");
+            updateTotal();
+        };
+
+        $("#cartOverlay").on("click", function () {
+            closeCart();
+            closeCartIconPopup();
+        });
+
+        $("#closeCartBtn").on("click", closeCart);
+
+        $("#checkoutBtn").on("click", function () {
+            sessionStorage.setItem("cartOpen", "true");
+            window.location.href = "checkout.html";
+        });
+
+        $(document).on("click", function (event) {
+            if (!$(event.target).closest("#cartIcon, #cartPopup").length) {
+                closeCartIconPopup();
+            }
+        });
+
+        // End of Cart Script (Opening, Closing, Toggling, Updating)
+
     });
+
 
     // Utility functions
     function openPopup(popupId) {
-        document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
-        const popup = document.getElementById(popupId);
-        if (popup) popup.style.display = 'flex';
+        $('.overlay').hide();
+        const popup = $('#' + popupId);
+        if (popup.length) popup.css('display', 'flex');
     }
 
     function closePopup(popupId) {
-        const popup = document.getElementById(popupId);
-        if (popup) popup.style.display = 'none';
+        const popup = $('#' + popupId);
+        if (popup.length) popup.hide();
 
         closePopupImplementation();
     }
@@ -1439,7 +1577,6 @@
         $('#popup-implementation').show();
         // Step 2: After 1 more second, show discount popup
         setTimeout(function () {
-
             $('#popup-implementation').fadeIn('fast');
         }, 1000);
     }
@@ -1447,428 +1584,151 @@
     function togglePopup(popupId) {
         openPopup(popupId);
     }
-</script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let slides = document.querySelectorAll(".slide");
-        let dots = document.querySelectorAll(".dot");
-        let prevButton = document.querySelector(".prev");
-        let nextButton = document.querySelector(".next");
-        let currentIndex = 0;
-        let slideInterval = setInterval(nextSlide, 5000); // Auto-switch every 5 seconds
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle("active", i === index);
-                dots[i].classList.toggle("active", i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        // Event Listeners
-        nextButton.addEventListener("click", function () {
-            nextSlide();
-            resetTimer();
-        });
-
-        prevButton.addEventListener("click", function () {
-            prevSlide();
-            resetTimer();
-        });
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener("click", function () {
-                currentIndex = i;
-                showSlide(currentIndex);
-                resetTimer();
-            });
-        });
-
-        function resetTimer() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 25000);
-        }
-
-        showSlide(currentIndex); // Initialize first slide
-    });
-</script>
-
-<script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const navbar = document.querySelector(".menu-list");
-        const prevButton = document.querySelector("#prevSection");
-        const nextButton = document.querySelector("#nextSection");
-
-        function checkScroll() {
-            const maxScrollLeft = navbar.scrollWidth - navbar.clientWidth; // Max scrollable width
-
-            // Show/Hide Prev Button (Left)
-            if (navbar.scrollLeft <= 0) {
-                prevButton.style.opacity = "0";
-                prevButton.style.pointerEvents = "none";
-            } else {
-                prevButton.style.opacity = "1";
-                prevButton.style.pointerEvents = "auto";
-            }
-
-            // Show/Hide Next Button (Right)
-            if (navbar.scrollLeft >= maxScrollLeft - 1) {
-                nextButton.style.opacity = "0";
-                nextButton.style.pointerEvents = "none";
-            } else {
-                nextButton.style.opacity = "1";
-                nextButton.style.pointerEvents = "auto";
-            }
-        }
-
-        // Scroll Right (Next)
-        nextButton.addEventListener("click", function () {
-            navbar.scrollBy({ left: 200, behavior: "smooth" });
-        });
-
-        // Scroll Left (Prev)
-        prevButton.addEventListener("click", function () {
-            navbar.scrollBy({ left: -200, behavior: "smooth" });
-        });
-
-        // Check Scroll Position on Scroll
-        navbar.addEventListener("scroll", checkScroll);
-
-        // Initial Check
-        checkScroll();
-    });
-
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const trayCards = document.querySelectorAll(".tray-card");
-
-        trayCards.forEach(card => {
-            card.addEventListener("click", function () {
-                // Remove the active class from all cards
-                trayCards.forEach(c => c.classList.remove("active"));
-
-                // Add active class to the clicked card
-                this.classList.add("active");
-            });
-        });
-    });
-</script>
-
-<script>
-    function toggleContent() {
-        const content = document.querySelector('.hidden-content');
-        const button = document.querySelector('.toggle-button');
-
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block";
-            button.textContent = "Show Less";
-        } else {
-            content.style.display = "none";
-            button.textContent = "Show More";
-        }
-    }
-
-</script>
-
-<script>
-    function openPopup(id) {
-        document.getElementById(id).style.display = "flex";
-    }
-
-    function closePopup(id) {
-        document.getElementById(id).style.display = "none";
-    }
-
-    function togglePopup(id) {
-        closePopup("delivery-popup");
-        closePopup("pickup-popup");
-        document.getElementById(id).style.display = "flex";
-    }
-
+    // Update City Details, Branch Details, Header Text
     function updateCityDetails() {
-        document.getElementById("city-btn").classList.add("active");
-        document.getElementById("city-btn").disabled = false;
+        $('#city-btn').addClass('active').prop('disabled', false);
     }
 
     function updateBranchDetails() {
-        document.getElementById("branch-btn").classList.add("active");
-        document.getElementById("branch-btn").disabled = false;
+        $('#branch-btn').addClass('active').prop('disabled', false);
     }
 
     function updateHeaderText(type) {
-        let selectedText = type === "city" ? document.getElementById("city-select").value : document.getElementById("branch-select").value;
-        document.getElementById("selected-city").innerText = selectedText;
+        const selectedText = (type === "city") ? $('#city-select').val() : $('#branch-select').val();
+        $('#selected-city').text(selectedText);
         closePopup(type === "city" ? "delivery-popup" : "pickup-popup");
     }
-</script>
-<!-- cart  -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuIcon = document.querySelector(".toggle-menu-icon");
-        const sidebar = document.querySelector(".sidebar-panel");
-        const closeButton = document.querySelector(".close-button");
-        const overlay = document.querySelector(".overlay-backdrop");
-        const darkModeSwitch = document.getElementById("dark-mode-switch");
+    // Show more / less toggle
+    function btnShowMoreClick() {
+        const content = $('.hidden-content');
+        const button = $('.toggle-button');
 
-        function openMenu() {
-            sidebar.classList.add("active");
-            overlay.classList.add("active");
-        }
-
-        function closeMenu() {
-            sidebar.classList.remove("active");
-            overlay.classList.remove("active");
-        }
-
-        menuIcon.addEventListener("click", openMenu);
-        closeButton.addEventListener("click", closeMenu);
-        overlay.addEventListener("click", closeMenu);
-
-        darkModeSwitch.addEventListener("change", function () {
-            document.body.classList.toggle("dark-theme");
-        });
-    });
-</script>
-
-
-<!-- <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (!sessionStorage.getItem("loadingShown")) {
-            document.body.classList.add("no-scroll"); // Prevent scrolling
-
-            setTimeout(() => {
-                document.getElementById("loading-screen").style.opacity = "0";
-
-                setTimeout(() => {
-                    document.getElementById("loading-screen").style.display = "none";
-                    document.getElementById("main-content").style.display = "block";
-                    document.body.classList.remove("no-scroll"); // Allow scrolling again
-                }, 1500);
-            }, 3000);
-
-            sessionStorage.setItem("loadingShown", "true"); // Set flag to prevent showing again
+        if (content.css('display') === "none" || content.css('display') === "") {
+            content.show();
+            button.text("Show Less");
         } else {
-            document.getElementById("loading-screen").style.display = "none";
-            document.getElementById("main-content").style.display = "block";
+            content.hide();
+            button.text("Show More");
         }
+    }
+
+
+    // Start of Cart
+
+    function printLogs(key, value) {
+        console.log(key, value);
+    }
+
+    // Function to add item to cart
+    function addToCart(itemDetails) {
+        printLogs("Item added to cart:", itemDetails);
+    }
+
+    // jQuery event listener for the tray card button
+    $('#addToCartTray').on('click', function () {
+        const itemDetails = {
+            title: "Deal 01",
+            description: "1 Chicken Peshawari Karahi Half + 3 Plain Naan",
+            price: 4000,
+            quantity: 1
+        };
+        addToCart(itemDetails);
     });
-</script> -->
 
+    // jQuery event listener for the modal button
+    $('#addToCartTray').on('click', function () {
+        // Remove 'hidden' class to show the modal
+        $('#card-offer').removeClass('hidden');
 
-<!-- <script>
+        // Optional: Update modal content dynamically
+        $('.info-section h1').text("Deal 01");
+        $('.info-section .price').text("Rs. 4000");
+        $('.info-section p:nth-of-type(2)').text("1 Chicken Peshawari Karahi Half + 3 Plain Naan");
 
-    setTimeout(() => {
-        document.getElementById("custom-popup").style.display = "block";
-        document.getElementById("custom-overlay").style.display = "block";
-        document.documentElement.classList.add("no-scroll");
-    }, 15000);
-
-
-    document.getElementById("custom-closePopup").addEventListener("click", function () {
-        document.getElementById("custom-popup").style.display = "none";
-        document.getElementById("custom-overlay").style.display = "none";
-        document.documentElement.classList.remove("no-scroll");
+        // Reset quantity
+        $('#quantity').text("1");
+        updateTotalPrice();
     });
 
-</script> -->
+    // Functions to increase and decrease quantity
+    function increaseQuantity() {
+        const quantityElement = $('#quantity');
+        quantityElement.text(parseInt(quantityElement.text()) + 1);
+        updateTotalPrice();
+    }
 
-<!-- scroll  -->
-<script>
-    // Scroll to Top Functionality
-    let uniqueScrollTopBtn = document.getElementById("unique-scroll-top");
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 200) {
-            uniqueScrollTopBtn.style.display = "flex";
+    function decreaseQuantity() {
+        const quantityElement = $('#quantity');
+        if (parseInt(quantityElement.text()) > 1) {
+            quantityElement.text(parseInt(quantityElement.text()) - 1);
+            updateTotalPrice();
+        }
+    }
+
+    function updateTotalPrice() {
+        const quantity = parseInt($('#quantity').text());
+        const pricePerItem = 649; // Update this based on the selected deal
+        $('#total-price').text(`Rs. ${pricePerItem * quantity}`);
+    }
+
+    // jQuery event listener for closing the modal
+    $('#closeModal').on('click', function () {
+        $('#card-offer').addClass('hidden');
+    });
+
+    // End of Cart
+
+    $(window).on('scroll', function () {
+
+        // Start of Whatsapp Button
+
+        const halfPage = $(document).height() / 2;
+        const btn = $('#whatsappBtn');
+
+        if ($(window).scrollTop() > halfPage) {
+            btn.show();
         } else {
-            uniqueScrollTopBtn.style.display = "none";
+            btn.hide();
         }
-    });
 
-    uniqueScrollTopBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-</script>
+        // End of Whatsapp Button
 
-<script>
-    // Show search button when scrolling down
-    window.addEventListener("scroll", function () {
-        let searchButton = document.getElementById("scroll-to-search");
+        // Scroll to Top Button
 
-        if (window.scrollY > 100) { // Show after scrolling 100px
-            searchButton.classList.add("show");
+        if ($(window).scrollTop() > 200) {
+            $("#unique-scroll-top").css("display", "flex");
         } else {
-            searchButton.classList.remove("show");
+            $("#unique-scroll-top").css("display", "none");
+        }
+
+        // Scroll to Search Box Button
+
+        if ($(window).scrollTop() > 100) {
+            $("#scroll-to-search").addClass("show");
+        } else {
+            $("#scroll-to-search").removeClass("show");
         }
     });
 
-    // Scroll to search box when clicking the button
-    document.getElementById("scroll-to-search").addEventListener("click", function () {
-        let searchInput = document.querySelector(".search-input");
+    // Scroll to Top Button
 
-        // Scroll smoothly to search box
-        document.getElementById("main-search-box").scrollIntoView({ behavior: "smooth" });
+    $("#unique-scroll-top").on("click", function () {
+        $("html, body").animate({ scrollTop: 0 }, "smooth");
+    });
 
-        // Auto-focus on input field
+    // Scroll to Search Box Button
+
+    $("#scroll-to-search").on("click", function () {
+        const $searchInput = $(".search-input");
+        $("html, body").animate({
+            scrollTop: $("#main-search-box").offset().top
+        }, 500);
+
         setTimeout(() => {
-            searchInput.focus();
-        }, 500); // Small delay for smooth transition
-    });
-</script>
-
-<!-- order cart  -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        updateTotal(); // Update the cart count when the page loads
-
-        // Check if cart should be open when returning from checkout
-        if (sessionStorage.getItem("cartOpen") === "true") {
-            openCart();
-        }
-    });
-
-    const cartIcon = document.getElementById("cartIcon");
-    const cartPopup = document.getElementById("cartPopup");
-    const cartOverlay = document.getElementById("cartOverlay");
-    const cartContainer = document.getElementById("cart");
-    const closeCartBtn = document.getElementById("closeCartBtn"); // Close (X) button
-    const checkoutBtn = document.getElementById("checkoutBtn"); // Checkout button
-    const body = document.body;
-
-    function openCart() {
-        cartContainer.style.display = 'block';
-        cartOverlay.style.display = 'block';
-        sessionStorage.setItem("cartOpen", "true"); // Store state
-    }
-
-    function closeCart() {
-        cartContainer.style.display = 'none';
-        cartOverlay.style.display = 'none';
-        sessionStorage.removeItem("cartOpen"); // Remove state
-    }
-
-    // Close cart when clicking outside
-    cartOverlay.addEventListener('click', closeCart);
-
-    // Close cart when clicking the (X) button
-    if (closeCartBtn) {
-        closeCartBtn.addEventListener("click", closeCart);
-    }
-
-    // When clicking Checkout, store cart state
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener("click", function () {
-            sessionStorage.setItem("cartOpen", "true"); // Keep cart open when coming back
-            window.location.href = "checkout.html"; // Redirect to checkout
-        });
-    }
-
-    function removeItem(itemId) {
-        let item = document.getElementById(itemId);
-        if (item) {
-            item.remove();
-            updateTotal();
-        }
-    }
-
-    function increaseQty(id) {
-        let qty = document.getElementById(id);
-        qty.innerText = parseInt(qty.innerText) + 1;
-        updateTotal();
-    }
-
-    function decreaseQty(id) {
-        let qty = document.getElementById(id);
-        if (parseInt(qty.innerText) > 1) {
-            qty.innerText = parseInt(qty.innerText) - 1;
-            updateTotal();
-        }
-    }
-
-    function toggleDelivery(btn, isDelivery) {
-        document.querySelectorAll('.delivery-options button').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        document.getElementById('delivery').innerText = isDelivery ? '150' : '0';
-        updateTotal();
-    }
-
-    function updateTotal() {
-        let total = 0;
-        let uniqueItems = 0;
-
-        document.querySelectorAll('.cart-item').forEach(item => {
-            let qty = parseInt(item.querySelector('span').innerText);
-            let price = parseInt(item.children[2].innerText.replace('Rs. ', ''));
-            total += qty * price;
-            uniqueItems += qty; // Count the total number of items (considering quantity)
-        });
-
-        let tax = total * 0.15;
-        let delivery = parseInt(document.getElementById('delivery').innerText);
-        let grandTotal = total + tax + delivery;
-
-        document.getElementById('total').innerText = total || 0;
-        document.getElementById('tax').innerText = total ? tax : 0;
-        document.getElementById('grandTotal').innerText = total ? grandTotal : 0;
-
-        // **Update cart count (for cart icon and bottom card)**
-        document.querySelector('.cart-count').innerText = uniqueItems;
-        document.querySelector('.cart-counting').innerText = uniqueItems;  // Update count in bottom card
-
-        // **Update cart price in cart bar**
-        document.querySelector('.cart-price-bar').innerText = `Rs. ${total + tax + delivery}`;  // Update price in bottom card
-
-        // **If all items are removed, close cart and enable cart icon popup**
-        if (uniqueItems === 0) {
-            closeCart();
-            cartIcon.onclick = function () {
-                showCartIconPopup();
-            };
-            document.getElementById('bottom-card').style.display = 'none'; // Hide bottom card
-        } else {
-            // Reset cart icon click to open the cart when items exist
-            cartIcon.onclick = function () {
-                openCart();
-            };
-            document.getElementById('bottom-card').style.display = 'block'; // Show bottom card
-        }
-    }
-
-    // **Cart Icon Popup Behavior When Empty**
-    function showCartIconPopup() {
-        cartPopup.classList.add("show");
-        cartOverlay.classList.add("show");
-        body.classList.add("dimmed");
-    }
-
-    // **Close Cart Popup when clicking outside**
-    cartOverlay.addEventListener("click", closeCartIconPopup);
-
-    // **Function to Close Cart Icon Popup**
-    function closeCartIconPopup() {
-        cartPopup.classList.remove("show");
-        cartOverlay.classList.remove("show");
-        body.classList.remove("dimmed");
-    }
-
-    // **Close Cart Icon Popup when clicking outside of it**
-    document.addEventListener("click", (event) => {
-        if (!cartIcon.contains(event.target) && !cartPopup.contains(event.target)) {
-            closeCartIconPopup();
-        }
+            $searchInput.focus();
+        }, 500);
     });
 </script>
 
@@ -2038,6 +1898,7 @@
     });
 
 </script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let quantity = 1;
@@ -2192,30 +2053,21 @@
 </script>
 
 <script>
-    const scrollContainer = document.getElementById('recommend-scroll');
-    const nextBtn = document.querySelector('.scroll-n.nextv');
-    const prevBtn = document.querySelector('.scroll-n.prevv');
+    // const scrollContainer = document.getElementById('recommend-scroll');
+    // const nextBtn = document.querySelector('.scroll-n.nextv');
+    // const prevBtn = document.querySelector('.scroll-n.prevv');
 
-    nextBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
-    });
+    // nextBtn.addEventListener('click', () => {
+    //     scrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
+    // });
 
-    prevBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
-    });
+    // prevBtn.addEventListener('click', () => {
+    //     scrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
+    // });
 </script>
 
 <script>
-    window.addEventListener('scroll', function () {
-        const btn = document.getElementById('whatsappBtn');
-        const halfPage = document.documentElement.scrollHeight / 2;
 
-        if (window.scrollY > halfPage) {
-            btn.style.display = 'block';
-        } else {
-            btn.style.display = 'none';
-        }
-    });
 </script>
 
 </html>
