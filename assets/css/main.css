@@ -3259,7 +3259,7 @@ h1 {
 }
 
 #closePopup {
-  color: #f4b400;
+  color: var(--primary-color);
   /* Google-style gold */
 }
 
