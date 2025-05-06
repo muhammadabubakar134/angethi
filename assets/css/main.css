@@ -1350,7 +1350,9 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  /* height: 50vh; */
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .food-banner {
