@@ -1846,7 +1846,7 @@ body.dimmed {
 }
 
 .nav-option:hover {
-  background-color: #b08c2c;
+  background-color: var(--primary-color-50);
   transform: scale(1.01);
 }
 
@@ -1880,7 +1880,7 @@ body.dimmed {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #555252;
+  background-color: var(--primary-color);
   border-radius: 20px;
   transition: 0.4s;
 }
@@ -1892,7 +1892,7 @@ body.dimmed {
   width: 12px;
   left: 3px;
   bottom: 3px;
-  background-color: var(--white);
+  background-color: var(--secondary-color);
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -3101,7 +3101,7 @@ h1 {
 }
 
 .cart-price {
-  color: #c5a834;
+  color: var(--primary-color);
   font-size: 18px;
   font-weight: bold;
   padding: 12px 18px;
@@ -3112,7 +3112,7 @@ h1 {
 
 .cart-button {
   background: var(--secondary-color);
-  color: #c5a834;
+  color: var(--primary-color);
   font-size: 16px;
   font-weight: bold;
   padding: 12px 24px;
@@ -3131,7 +3131,7 @@ h1 {
 
 .cart-symbol {
   font-size: 16px;
-  background-color: #c5a834;
+  background-color: var(--primary-color);
   color: var(--white);
   border-radius: 50%;
   width: 26px;
