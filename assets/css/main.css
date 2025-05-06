@@ -203,7 +203,7 @@ select {
 /* ✅ Select Button */
 .select-btn {
   width: 100%;
-  background: gray;
+  background: var(--gray-color);
   color: var(--white);
   padding: 10px;
   font-size: 14px;
@@ -512,7 +512,7 @@ select {
 .dot {
   width: 8px;
   height: 8px;
-  background: gray;
+  background: var(--gray-color);
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
@@ -735,7 +735,7 @@ select {
 .search-box {
   display: flex;
   align-items: center;
-  border: 1px solid lightgray;
+  border: 1px solid var(--gray-color);
   border-radius: 30px;
   height: auto;
   padding: 5px 10px;
@@ -1165,7 +1165,7 @@ select {
 
 .tray-desc {
   font-size: 12px;
-  color: gray;
+  color: var(--gray-color);
   margin-bottom: 14px;
   line-height: 15px;
 }
@@ -1780,7 +1780,7 @@ body {
 
 .cart-popup p {
   font-size: 14px;
-  color: gray;
+  color: var(--gray-color);
   margin-top: 5px;
 }
 
