@@ -1,10 +1,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('variables.css');
 
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #fff;
-    color: white;
+    background-color: var(--white);
+    color: var(--white);
 }
 
 /* Header */
@@ -17,7 +18,7 @@ header {
   /* max-width: 1200px;  */
   margin: 0 auto; /* Centers the header */
   padding: 0px;
-  background-color: black;
+  background-color: var(--secondary-color);
 }
 
 .logo {
@@ -31,12 +32,12 @@ header {
 }
 
 .nav-button {
-    background-color: #d4af37;
+    background-color: var(--primary-color);
     padding: 10px 16px;
     font-size: 14px;
     border-radius: 5px;
     text-decoration: none;
-    color: black;
+    color: var(--secondary-color);
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -44,12 +45,12 @@ header {
 }
 
 .order-button {
-    background-color: #d4af37;
+    background-color: var(--primary-color);
     padding: 10px 16px;
     font-size: 14px;
     border-radius: 5px;
     text-decoration: none;
-    color: black;
+    color: var(--secondary-color);
     font-weight: bold;
     margin-right: 30px;
 }
@@ -175,7 +176,7 @@ header {
 .locations h1 {
   font-size: 30px;
   font-weight: bold;
-  color: black;
+  color: var(--secondary-color);
 }
 
 /* Location Container */
@@ -200,14 +201,14 @@ header {
 
 /* Location Heading */
 .location-box h2 {
-  color: black;
+  color: var(--secondary-color);
   font-size: 20px;
 }
 
 /* Location Details */
 .location-box p {
   font-size: 14px;
-  color: black;
+  color: var(--secondary-color);
   margin: 10px 0;
   display: flex;
   align-items: flex-start; /* Ensures text starts at the same level as the icon */
@@ -217,13 +218,13 @@ header {
 /* Icons */
 .location-box i {
   font-size: 14px;
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 /* Button */
 .location-button {
-  background-color: black;
-  color: black;
+  background-color: var(--secondary-color);
+  color: var(--secondary-color);
   font-weight: bold;
   border: none;
   padding: 10px 20px;
@@ -232,7 +233,7 @@ header {
   border-radius: 5px;
   font-size: 14px;
   transition: 0.3s;
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 .location-button:hover {
@@ -284,8 +285,8 @@ header {
 
 /* Footer Styling */
 .footer {
-  background: black;
-  color: white;
+  background: var(--secondary-color);
+  color: var(--white);;
   text-align: center;
   padding: 50px 30px;
   font-family: Arial, sans-serif;
@@ -329,7 +330,7 @@ header {
 
 .footer-links a {
   display: block;
-  color: white;
+  color: var(--white);;
   text-decoration: none;
   margin: 5px 0;
   font-size: 14px;
@@ -342,7 +343,7 @@ header {
 
 /* Bottom Copyright Section */
 .footer-bottom {
-  border-top: 1px solid #d4af37;
+  border-top: 1px solid var(--primary-color);
   margin-top: 20px;
   padding-top: 10px;
   font-size: 12px;
@@ -353,7 +354,7 @@ header {
 
 /* Designed & Developed */
 .footer-bottom a {
-  color: red;
+  color: var(--red);
   text-decoration: none;
 }
 
@@ -393,7 +394,7 @@ header {
   font-weight: bold;
   margin-top: 40px;
   margin-bottom: 40px;
-  color: #000;
+  color: var(--secondary-color);
 }
 
 .voucher-container {
@@ -451,7 +452,7 @@ header {
 
 .category {
   font-size: 12px;
-  color: #d4af37;
+  color: var(--primary-color);
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -459,7 +460,7 @@ header {
 h3 {
   font-size: 16px;
   margin: 10px 0;
-  color: #000;
+  color: var(--secondary-color);
 }
 
 .p1 {
@@ -469,7 +470,7 @@ h3 {
 
 .blog-meta {
   font-size: 12px;
-  color: #000;
+  color: var(--secondary-color);
 }
 
 /* Responsive Styles */
