@@ -1373,6 +1373,8 @@
     }
 
     $(document).ready(function () {
+
+        let firstDeliveryPopup = true;
         // Show loading screen first
         $('#loading-screen').show();
         $('#delivery-popup, #pickup-popup, #popup-implementation').hide();
@@ -1387,13 +1389,24 @@
         // When select button in delivery-popup is pressed
         $('#city-btn').on('click', function () {
             $('#delivery-popup').hide();
-            displayPopupImplementation();
+            if (firstDeliveryPopup) {
+                displayPopupImplementation();
+                firstDeliveryPopup = false;
+            }
         });
 
         // When select button in pickup-popup is pressed
         $('#branch-btn').on('click', function () {
             $('#pickup-popup').hide();
-            displayPopupImplementation();
+            if (firstDeliveryPopup) {
+                displayPopupImplementation();
+                firstDeliveryPopup = false;
+            }
+        });
+
+        // When user clicks "Change Location", just show the popup, don't set the flag
+        $('.location-container').on('click', function () {
+            $('#delivery-popup').css('display', 'flex');
         });
 
         // Uncomment if needed
