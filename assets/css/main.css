@@ -783,7 +783,7 @@ select {
 .discount-text {
   font-size: 24px;
   font-weight: bold;
-  color: #111;
+  color: var(--black);
 }
 
 .discount-circle {
@@ -860,7 +860,7 @@ select {
 .popular-header {
   font-size: 18px;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: var(--black);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -874,7 +874,7 @@ select {
 
 .popular-subtext {
   font-size: 16px;
-  color: var(--secondary-color);
+  color: var(--black);
   margin-bottom: 20px;
 }
 
@@ -1545,14 +1545,14 @@ select {
 .footer-left h3 {
   font-size: 18px;
   /* font-weight: bold; */
-  color: var(--secondary-color);
+  color: var(--black);
   margin-bottom: 10px;
 }
 
 .footer-left p,
 .footer-left a {
   font-size: 16px;
-  color: var(--secondary-color);
+  color: var(--black);
   text-decoration: none;
   margin-bottom: 8px;
   display: block;
@@ -1568,7 +1568,7 @@ select {
 .social-icons a {
   width: 25px;
   height: 25px;
-  background-color: #007bff;
+  background-color: var(--social-icons);
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -1587,7 +1587,7 @@ select {
 .footer-right h3 {
   font-size: 18px;
   /* font-weight: bold; */
-  color: var(--secondary-color);
+  color: var(--black);
   margin-bottom: 10px;
   padding: 0px 130px;
 }
@@ -1601,7 +1601,7 @@ select {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  color: var(--secondary-color);
+  color: var(--black);
   padding: 5px 130px;
   width: 250px;
 }
@@ -1610,7 +1610,7 @@ select {
 .footer-bottom {
   text-align: center;
   font-size: 16px;
-  color: var(--secondary-color);
+  color: var(--black);
   font-weight: bold;
   padding: 8px 0px;
   border-top: 2px solid #cfc9c9;
@@ -1626,7 +1626,7 @@ select {
 }
 
 .colo {
-  color: var(--secondary-color);
+  color: var(--black);
 }
 
 
