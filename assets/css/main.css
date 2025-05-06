@@ -2506,7 +2506,7 @@ h1 {
 
 .delivery-options button.selected {
   background-color: var(--secondary-color);
-  color: #f1c40f;
+  color: var(--primary-color);
 }
 
 .cart-container,
