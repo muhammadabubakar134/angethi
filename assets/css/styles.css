@@ -739,7 +739,7 @@ body.dark-theme .close-button {
 
 .contact-container h3 {
   font-size: 18px;
-  color: var(--primary-color); /* Gold color */
+  color: var(--secondary-color); /* Gold color */
   font-weight: bold;
   margin-bottom: 25px; /* Increased spacing for better readability */
   text-align: left; /* Ensure heading is aligned to the left */
