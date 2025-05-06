@@ -1,11 +1,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 @import url('variables.css');
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--white);
-    color: var(--white);
+.white-body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--white);
 }
 
 /* Header */
@@ -14,45 +14,48 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%; /* Adjust this value as needed */
+  width: 100%;
+  /* Adjust this value as needed */
   /* max-width: 1200px;  */
-  margin: 0 auto; /* Centers the header */
-  padding: 0px;
+  margin: 0 auto;
+  /* Centers the header */
+  padding: 10px 0px;
   background-color: var(--secondary-color);
 }
 
 .logo {
   margin-left: 50px;
-    width: 130px; /* Adjust size as needed */
+  width: 80px;
+  /* Adjust size as needed */
 }
 
 .buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .nav-button {
-    background-color: var(--primary-color);
-    padding: 10px 16px;
-    font-size: 14px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  background-color: var(--primary-color);
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .order-button {
-    background-color: var(--primary-color);
-    padding: 10px 16px;
-    font-size: 14px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: bold;
-    margin-right: 30px;
+  background-color: var(--primary-color);
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin-right: 30px;
 }
 
 
@@ -120,7 +123,8 @@ header {
 .banner {
   position: relative;
   width: 100%;
-  height: auto; /* Adjusts dynamically */
+  height: auto;
+  /* Adjusts dynamically */
 }
 
 .banner img {
@@ -131,29 +135,30 @@ header {
 
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Adjust brightness */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  /* Adjust brightness */
 }
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .content h1 {
-    font-size: 40px;
-    font-weight: bold;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .content p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 
@@ -182,8 +187,10 @@ header {
 /* Location Container */
 .location-container {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping to the next line */
-  justify-content: space-between; /* Ensures even spacing */
+  flex-wrap: wrap;
+  /* Allows wrapping to the next line */
+  justify-content: space-between;
+  /* Ensures even spacing */
   gap: 20px;
   max-width: 1200px;
   margin: 20px auto;
@@ -193,10 +200,12 @@ header {
 .location-box {
   background: #f0f0f0;
   padding: 20px;
-  width: calc(50% - 10px); /* Ensures 2 boxes per row */
+  width: calc(50% - 10px);
+  /* Ensures 2 boxes per row */
   border-radius: 10px;
   text-align: left;
-  box-sizing: border-box; /* Prevents overflow issues */
+  box-sizing: border-box;
+  /* Prevents overflow issues */
 }
 
 /* Location Heading */
@@ -211,7 +220,8 @@ header {
   color: var(--secondary-color);
   margin: 10px 0;
   display: flex;
-  align-items: flex-start; /* Ensures text starts at the same level as the icon */
+  align-items: flex-start;
+  /* Ensures text starts at the same level as the icon */
   gap: 8px;
 }
 
@@ -244,7 +254,8 @@ header {
 /* Responsive: Stack boxes on small screens */
 @media (max-width: 768px) {
   .location-box {
-      width: 100%; /* Each location box takes full width on small screens */
+    width: 100%;
+    /* Each location box takes full width on small screens */
   }
 }
 
@@ -256,9 +267,12 @@ header {
 
 
 .map-container {
-  width: 100%;  /* Full width of the container */
-  height: 70vh;  /* Proper height */
-  margin: 0px 0; /* Adds space above and below */
+  width: 100%;
+  /* Full width of the container */
+  height: 70vh;
+  /* Proper height */
+  margin: 0px 0;
+  /* Adds space above and below */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,14 +282,16 @@ header {
 .map-container iframe {
   width: 100%;
   height: 100%;
-  border: none; /* Removes iframe border */
+  border: none;
+  /* Removes iframe border */
   display: block;
 }
 
 /* Responsive Fix */
 @media (max-width: 768px) {
   .map-container {
-      height: 50vh; /* Reduce height for mobile */
+    height: 50vh;
+    /* Reduce height for mobile */
   }
 }
 
@@ -286,7 +302,8 @@ header {
 /* Footer Styling */
 .footer {
   background: var(--secondary-color);
-  color: var(--white);;
+  color: var(--white);
+  ;
   text-align: center;
   padding: 50px 30px;
   font-family: Arial, sans-serif;
@@ -325,12 +342,13 @@ header {
 .footer-links {
   flex: 1;
   text-align: center;
-/* margin-right: -50px; */
+  /* margin-right: -50px; */
 }
 
 .footer-links a {
   display: block;
-  color: var(--white);;
+  color: var(--white);
+  ;
   text-decoration: none;
   margin: 5px 0;
   font-size: 14px;
@@ -365,13 +383,13 @@ header {
 /* Responsive */
 @media (max-width: 768px) {
   .footer-container {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .footer-text, .footer-logo, .footer-links {
-      max-width: 100%;
-      text-align: center;
+    max-width: 100%;
+    text-align: center;
   }
 }
 
@@ -380,49 +398,57 @@ header {
 
 
 
-/* bank discounts  */
+/* Start Bank Discounts  */
 
 .discount-section {
   max-width: 1200px;
   margin: auto;
   margin-bottom: 20px;
+
+  .discount-title {
+    text-align: center;
+    font-size: 25;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+  }
+
+  .voucher-container {
+    display: flex;
+    justify-content: flex-start;
+    /* Align items to the left */
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .voucher {
+      width: calc(50% - 10px);
+      /* Ensure two vouchers per row with spacing */
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+      }
+    }
+  }
 }
 
-.discount-title {
-  text-align: center;
-  font-size: 25;
-  font-weight: bold;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  color: var(--secondary-color);
-}
-
-.voucher-container {
-  display: flex;
-  justify-content: flex-start; /* Align items to the left */
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.voucher {
-  width: calc(50% - 10px); /* Ensure two vouchers per row with spacing */
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-}
-
-.voucher img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
 
 
 
 
 
-/* blogs  */
 
+/* End Bank Discounts  */
+
+
+
+
+/* Start Blogs  */
 
 .blog-section {
   max-width: 1200px;
@@ -430,77 +456,66 @@ header {
   padding: 20px;
   margin-top: 40px;
   margin-bottom: 30px;
-}
 
-.blog-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start; /* Ensures new rows start from left */
-}
+  .blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    /* Ensures new rows start from left */
 
-.blog-box {
-  width: calc(33.333% - 14px); /* Ensures exactly 3 blog boxes in one row */
-  max-width: 400px;
-  padding: 0; /* Removes background padding */
-}
+    .blog-box {
+      width: calc(33.333% - 14px);
+      /* Ensures exactly 3 blog boxes in one row */
+      max-width: 400px;
+      padding: 0;
+      /* Removes background padding */
 
-.blog-box img {
-  width: 100%;
-  border-radius: 8px;
-}
+      img {
+        width: 100%;
+        border-radius: 8px;
+      }
 
-.category {
-  font-size: 12px;
-  color: var(--primary-color);
-  font-weight: bold;
-  text-transform: uppercase;
-}
+      .category {
+        font-size: 12px;
+        color: var(--primary-color);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
 
-h3 {
-  font-size: 16px;
-  margin: 10px 0;
-  color: var(--secondary-color);
-}
+      h3 {
+        font-size: 16px;
+        margin: 10px 0;
+        color: var(--secondary-color);
+      }
 
-.p1 {
-  font-size: 14px;
-  color: #555;
-}
+      .p1 {
+        font-size: 14px;
+        color: #555;
+      }
 
-.blog-meta {
-  font-size: 12px;
-  color: var(--secondary-color);
+      .blog-meta {
+        font-size: 12px;
+        color: var(--secondary-color);
+      }
+
+    }
+  }
 }
 
 /* Responsive Styles */
 @media (max-width: 992px) {
   .blog-box {
-      width: calc(50% - 10px); /* Two blog boxes per row on tablets */
+    width: calc(50% - 10px);
+    /* Two blog boxes per row on tablets */
   }
 }
 
 @media (max-width: 768px) {
   .blog-box {
-      width: 100%; /* Single blog box per row on mobile */
+    width: 100%;
+    /* Single blog box per row on mobile */
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* End Blogs  */
