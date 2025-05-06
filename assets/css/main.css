@@ -1388,6 +1388,14 @@ select {
   }
 }
 
+@media (max-width: 600px) {
+  .food-banner {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
 
 /* information  */
 
