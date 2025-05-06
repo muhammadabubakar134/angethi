@@ -98,13 +98,10 @@
                                 Directions</a>
                         </div>
 
-
                         <button id="branch-btn" class="select-btn" onclick="updateHeaderText('branch')"
                             disabled>Select</button>
                     </div>
                 </div>
-
-
 
                 <span class="contact">
                     <i class="fa-solid fa-phone"></i>
@@ -1370,11 +1367,35 @@
 <script>
 
     $(document).ready(function () {
+        // Show loading screen first
+        $('#loading-screen').show();
+        $('#delivery-popup, #pickup-popup, #popup-implementation').hide();
 
-        $('#loading-screen, #delivery-popup, #pickup-popup, #popup-implementation').hide();
+        // After 4 seconds, hide loading and show delivery popup
+        setTimeout(function () {
+            $('#loading-screen').fadeOut('fast', function () {
+                $('#delivery-popup').css('display', 'flex');
+            });
+        }, 4000);
+
+        // When select button in delivery-popup is pressed
+        $('#city-btn').on('click', function () {
+            $('#delivery-popup').hide();
+            $('#popup-implementation').fadeIn('fast', function() {
+                $('#custom-popup, #custom-overlay').fadeIn('fast');
+            });
+        });
+
+        // When select button in pickup-popup is pressed
+        $('#branch-btn').on('click', function () {
+            $('#pickup-popup').hide();
+            $('#popup-implementation').fadeIn('fast', function() {
+                $('#custom-popup, #custom-overlay').fadeIn('fast');
+            });
+        });
 
         // Uncomment if needed
-        /*
+        
         setTimeout(function () {
             $('#loading-screen').fadeOut('fast', function () {
                 openPopup('delivery-popup');
@@ -1384,7 +1405,7 @@
         $('#custom-closePopup').on('click', function () {
             $('#popup-implementation').fadeOut();
         });
-        */
+        
 
         // Show Slider
         let $slides = $('.slide');
