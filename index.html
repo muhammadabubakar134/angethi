@@ -1366,6 +1366,12 @@
 
 <script>
 
+    function displayPopupImplementation() {
+        $('#popup-implementation').fadeIn('fast', function() {
+            $('#custom-popup, #custom-overlay').fadeIn('fast');
+        });
+    }
+
     $(document).ready(function () {
         // Show loading screen first
         $('#loading-screen').show();
@@ -1381,17 +1387,13 @@
         // When select button in delivery-popup is pressed
         $('#city-btn').on('click', function () {
             $('#delivery-popup').hide();
-            $('#popup-implementation').fadeIn('fast', function() {
-                $('#custom-popup, #custom-overlay').fadeIn('fast');
-            });
+            displayPopupImplementation();
         });
 
         // When select button in pickup-popup is pressed
         $('#branch-btn').on('click', function () {
             $('#pickup-popup').hide();
-            $('#popup-implementation').fadeIn('fast', function() {
-                $('#custom-popup, #custom-overlay').fadeIn('fast');
-            });
+            displayPopupImplementation();
         });
 
         // Uncomment if needed
