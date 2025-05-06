@@ -1,3 +1,4 @@
+@import url('variables.css');
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -63,20 +64,20 @@ input, select, textarea {
 }
 
 .view-location {
-  color: blue;
+  color: var(--blue);
   text-decoration: none;
 }
 
 .loact-icon {
-  color: red;
+  color: var(--red);
 }
 
 .number {
-  color: blue;
+  color: var(--blue);
 }
 
 .head {
-  color: #000;
+  color: var(--black);
 }
 
 .headind-main {
@@ -85,7 +86,7 @@ input, select, textarea {
 }
 
 .required {
-  color: red;
+  color: var(--red);
 }
 
 
@@ -155,22 +156,22 @@ textarea {
 }
 
 .payment-btn:first-child {
-  background: black;
-  color: #d4af37;
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .payment-btn:first-child:hover {
-  background-color: #141414;
+  background-color: var(--secondary-color);
   transform: scale(1.03);
 }
 
 .payment-btn:last-child {
-  background: black;
-  color: #d4af37;
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .payment-btn:last-child:hover {
-  background-color: #141414;
+  background-color: var(--secondary-color);
   transform: scale(1.03);
 }
 
@@ -265,11 +266,11 @@ input[type="text"] {
   background-color: black;
   display: inline-block;
   margin-top: 10px;
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 .payment-btn-card:hover {
-  background-color: #141414;
+  background-color: var(--secondary-color);
   transform: scale(1.03);
 }
 
@@ -293,11 +294,11 @@ input[type="text"] {
 }
 
 .change-request span {
-  background: black;
+  background: var(--secondary-color);
   padding: 10px;
-  border: 1px solid #d4af37;
+  border: 1px solid var(--primary-color);
   border-radius: 5px 0 0 5px;
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 .change-request input {
@@ -353,15 +354,15 @@ input[type="text"] {
   width: 100%;
   padding: 10px;
   border: none;
-  background: black;
-  color: #d4af37;
+  background: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: 600;
   margin-top: 10px;
   border-radius: 6px;
 }
 
 .apply-btn:hover {
-  background-color: #141414;
+  background-color: var(--secondary-color);
   transform: scale(1.03);
 }
 
@@ -370,8 +371,8 @@ input[type="text"] {
 .place-order {
   width: 100%;
   padding: 14px;
-  background: black;
-  color: #d4af37;
+  background: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -380,7 +381,7 @@ input[type="text"] {
 }
 
 .place-order:hover {
-  background-color: #141414;
+  background-color: var(--secondary-color);
   transform: scale(1.03);
 }
 
@@ -388,7 +389,7 @@ input[type="text"] {
   display: block;
   text-align: center;
   margin-top: 10px;
-  color: blue;
+  color: var(--blue);
   font-size: 16px;
 }
 
@@ -455,12 +456,12 @@ input[type="text"] {
 }
 
 .footer-links a:hover {
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 /* Bottom Copyright Section */
 .footer-bottom {
-  border-top: 1px solid #d4af37;
+  border-top: 1px solid var(--primary-color);
   margin-top: 20px;
   padding-top: 10px;
   font-size: 12px;
@@ -471,7 +472,7 @@ input[type="text"] {
 
 /* Designed & Developed */
 .footer-bottom a {
-  color: red;
+  color: var(--red);
   text-decoration: none;
 }
 
