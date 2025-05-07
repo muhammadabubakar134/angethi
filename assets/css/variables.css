@@ -1,9 +1,14 @@
 :root {
-  --primary-color: white;
+  /* --primary-color: white;
   --primary-color-50: rgba(255, 255, 255, 0.7);
 
-  --secondary-color: red;
-  /* white red */
+  --secondary-color: red; */
+  
+--primary-color: #d4af37;
+--primary-color-50 : rgba(212, 175 , 55 , 0.7);
+--secondary-color : black;
+
+
   --accent-color: #4CAF50;
   --background-color: #fff;
   --danger-color: #db691d;
