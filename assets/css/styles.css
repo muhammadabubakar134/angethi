@@ -480,26 +480,29 @@ body.dimmed {
 
 
 
+#menubar {
 
+  /* side menu bar  */
 
-/* side menu bar  */
+  .sidebar-panel {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.sidebar-panel {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 250px;
-  height: 100%;
-  background-color: black;
-  color: white;
-  transition: right 0.3s ease;
-  padding: 20px;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1002;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
+
 
 .sidebar-panel.active {
   right: 0;
@@ -632,12 +635,12 @@ body.dark-theme .close-button {
   color: white;
   padding: 10px 0;
   margin-bottom: 20px;
-}
 
-.footer-section a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -649,100 +652,101 @@ body.dark-theme .close-button {
 
 
 
+#footer1 {
 
-/* Footer Styling */
-.footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 50px 30px;
-  font-family: Arial, sans-serif;
-}
-
-/* Footer Content */
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-/* Left Section - Description */
-.footer-text {
-  flex: 1;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: left;
-  max-width: 40%;
-}
-
-/* Center Section - Logo */
-.footer-logo {
-  flex: 1;
-  text-align: center;
-}
-
-.footer-logo img {
-  max-width: 280px;
-}
-
-/* Right Section - Links */
-.footer-links {
-  flex: 1;
-  text-align: center;
-  /* margin-right: -50px; */
-}
-
-.footer-links a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 30px;
-}
-
-.footer-links a:hover {
-  color: var(--primary-color);
-}
-
-/* Bottom Copyright Section */
-.footer-bottom {
-  border-top: 1px solid var(--primary-color);
-  margin-top: 20px;
-  padding-top: 10px;
-  font-size: 12px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-/* Designed & Developed */
-.footer-bottom a {
-  color: red;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
+  /* Footer Styling */
+  .footer1 {
+    background: black;
+    color: white;
     text-align: center;
+    padding: 50px 30px;
+    font-family: Arial, sans-serif;
+
+    /* Footer Content */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+
+      /* Left Section - Description */
+      .text {
+        flex: 1;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: left;
+        max-width: 40%;
+      }
+
+      /* Center Section - Logo */
+      .logo {
+        flex: 1;
+        text-align: center;
+
+        img {
+          max-width: 280px;
+        }
+
+      }
+
+      /* Right Section - Links */
+      .links {
+        flex: 1;
+        text-align: center;
+
+        a {
+          display: block;
+          color: white;
+          text-decoration: none;
+          margin: 5px 0;
+          font-size: 14px;
+          line-height: 30px;
+        }
+
+        a:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    /* Bottom Copyright Section */
+    .bottom {
+      border-top: 1px solid var(--primary-color);
+      margin-top: 20px;
+      padding-top: 10px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      a {
+        color: red;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+    }
+
   }
 
-  .footer-text, .footer-logo, .footer-links {
-    max-width: 100%;
-    text-align: center;
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text, .logo, .links {
+      max-width: 100%;
+      text-align: center;
+    }
   }
 }
-
-
 
 
 
@@ -752,51 +756,41 @@ body.dark-theme .close-button {
   margin-top: 80px;
   margin-bottom: 80px;
   margin-left: 80px;
-}
 
-.contact-container h3 {
-  font-size: 18px;
-  color: var(--secondary-color);
-  /* Gold color */
-  font-weight: bold;
-  margin-bottom: 25px;
-  /* Increased spacing for better readability */
-  text-align: left;
-  /* Ensure heading is aligned to the left */
-}
+  h3 {
+    font-size: 18px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: left;
+  }
 
-.contact-container p {
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-  margin: 18px 0;
-  /* Adds more space between paragraphs */
-  text-align: left;
-  /* Ensure text is aligned to the left */
-}
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 18px 0;
+    text-align: left;
+  }
 
-.highlight {
-  color: var(--primary-color);
-  /* Gold color */
-  font-weight: bold;
-  text-align: left;
-  /* Ensure highlighted text is aligned to the left */
-  display: block;
-  /* Ensures proper block-level alignment */
-}
+  .highlight {
+    color: var(--primary-color);
+    /* Gold color */
+    font-weight: bold;
+    text-align: left;
+    display: block;
+  }
 
-.email {
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-  margin-top: 15px;
-  /* Adds spacing between last text elements */
-  text-align: left;
-  /* Ensure email is aligned to the left */
-  display: block;
-  /* Ensures email stays properly aligned */
-}
+  .email {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-top: 15px;
+    text-align: left;
+    display: block;
+  }
 
+}
 
 
 
@@ -809,246 +803,88 @@ body.dark-theme .close-button {
 
 /* about us  */
 
-.about-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+#about_us {
 
-  .heading {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: black;
-  }
-
-  .text {
-    text-align: center;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #494646;
-  }
-
-
-}
-
-
-
-/* Tablet Screens (iPads and smaller tablets) */
-@media (max-width: 1024px) {
   .about-section {
-    width: 90%;
-    /* Ensures equal spacing on both sides */
-    margin: 40px auto;
-    /* Centers the section */
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
     .heading {
-      font-size: 26px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: black;
     }
 
     .text {
-      font-size: 14px;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #494646;
+    }
+  }
+
+
+  /* Tablet Screens (iPads and smaller tablets) */
+  @media (max-width: 1024px) {
+    .about-section {
+      width: 90%;
+      /* Ensures equal spacing on both sides */
+      margin: 40px auto;
+      /* Centers the section */
+      padding: 20px;
+
+      .heading {
+        font-size: 26px;
+      }
+
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+
+  /* Mobile Screens */
+  @media (max-width: 768px) {
+    .about-section {
+      width: 90%;
+      margin: 35px auto;
+      /* Keeps spacing equal */
+      padding: 18px;
+
+      .heading {
+        font-size: 24px;
+      }
+
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+
+  /* Small Mobile Screens */
+  @media (max-width: 480px) {
+    .about-section {
+      width: 90%;
+      /* Keeps spacing equal on left & right */
+      margin: 30px auto;
+      padding: 15px;
+
+      .heading {
+        font-size: 22px;
+      }
+
+      .text {
+        font-size: 13px;
+      }
     }
   }
 }
 
-/* Mobile Screens */
-@media (max-width: 768px) {
-  .about-section {
-    width: 90%;
-    margin: 35px auto;
-    /* Keeps spacing equal */
-    padding: 18px;
-
-    .heading {
-      font-size: 24px;
-    }
-
-    .text {
-      font-size: 14px;
-    }
-  }
-}
-
-/* Small Mobile Screens */
-@media (max-width: 480px) {
-  .about-section {
-    width: 90%;
-    /* Keeps spacing equal on left & right */
-    margin: 30px auto;
-    padding: 15px;
-
-    .heading {
-      font-size: 22px;
-    }
-
-    .text {
-      font-size: 13px;
-    }
-  }
-}
-
-
-
-
-
-
-
-/* my account login   */
-
-.login-container {
-  text-align: center;
-  width: 450px;
-  margin: 0 auto;
-  /* Center the form */
-  margin-top: 100px;
-  margin-bottom: 40px;
-}
-
-.login-heading {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.login-form label {
-  text-align: left;
-  font-size: 14px;
-  color: #000;
-  margin-bottom: 6px;
-  width: 100%;
-  /* Ensure label takes full width */
-}
-
-.login-form input {
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.left-options {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  /* Prevents text from wrapping to the next line */
-}
-
-#remember {
-  margin-top: 15px;
-}
-
-.remember-me {
-  margin-left: 8px;
-  font-size: 12px;
-}
-
-.forgot-password {
-  font-size: 14px;
-  text-decoration: none;
-  color: #494848;
-  margin-bottom: 8px;
-}
-
-.forgot-password {
-  text-decoration: underline;
-  /* color: #000; */
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-  color: var(--black);
-}
-
-.login-btn {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  padding: 10px;
-  border-radius: 4px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.login-btn:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.03);
-  ;
-}
-
-.register-section {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.register-link {
-  text-decoration: underline;
-  color: #494848;
-}
-
-.register-link:hover {
-  color: var(--black);
-  text-decoration: underline;
-}
-
-
-
-
-/* lost password  */
-
-.lost-heading {
-  font-size: 14px;
-  /* Set font size to 12px */
-  line-height: 18px;
-  text-align: left;
-  /* Align text to the left */
-  color: #585656;
-  /* Set text color to #777 */
-  margin: 0;
-  /* Remove any default margin */
-  /* margin-top: 100px; */
-  margin-bottom: 10px;
-}
-
-.login-butt {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  font-weight: 600px;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  margin-top: 12px;
-  border-radius: 4px;
-}
-
-.login-butt:hover {
-  background-color: #141414;
-  transform: scale(1.03);
-}
 
 
 
@@ -1067,145 +903,260 @@ body.dark-theme .close-button {
 }
 
 
-/* button  */
-
-.login-butto {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  padding: 10px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  margin-top: 12px;
-}
-
-.login-butto:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.03);
-}
 
 
 
+#form {
 
-
-
-/* 🌐 Tablets (max 991px) */
-/* ======================= */
-@media (max-width: 991px) {
   .login-container {
-    width: 80%;
-    margin-top: 80px;
-    margin-bottom: 30px;
-  }
-
-  .login-heading {
-    font-size: 20px;
-  }
-
-  .login-form input {
-    font-size: 15px;
-  }
-
-  .lost-heading {
-    font-size: 13px;
-  }
-
-  .login-btn,
-  .login-butt,
-  .login-butto {
-    font-size: 15px;
-  }
-}
-
-
-/* ======================= */
-/* 📱 Mobile (max 768px) */
-/* ======================= */
-@media (max-width: 768px) {
-  .login-container {
-    width: 90%;
-    margin-top: 60px;
-    margin-bottom: 25px;
-  }
-
-  .login-heading {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-
-  .login-form label {
-    font-size: 13px;
-  }
-
-  .login-form input {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  .lost-heading {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .register-section {
-    font-size: 13px;
-  }
-
-  .login-btn,
-  .login-butt,
-  .login-butto {
-    padding: 8px;
-    font-size: 14px;
-  }
-}
-
-
-/* ======================= */
-/* 📱 Small Phones (max 480px) */
-/* ======================= */
-@media (max-width: 480px) {
-  .login-container {
-    width: 95%;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-
-  .login-heading {
-    font-size: 16px;
-  }
-
-  .login-form input {
-    padding: 8px;
-    font-size: 13px;
-  }
-
-  .lost-heading {
-    font-size: 11.5px;
-  }
-
-  .register-section {
-    font-size: 12.5px;
     text-align: center;
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+
+    .heading {
+      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      label {
+        text-align: left;
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 6px;
+        width: 100%;
+      }
+
+      input {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 8px;
+
+        .left-options {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+
+          #remember {
+            margin-top: 15px;
+          }
+
+          .remember-me {
+            margin-left: 8px;
+            font-size: 12px;
+          }
+        }
+
+        .forgot-password {
+          font-size: 14px;
+          text-decoration: none;
+          color: #494848;
+          margin-bottom: 8px;
+          text-decoration: underline;
+        }
+
+        .forgot-password:hover {
+          text-decoration: underline;
+          color: var(--black);
+        }
+      }
+
+      .login-btn {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 10px;
+        border-radius: 4px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      .login-btn:hover {
+        background-color: var(--secondary-color);
+        transform: scale(1.03);
+        ;
+      }
+
+      /* lost password  */
+
+      .lost-heading {
+        font-size: 14px;
+        line-height: 18px;
+        text-align: left;
+        color: var(--links-color);
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      .register-button {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        font-weight: 600px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+        margin-top: 12px;
+        border-radius: 4px;
+      }
+
+      .register-button:hover {
+        background-color: #141414;
+        transform: scale(1.03);
+      }
+    }
+
+    .register-section {
+      margin-top: 20px;
+      font-size: 14px;
+
+      .link {
+        text-decoration: underline;
+        color: #494848;
+      }
+
+      .link:hover {
+        color: var(--black);
+        text-decoration: underline;
+      }
+    }
   }
 
-  .login-btn,
-  .login-butt,
-  .login-butto {
-    padding: 8px;
-    font-size: 13px;
+  /* 🌐 Tablets (max 991px) */
+  /* ======================= */
+  @media (max-width: 991px) {
+    .login-container {
+      width: 80%;
+      margin-top: 80px;
+      margin-bottom: 30px;
+    }
+
+    .heading {
+      font-size: 20px;
+    }
+
+    .form input {
+      font-size: 15px;
+    }
+
+    .lost-heading {
+      font-size: 13px;
+    }
+
+    .login-btn,
+    .register-button {
+      font-size: 15px;
+    }
   }
 
-  .form-options {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+  /* ======================= */
+  /* 📱 Mobile (max 768px) */
+  /* ======================= */
+  @media (max-width: 768px) {
+    .login-container {
+      width: 90%;
+      margin-top: 60px;
+      margin-bottom: 25px;
+    }
+
+    .heading {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .form label {
+      font-size: 13px;
+    }
+
+    .form input {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .lost-heading {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .register-section {
+      font-size: 13px;
+    }
+
+    .login-btn,
+    .register-button {
+      padding: 8px;
+      font-size: 14px;
+    }
   }
 
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+
+  /* ======================= */
+  /* 📱 Small Phones (max 480px) */
+  /* ======================= */
+  @media (max-width: 480px) {
+    .login-container {
+      width: 95%;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .heading {
+      font-size: 16px;
+    }
+
+    .form input {
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .lost-heading {
+      font-size: 11.5px;
+    }
+
+    .register-section {
+      font-size: 12.5px;
+      text-align: center;
+    }
+
+    .login-btn,
+    .register-button {
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .form-options {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
   }
 }
