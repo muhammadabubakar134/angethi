@@ -3753,6 +3753,115 @@ h1 {
     text-align: left;
     display: block;
   }
-  
+}
+
+/* Login section */
+
+.login-container {
+  text-align: center;
+  width: 450px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 40px;
+
+  .heading {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      text-align: left;
+      font-size: 14px;
+      color: #000;
+      margin-bottom: 6px;
+      width: 100%;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 8px;
+
+      .left-options {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+
+        #remember {
+          margin-top: 15px;
+        }
+
+        .remember-me {
+          margin-left: 8px;
+          font-size: 12px;
+        }
+      }
+
+      .forgot-password {
+        font-size: 14px;
+        text-decoration: none;
+        color: #494848;
+        margin-bottom: 8px;
+        text-decoration: underline;
+      }
+
+      .forgot-password:hover {
+        text-decoration: underline;
+        color: var(--black);
+      }
+    }
+
+    .login-btn {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.03);
+      ;
+    }
+  }
+
+  .register-section {
+    margin-top: 20px;
+    font-size: 14px;
+
+    .link {
+      text-decoration: underline;
+      color: #494848;
+    }
+
+    .link:hover {
+      color: var(--black);
+      text-decoration: underline;
+    }
+  }
 }
 
