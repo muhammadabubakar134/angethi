@@ -3528,3 +3528,186 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+
+/* About Us Section  */
+
+#about_us {
+
+  .about-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    .heading {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    .text {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #494646;
+    }
+  }
+
+
+  /* Tablet Screens (iPads and smaller tablets) */
+  @media (max-width: 1024px) {
+    .about-section {
+      width: 90%;
+      /* Ensures equal spacing on both sides */
+      margin: 40px auto;
+      /* Centers the section */
+      padding: 20px;
+
+      .heading {
+        font-size: 26px;
+      }
+
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+
+  /* Mobile Screens */
+  @media (max-width: 768px) {
+    .about-section {
+      width: 90%;
+      margin: 35px auto;
+      /* Keeps spacing equal */
+      padding: 18px;
+
+      .heading {
+        font-size: 24px;
+      }
+
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+
+  /* Small Mobile Screens */
+  @media (max-width: 480px) {
+    .about-section {
+      width: 90%;
+      /* Keeps spacing equal on left & right */
+      margin: 30px auto;
+      padding: 15px;
+
+      .heading {
+        font-size: 22px;
+      }
+
+      .text {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/* Footer New Section */
+
+#footer1 {
+
+  /* Footer Styling */
+  .footer1 {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 50px 30px;
+    font-family: Arial, sans-serif;
+
+    /* Footer Content */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+
+      /* Left Section - Description */
+      .text {
+        flex: 1;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: left;
+        max-width: 40%;
+      }
+
+      /* Center Section - Logo */
+      .logo {
+        flex: 1;
+        text-align: center;
+
+        img {
+          max-width: 280px;
+        }
+
+      }
+
+      /* Right Section - Links */
+      .links {
+        flex: 1;
+        text-align: center;
+
+        a {
+          display: block;
+          color: white;
+          text-decoration: none;
+          margin: 5px 0;
+          font-size: 14px;
+          line-height: 30px;
+        }
+
+        a:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    /* Bottom Copyright Section */
+    .bottom {
+      border-top: 1px solid var(--primary-color);
+      margin-top: 20px;
+      padding-top: 10px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      a {
+        color: red;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+    }
+
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text, .logo, .links {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}
