@@ -227,6 +227,13 @@
 </body>
 
 <script>
+    $(document).ready(function () {
+
+        $('#loading-screen, #delivery-popup, #pickup-popup, #popup-implementation').hide();
+    });
+</script>
+
+<script>
     function openPopup(id) {
         document.getElementById(id).style.display = "flex";
     }

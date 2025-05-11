@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/image/logo.webp">
     <title>Lost Password</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/all.min.css">
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
 </head>
 
-<body class="white-body">
+<body>
 
     <section id="header">
         <header class="header">
@@ -90,7 +91,7 @@
 
             <div class="logo-container">
                 <div class="logo-circle">
-                    <a href="../index.html">
+                    <a href="/index.html">
                         <img src="../assets/image/logo.webp" alt="Logo" class="logo">
                     </a>
                 </div>
@@ -111,7 +112,7 @@
         </header>
     </section>
 
-    <section id="menu bar">
+    <section id="menubar">
         <div class="overlay-backdrop"></div>
         <div class="sidebar-panel">
             <div>
@@ -153,14 +154,14 @@
 
     </section>
 
-    <section id="register">
+    <section id="form">
 
         <div class="login-container">
 
             <div class="login-container">
-                <h1 class="login-heading">REGISTER</h1>
+                <h1 class="heading">REGISTER</h1>
 
-                <form class="login-form">
+                <form class="form">
                     <label for="username">Email address *</label>
                     <input type="text" id="username" name="username" required>
 
@@ -169,11 +170,11 @@
                     <p class="lost-heading">Your personal data will be used to support your experience throughout this
                         website, to manage access to your account, and for other purposes described in our.</p>
 
-                    <button type="submit" class="login-butto">REGISTER</button>
+                    <button type="submit" class="register-button">REGISTER</button>
                 </form>
 
                 <div class="register-section">
-                    You a Member? <a href="./login.html" class="register-link">Login</a>
+                    You a Member? <a href="/pages/login.html" class="register-link">Login</a>
                 </div>
 
             </div>
@@ -182,26 +183,27 @@
 
     </section>
 
-    <section id="footer">
+    <section id="footer1">
         <!-- Footer -->
-        <div class="footer">
-            <div class="footer-container">
+        <div class="footer1">
+            <div class="container">
                 <!-- Left: Text -->
-                <div class="footer-text">
+                <div class="text">
                     <p>ISO, Halal, & Haccap certified, approved by the Sindh Food Authority & made to the highest
                         standards of hygiene & healthfulness, our age-old virtues of quality & good service intact,
-                        <strong>Your Restaurant Name</strong> is now reinventing the art of baking with the same tender
+                        <strong>Your Restaurant Name</strong> is now reinventing the art of baking with the same
+                        tender
                         loving care that has earned us your trust.
                     </p>
                 </div>
 
                 <!-- Center: Logo -->
-                <div class="footer-logo">
+                <div class="logo">
                     <img src="../assets/image/logo.webp" alt="Your Restaurant Logo">
                 </div>
 
                 <!-- Right: Links -->
-                <div class="footer-links">
+                <div class="links">
                     <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html">Home</a>
                     <a href="about.html">ABOUT US</a>
                     <a href="bank-discount.html">BANK OFFERS</a>
@@ -211,7 +213,7 @@
             </div>
 
             <!-- Bottom Section -->
-            <div class="footer-bottom">
+            <div class="bottom">
                 <p>Copyright © 2024 <strong>Your Restaurant Name</strong></p>
                 <p>Designed & Developed by <a href="#">YourWebsite.com</a></p>
             </div>
@@ -219,6 +221,13 @@
     </section>
 
 </body>
+
+<script>
+    $(document).ready(function () {
+
+        $('#loading-screen, #delivery-popup, #pickup-popup, #popup-implementation').hide();
+    });
+</script>
 
 <script>
     function openPopup(id) {
