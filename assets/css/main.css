@@ -3711,3 +3711,48 @@ h1 {
     }
   }
 }
+
+
+/* Contact Us Section */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  margin-left: 80px;
+
+  h3 {
+    font-size: 18px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 18px 0;
+    text-align: left;
+  }
+
+  .highlight {
+    color: var(--primary-color);
+    /* Gold color */
+    font-weight: bold;
+    text-align: left;
+    display: block;
+  }
+  
+  .email {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-top: 15px;
+    text-align: left;
+    display: block;
+  }
+  
+}
+
