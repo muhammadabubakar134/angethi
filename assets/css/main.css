@@ -1060,7 +1060,6 @@ select {
 
 .content-section {
   width: 100%;
-  background-color: var(--light-gray);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1154,7 +1153,7 @@ select {
 }
 
 .footer {
-  background-color: var(--light-gray);
+  background-color: var(--white);
   padding: 20px 80px;
   border-top: 2px solid #cfc9c9;
   overflow: hidden;
