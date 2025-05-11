@@ -116,8 +116,6 @@
             </div>
 
             <div class="header-right">
-
-
                 <!-- Cart Icon with Item Count -->
                 <span class="cart" onclick="openCart()" id="cartIcon">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -343,25 +341,28 @@
 
     <!-- Slider Section -->
 
-    <section id="hero">
-        <div class="slider">
-            <div class="slide active">
-                <img src="./assets/image/ff.jpg" alt="Banner 1">
+    <div id="mainherosection">
+        <section id="hero">
+            <div class="slider">
+                <div class="slide active">
+                    <img src="./assets/image/ff.jpg" alt="Banner 1">
+                </div>
+                <div class="slide">
+                    <img src="./assets/image/ff2.png" alt="Banner 2">
+                </div>
+                <!-- Left Sidebar Button -->
+                <button class="prev">&#10094;</button>
+                <!-- Right Sidebar Button -->
+                <button class="next">&#10095;</button>
             </div>
-            <div class="slide">
-                <img src="./assets/image/ff2.png" alt="Banner 2">
+            <!-- Pagination Dots -->
+            <div class="dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
             </div>
-            <!-- Left Sidebar Button -->
-            <button class="prev">&#10094;</button>
-            <!-- Right Sidebar Button -->
-            <button class="next">&#10095;</button>
-        </div>
-        <!-- Pagination Dots -->
-        <div class="dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-        </div>
-    </section>
+        </section>
+    </div>
+
 
     <!-- Slider Text Section  -->
 
@@ -1342,11 +1343,9 @@
 
     <!-- WhatsApp Floating Icon -->
     <section id="whatsapp">
-        <!-- WhatsApp Floating Icon -->
         <a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank" id="whatsappBtn">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
         </a>
-
     </section>
 
     <!-- Bottom Card -->
@@ -1422,8 +1421,8 @@
             $('#popup-implementation').fadeOut();
         });
 
-        */
-
+        
+*/
 
         // Show Slider
         let $slides = $('.slide');
