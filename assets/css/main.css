@@ -1,21 +1,11 @@
 @import url('variables.css');
 
-
-/* General Styles */
-/* body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--light-gray);
-  color: #fff;
-} */
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--light-gray);
+  background-color: var(--white);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 /* Header Styling */
 .header {
@@ -267,21 +257,20 @@ select {
   margin-bottom: 5px;
   gap: 5px;
   cursor: pointer;
-}
 
-.contact i {
-  font-size: 12px;
-  /* Adjust icon size */
-  margin-top: 2px;
-  /* Moves icon slightly down */
-}
+  i {
+    font-size: 12px;
+    /* Adjust icon size */
+    margin-top: 2px;
+    /* Moves icon slightly down */
+  }
 
-.phone-number {
-  font-size: 12px;
-  /* Adjust number font size */
-  line-height: 1.2;
+  .phone-number {
+    font-size: 12px;
+    /* Adjust number font size */
+    line-height: 1.2;
+  }
 }
-
 
 /* Centered Logo */
 .logo-container {
@@ -1971,8 +1960,6 @@ body.dark-theme .close-button {
 }
 
 
-
-
 /* Scroll to Top Button */
 .unique-scroll-top {
   position: fixed;
@@ -1990,19 +1977,14 @@ body.dark-theme .close-button {
   cursor: pointer;
   display: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+  i {
+    color: var(--primary-color);
+    font-size: 16px;
+  }
 }
 
-.unique-scroll-top i {
-  color: var(--primary-color);
-  font-size: 16px;
-}
-
-
-
-
-
-
-/* Search Button (Hidden by Default) */
+/* Search Button */
 .search-btn {
   position: fixed;
   left: 20px;
@@ -2020,11 +2002,11 @@ body.dark-theme .close-button {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
-}
 
-.search-btn i {
-  color: var(--primary-color);
-  font-size: 16px;
+  i {
+    color: var(--primary-color);
+    font-size: 16px;
+  }
 }
 
 /* Show Button when Scrolled */
@@ -2032,14 +2014,6 @@ body.dark-theme .close-button {
   opacity: 1;
   visibility: visible;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -2445,16 +2419,6 @@ h1 {
   line-height: 1;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3378,139 +3342,118 @@ h1 {
   }
 }
 
+/* Bottom Card */
 
+#bottom-card {
 
-
-
-
-
-
-
-
-
-
-
-/* Cart Bar */
-.cart-bar {
-  position: fixed;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--secondary-color);
-  /* border-radius: 16px; */
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  padding: 12px 35px;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  min-width: 320px;
-}
-
-/* Cart Content */
-.cart-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--primary-color);
-  font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
-  gap: 20px;
-  /* Proper spacing */
-}
-
-/* Cart Count (First - Left) */
-.cart-counting {
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--primary-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--primary-color);
-  flex-shrink: 0;
-  /* Prevents shrinking */
-}
-
-/* Cart Text (Middle - Centered) */
-.cart-text {
-  font-size: 18px;
-  font-weight: bold;
-  flex-grow: 1;
-  text-align: center;
-  /* Ensures center alignment */
-}
-
-/* Cart Price (Last - Right) */
-.cart-price-bar {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: right;
-}
-
-/* Mobile (Portrait) - Up to 480px */
-@media only screen and (max-width: 480px) {
   .cart-bar {
-    padding: 10px 20px;
-    /* Reduced padding for smaller screens */
-    min-width: 260px;
-    /* Reduced min-width */
+    position: fixed;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-color);
+    /* border-radius: 16px; */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 12px 35px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 320px;
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--primary-color);
+      font-weight: bold;
+      font-family: 'Segoe UI', sans-serif;
+      gap: 20px;
+
+      .counting {
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--primary-color);
+        flex-shrink: 0;
+      }
+
+      .text {
+        font-size: 18px;
+        font-weight: bold;
+        flex-grow: 1;
+        text-align: center;
+        /* Ensures center alignment */
+      }
+
+      .price-bar {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: right;
+      }
+    }
   }
 
-  .cart-content {
-    gap: 10px;
-    /* Smaller gap between elements */
+
+  /* Mobile (Portrait) - Up to 480px */
+  @media only screen and (max-width: 480px) {
+    .cart-bar {
+      padding: 10px 20px;
+      min-width: 260px;
+
+      .content {
+        gap: 10px;
+
+        .counting {
+          width: 25px;
+          height: 25px;
+          font-size: 12px;
+        }
+
+        .text {
+          font-size: 16px;
+        }
+
+        .price-bar {
+          font-size: 16px;
+        }
+      }
+    }
   }
 
-  .cart-counting {
-    width: 25px;
-    height: 25px;
-    font-size: 12px;
-  }
+  /* iPad - Up to 768px */
+  @media only screen and (max-width: 768px) {
+    .cart-bar {
+      padding: 12px 30px;
+      min-width: 280px;
 
-  .cart-text {
-    font-size: 16px;
-    /* Smaller font size */
-  }
+      .content {
+        gap: 15px;
 
-  .cart-price-bar {
-    font-size: 16px;
-    /* Smaller font size */
+        .counting {
+          width: 28px;
+          height: 28px;
+          font-size: 13px;
+        }
+
+        .text {
+          font-size: 17px;
+        }
+
+        .price-bar {
+          font-size: 17px;
+        }
+      }
+    }
   }
 }
 
-/* iPad - Up to 768px */
-@media only screen and (max-width: 768px) {
-  .cart-bar {
-    padding: 12px 30px;
-    /* Adjusted padding for iPad */
-    min-width: 280px;
-    /* Slightly larger than mobile */
-  }
-
-  .cart-content {
-    gap: 15px;
-    /* Moderate gap */
-  }
-
-  .cart-counting {
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-
-  .cart-text {
-    font-size: 17px;
-    /* Slightly smaller than desktop */
-  }
-
-  .cart-price-bar {
-    font-size: 17px;
-    /* Slightly smaller font size */
-  }
-}
+/* WhatsApp Floating Icon */
 
 .whatsapp-float {
   position: fixed;
@@ -3524,11 +3467,11 @@ h1 {
   /* hidden by default */
   z-index: 999;
   transition: opacity 0.3s ease;
-}
 
-.whatsapp-float img {
-  width: 35px;
-  height: 35px;
+  img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 #main-container {

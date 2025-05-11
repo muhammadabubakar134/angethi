@@ -8,6 +8,13 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.white-body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--white);
+}
+
 
 /* Header Styling */
 .header {
@@ -253,13 +260,16 @@ select {
 }
 
 .contact i {
-  font-size: 12px; /* Adjust icon size */
-  margin-top: 2px; /* Moves icon slightly down */
+  font-size: 12px;
+  /* Adjust icon size */
+  margin-top: 2px;
+  /* Moves icon slightly down */
 }
 
 .phone-number {
-  font-size: 12px; /* Adjust number font size */
-  line-height: 1.2; 
+  font-size: 12px;
+  /* Adjust number font size */
+  line-height: 1.2;
 }
 
 
@@ -329,7 +339,9 @@ select {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 1024px) { /* Tablet */
+@media screen and (max-width: 1024px) {
+
+  /* Tablet */
   .header {
     padding: 10px;
   }
@@ -354,7 +366,9 @@ select {
   }
 }
 
-@media screen and (max-width: 768px) { /* Mobile */
+@media screen and (max-width: 768px) {
+
+  /* Mobile */
   .header {
     flex-direction: row;
     padding: 8px;
@@ -412,8 +426,10 @@ select {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-top-left-radius: 20px;  /* Border radius added */
-  border-bottom-left-radius: 20px; /* Border radius added */
+  border-top-left-radius: 20px;
+  /* Border radius added */
+  border-bottom-left-radius: 20px;
+  /* Border radius added */
   z-index: 10000;
 }
 
@@ -431,7 +447,8 @@ select {
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 5px;
-  color: black; /* Added color so it's visible */
+  color: black;
+  /* Added color so it's visible */
 }
 
 .cart-popup p {
@@ -462,10 +479,10 @@ body.dimmed {
 }
 
 
-  
-  
-  
-  /* side menu bar  */
+
+
+
+/* side menu bar  */
 
 .sidebar-panel {
   position: fixed;
@@ -510,7 +527,7 @@ body.dimmed {
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
-  text-decoration: none; 
+  text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -566,11 +583,11 @@ body.dimmed {
   border-radius: 50%;
 }
 
-input:checked + .switch-slider-btn {
+input:checked+.switch-slider-btn {
   background-color: var(--primary-color);
 }
 
-input:checked + .switch-slider-btn:before {
+input:checked+.switch-slider-btn:before {
   transform: translateX(20px);
 }
 
@@ -625,7 +642,7 @@ body.dark-theme .close-button {
 
 @media screen and (max-width: 600px) {
   .sidebar-panel {
-      width: 200px;
+    width: 200px;
   }
 }
 
@@ -675,7 +692,7 @@ body.dark-theme .close-button {
 .footer-links {
   flex: 1;
   text-align: center;
-/* margin-right: -50px; */
+  /* margin-right: -50px; */
 }
 
 .footer-links a {
@@ -715,13 +732,13 @@ body.dark-theme .close-button {
 /* Responsive */
 @media (max-width: 768px) {
   .footer-container {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .footer-text, .footer-logo, .footer-links {
-      max-width: 100%;
-      text-align: center;
+    max-width: 100%;
+    text-align: center;
   }
 }
 
@@ -739,34 +756,45 @@ body.dark-theme .close-button {
 
 .contact-container h3 {
   font-size: 18px;
-  color: var(--secondary-color); /* Gold color */
+  color: var(--secondary-color);
+  /* Gold color */
   font-weight: bold;
-  margin-bottom: 25px; /* Increased spacing for better readability */
-  text-align: left; /* Ensure heading is aligned to the left */
+  margin-bottom: 25px;
+  /* Increased spacing for better readability */
+  text-align: left;
+  /* Ensure heading is aligned to the left */
 }
 
 .contact-container p {
   font-size: 18px;
   font-weight: bold;
   color: black;
-  margin: 18px 0; /* Adds more space between paragraphs */
-  text-align: left; /* Ensure text is aligned to the left */
+  margin: 18px 0;
+  /* Adds more space between paragraphs */
+  text-align: left;
+  /* Ensure text is aligned to the left */
 }
 
 .highlight {
-  color: var(--primary-color); /* Gold color */
+  color: var(--primary-color);
+  /* Gold color */
   font-weight: bold;
-  text-align: left; /* Ensure highlighted text is aligned to the left */
-  display: block; /* Ensures proper block-level alignment */
+  text-align: left;
+  /* Ensure highlighted text is aligned to the left */
+  display: block;
+  /* Ensures proper block-level alignment */
 }
 
 .email {
   font-size: 18px;
   font-weight: bold;
   color: black;
-  margin-top: 15px; /* Adds spacing between last text elements */
-  text-align: left; /* Ensure email is aligned to the left */
-  display: block; /* Ensures email stays properly aligned */
+  margin-top: 15px;
+  /* Adds spacing between last text elements */
+  text-align: left;
+  /* Ensure email is aligned to the left */
+  display: block;
+  /* Ensures email stays properly aligned */
 }
 
 
@@ -787,76 +815,79 @@ body.dark-theme .close-button {
   padding: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
+
+  .heading {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #494646;
+  }
+
+
 }
 
-.about-heading {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color:  black;
-}
-
-.about-text {
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #494646;
-}
 
 
 /* Tablet Screens (iPads and smaller tablets) */
 @media (max-width: 1024px) {
   .about-section {
-      width: 90%;
-      /* Ensures equal spacing on both sides */
-      margin: 40px auto;
-      /* Centers the section */
-      padding: 20px;
-  }
+    width: 90%;
+    /* Ensures equal spacing on both sides */
+    margin: 40px auto;
+    /* Centers the section */
+    padding: 20px;
 
-  .about-heading {
+    .heading {
       font-size: 26px;
-  }
+    }
 
-  .about-text {
+    .text {
       font-size: 14px;
+    }
   }
 }
 
 /* Mobile Screens */
 @media (max-width: 768px) {
   .about-section {
-      width: 90%;
-      margin: 35px auto;
-      /* Keeps spacing equal */
-      padding: 18px;
-  }
+    width: 90%;
+    margin: 35px auto;
+    /* Keeps spacing equal */
+    padding: 18px;
 
-  .about-heading {
+    .heading {
       font-size: 24px;
-  }
+    }
 
-  .about-text {
+    .text {
       font-size: 14px;
+    }
   }
 }
 
 /* Small Mobile Screens */
 @media (max-width: 480px) {
   .about-section {
-      width: 90%;
-      /* Keeps spacing equal on left & right */
-      margin: 30px auto;
-      padding: 15px;
-  }
+    width: 90%;
+    /* Keeps spacing equal on left & right */
+    margin: 30px auto;
+    padding: 15px;
 
-  .about-heading {
+    .heading {
       font-size: 22px;
-  }
+    }
 
-  .about-text {
+    .text {
       font-size: 13px;
+    }
   }
 }
 
@@ -871,7 +902,8 @@ body.dark-theme .close-button {
 .login-container {
   text-align: center;
   width: 450px;
-  margin: 0 auto; /* Center the form */
+  margin: 0 auto;
+  /* Center the form */
   margin-top: 100px;
   margin-bottom: 40px;
 }
@@ -895,7 +927,8 @@ body.dark-theme .close-button {
   font-size: 14px;
   color: #000;
   margin-bottom: 6px;
-  width: 100%; /* Ensure label takes full width */
+  width: 100%;
+  /* Ensure label takes full width */
 }
 
 .login-form input {
@@ -917,15 +950,16 @@ body.dark-theme .close-button {
 .left-options {
   display: flex;
   align-items: center;
-  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  white-space: nowrap;
+  /* Prevents text from wrapping to the next line */
 }
 
 #remember {
- margin-top: 15px;
+  margin-top: 15px;
 }
 
 .remember-me {
-  margin-left: 8px; 
+  margin-left: 8px;
   font-size: 12px;
 }
 
@@ -960,7 +994,8 @@ body.dark-theme .close-button {
 
 .login-btn:hover {
   background-color: var(--secondary-color);
-  transform: scale(1.03);;
+  transform: scale(1.03);
+  ;
 }
 
 .register-section {
@@ -984,11 +1019,15 @@ body.dark-theme .close-button {
 /* lost password  */
 
 .lost-heading {
-  font-size: 14px;       /* Set font size to 12px */
+  font-size: 14px;
+  /* Set font size to 12px */
   line-height: 18px;
-  text-align: left;      /* Align text to the left */
-  color: #585656;           /* Set text color to #777 */
-  margin: 0;             /* Remove any default margin */
+  text-align: left;
+  /* Align text to the left */
+  color: #585656;
+  /* Set text color to #777 */
+  margin: 0;
+  /* Remove any default margin */
   /* margin-top: 100px; */
   margin-bottom: 10px;
 }
@@ -1017,13 +1056,14 @@ body.dark-theme .close-button {
 /* register login */
 
 .privacy-link {
-  text-decoration: underline;  
-  color: #494848;              
+  text-decoration: underline;
+  color: #494848;
 }
 
 .privacy-link:hover {
-  color: var(--red);                 
-  text-decoration: underline;   /* Ensure underline stays on hover */
+  color: var(--red);
+  text-decoration: underline;
+  /* Ensure underline stays on hover */
 }
 
 
@@ -1031,7 +1071,7 @@ body.dark-theme .close-button {
 
 .login-butto {
   background-color: var(--secondary-color);
-  color: var(--primary-color); 
+  color: var(--primary-color);
   padding: 10px;
   border-radius: 4px;
   border: none;
@@ -1169,6 +1209,3 @@ body.dark-theme .close-button {
     gap: 10px;
   }
 }
-
-
-
