@@ -17,7 +17,7 @@
         }
 
         /* Banner Section */
-        .banner {
+        .complaint-banner {
             width: 100%;
             height: 300px;
             background: url('your-banner-image.jpg') center/cover no-repeat;
@@ -38,35 +38,35 @@
             background: #fff;
             border-radius: 8px;
             margin-top: 40px;
-        }
 
-        /* Section Headings */
-        .section-heading {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+            /* Section Headings */
+            .section-heading {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
 
-        /* Brand Selection */
-        .brand-selection {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+            /* Brand Selection */
+            .brand-selection {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 20px;
 
-        .brand-btn {
-            border: 2px solid #ccc;
-            padding: 10px 15px;
-            border-radius: 6px;
-            background: transparent;
-            color: black;
-            cursor: pointer;
-        }
+                .brand-btn {
+                    border: 2px solid #ccc;
+                    padding: 10px 15px;
+                    border-radius: 6px;
+                    background: transparent;
+                    color: black;
+                    cursor: pointer;
+                }
 
-        .brand-btn.active {
-            background-color: #ccc;
-            border-color: black;
+                .brand-btn.active {
+                    background-color: #ccc;
+                    border-color: black;
+                }
+            }
         }
 
         /* Complaint Type */
@@ -75,109 +75,97 @@
             gap: 10px;
             margin-bottom: 20px;
             display: none;
-            /* Initially hidden */
-        }
 
-        .complaint-btn {
-            border: 2px solid #ccc;
-            padding: 10px 15px;
-            border-radius: 6px;
-            background: transparent;
-            color: black;
-            cursor: pointer;
-        }
+            .complaint-btn {
+                border: 2px solid #ccc;
+                padding: 10px 15px;
+                border-radius: 6px;
+                background: transparent;
+                color: black;
+                cursor: pointer;
+            }
 
-        .complaint-btn.active {
-            background-color: #ccc;
-            border-color: black;
+            .complaint-btn.active {
+                background-color: #ccc;
+                border-color: black;
+            }
         }
 
         /* Form Fields */
-        .form-group-container {
+        .submit-complaint-container {
             display: none;
-            /* Initially hidden */
-        }
 
-        .form-group {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            align-items: center;
-        }
+            .form-group {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 15px;
+                align-items: center;
 
-        .form-group select,
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            background: white;
-            border: 1px solid #ccc;
-            color: black;
-            border-radius: 5px;
-        }
+                select,
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    color: black;
+                    border-radius: 5px;
+                }
 
-        .form-group select {
-            max-width: 120px;
-            /* Dropdown size */
-        }
+                select {
+                    max-width: 120px;
+                }
+            }
 
-        /* File Upload Section */
-        .file-upload-container {
-            margin-top: 20px;
-        }
+            /* File Upload Section */
+            .file-upload-container {
+                margin-top: 20px;
 
-        .file-label {
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: black;
-        }
+                .file-label {
+                    margin-bottom: 5px;
+                    font-size: 14px;
+                    color: black;
+                }
 
-        .file-upload {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px dashed #ccc;
-            cursor: pointer;
-            margin-bottom: 5px;
-            position: relative;
-        }
+                .file-upload {
+                    img {
+                        width: 40px;
+                    }
 
-        .file-upload img {
-            width: 40px;
-        }
+                    span {
+                        display: block;
+                        margin-top: 10px;
+                        font-size: 14px;
+                        color: black;
+                    }
+                }
 
-        .file-upload span {
-            display: block;
-            margin-top: 10px;
-            font-size: 14px;
-            color: black;
-        }
+                .file-upload .file-size-info {
+                    font-size: 12px;
+                    color: black;
+                }
 
-        .file-size-info {
-            font-size: 12px;
-            color: black;
-        }
+                /* Hidden File Input */
+                .file-input {
+                    display: none;
+                }
+            }
 
-        /* Hidden File Input */
-        .file-input {
-            display: none;
-        }
+            /* Submit Button */
+            .submit-btn {
+                width: 100%;
+                padding: 12px;
+                background: black;
+                border: none;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 6px;
+            }
 
-        /* Submit Button */
-        .submit-btn {
-            width: 100%;
-            padding: 12px;
-            background: black;
-            border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-
-        .submit-btn:hover {
-            background-color: #141414;
-            transform: scale(1.03);
+            .submit-btn:hover {
+                background-color: #141414;
+                transform: scale(1.03);
+            }
         }
     </style>
 </head>
@@ -185,7 +173,7 @@
 <body>
 
     <!-- Banner Section -->
-    <div class="banner">
+    <div class="complaint-banner">
         <a href="C:\Users\Admin\Downloads\13thApril-fixes\website-hotel-main\angethi\index.html">
             <img src="../assets/image/complaint-form-banner.webp" alt="Complaint Form Banner" width="100%">
         </a>
@@ -216,7 +204,7 @@
         </div>
 
         <!-- Form Fields (Initially Hidden) -->
-        <div class="form-group-container">
+        <div class="submit-complaint-container">
             <div class="form-group">
                 <select>
                     <option>Select</option>
@@ -267,7 +255,7 @@
         function selectComplaint(button) {
             document.querySelectorAll(".complaint-btn").forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
-            document.querySelector(".form-group-container").style.display = "block";
+            document.querySelector(".submit-complaint-container").style.display = "block";
         }
 
         function showFileName() {
